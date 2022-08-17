@@ -6,6 +6,7 @@
     border-radius: 1.5rem;
 
     padding: .5rem;
+    margin: auto;
     border: 2px dashed white;
 
 }
@@ -16,6 +17,11 @@
 
     font-size: 2rem;
 
-    padding: 1rem;
+    padding: 2rem;
     box-shadow: 7px 8px 33px -10px black;
+}
+
+#nextjs-text {
+    width: 10rem;
+    height: 5rem;
 }

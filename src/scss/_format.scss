@@ -6,7 +6,11 @@ a {
 }
 
 p {
-    font-size: 1.25rem;
+    font-size: 2rem;
+}
+
+.para {
+    font-size: 2rem;
 }
 
 .h1 {
@@ -19,4 +23,12 @@ p {
 
 .h3 {
     font-size: 3rem !important;
+}
+
+@each $value in left,
+center,
+right {
+    .text-align-#{$value} {
+        text-align: #{$value};
+    }
 }
