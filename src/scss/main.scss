@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-@import "colors";
-@import "format";
+@import "_colors";
+@import "_format";
 
 * {
     font-size: 62.5%;
@@ -112,6 +112,6 @@ $type in ("margin": "m",
 }
 
 
-@import "borders";
-@import "components";
-@import "nav";
+@import "_borders";
+@import "_components";
+@import "_nav";
