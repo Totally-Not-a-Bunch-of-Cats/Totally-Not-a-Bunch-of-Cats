@@ -1,0 +1,9 @@
+{
+    "devDependencies": {
+        "node-sass": "^7.0.1"
+    },
+    "scripts": {
+        "css": "node-sass src/scss/main.scss -o src/css --output-style compressed",
+        "css:watch": "npm run css && node-sass src/scss/main.scss -wo src/css --output-style compressed"
+    }
+}

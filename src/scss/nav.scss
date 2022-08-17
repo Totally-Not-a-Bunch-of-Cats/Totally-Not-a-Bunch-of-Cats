@@ -1,0 +1,19 @@
+@import "colors";
+
+#nav-logo>img {
+    width: 25rem;
+    height: auto;
+}
+
+#nav-links>a {
+    margin: 1rem;
+    transition: .2s;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: black;
+
+    &:hover {
+        color: map-get($map: $colors, $key: "platinum");
+    }
+}

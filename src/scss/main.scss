@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import "colors";
+@import "format";
+
+* {
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+body {
+    background-color: map-get($map: $colors, $key: "green-sheen")
+}
+
+
+.content {
+    margin-block: 2rem;
+    margin-inline: auto;
+    width: 80%;
+}
+
+.d-flex {
+    display: flex
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+@each $type in "justify",
+"align" {
+
+    @each $specifier in "content",
+    "items",
+    "self" {
+
+        @each $value in start,
+        center,
+        end {
+            .#{$type}-#{$specifier}-#{$value} {
+                #{$type}-#{$specifier}: $value  !important;
+            }
+        }
+    }
+}
+
+@each $context in "content",
+"items",
+"self" {
+
+    @each $key,
+    $value in ("between": space-between, "around": space-around, "evenly": space-evenly) {
+        .justify-#{$context}-#{$key} {
+            justify-#{$context}: #{$value} !important;
+        }
+    }
+}
+
+/* Navigation */
+
+
+
+#filler {
+    height: 150vh;
+}
+
+@for $i from 1 through 20 {
+    .w-#{$i*5} {
+        width: #{$i*5}% !important;
+    }
+}
+
+@each $typekey,
+$type in ("margin": "m",
+    "padding": "p") {
+
+    @each $dirkey,
+    $dir in ("":"",
+        "-top":"t",
+        "-bottom":"b",
+        "-left":"l",
+        "-right":"r",
+        "-inline":"-inine",
+        "-block":"-block") {
+        @for $i from 1 through 4 {
+            .#{$type}#{$dir}-#{$i} {
+                #{$typekey}#{$dirkey}: #{$i}rem !important;
+            }
+        }
+    }
+
+    .#{$type}-auto {
+        #{$typekey}: auto !important;
+    }
+
+    .#{$type}-inline-auto {
+        #{$typekey}-inline: auto !important;
+    }
+
+    .#{$type}-block-auto {
+        #{$typekey}-block: auto !important;
+    }
+}
+
+
+@import "borders";
+@import "components";
+@import "nav";
