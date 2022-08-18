@@ -10,11 +10,11 @@
     scroll-behavior: smooth;
 
     font-family: 'Poppins', sans-serif;
-    color: black;
+    color: #181717
 }
 
 body {
-    background-color: map-get($map: $colors, $key: "green-sheen")
+    background-color: map-get($map: $colors, $key: "green-sheen");
 }
 
 
@@ -74,8 +74,14 @@ body {
 }
 
 @for $i from 1 through 20 {
-    .w-#{$i*5} {
+    .w-#{$i*5}p {
         width: #{$i*5}% !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    .w-#{$i} {
+        width: #{$i*5}rem !important;
     }
 }
 
@@ -115,3 +121,4 @@ $type in ("margin": "m",
 @import "_borders";
 @import "_components";
 @import "_nav";
+@import "_footer";

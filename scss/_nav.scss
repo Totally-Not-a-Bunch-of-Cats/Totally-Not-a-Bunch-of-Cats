@@ -11,7 +11,7 @@
 
     font-weight: bold;
     letter-spacing: 2px;
-    color: black;
+    color: #181717;
 
     &:hover {
         color: map-get($map: $colors, $key: "platinum");

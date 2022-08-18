@@ -1,0 +1,128 @@
+a {
+    font-size: 1.25rem !important;
+    text-decoration: none;
+
+    color: black;
+
+    transition: .2s;
+}
+
+p {
+    font-size: 1.5rem;
+
+    transition: .2s;
+}
+
+.para {
+    font-size: 1.5rem;
+
+    transition: .2s;
+}
+
+
+.h1 {
+    font-size: 4rem !important;
+
+    transition: .2s;
+}
+
+.h2 {
+    font-size: 3rem !important;
+
+    transition: .2s;
+}
+
+.h3 {
+    font-size: 2rem !important;
+
+    transition: .2s;
+}
+
+.fit-content {
+    width: fit-content;
+    height: fit-content;
+}
+
+@media only screen and (min-width: 500px) {
+    p {
+        font-size: 1.65rem;
+    }
+
+    .para {
+        font-size: 1.65rem;
+    }
+
+    a {
+        font-size: 1.45rem !important;
+        text-decoration: none;
+
+        color: black;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    p {
+        font-size: 1.9rem;
+    }
+
+    .para {
+        font-size: 1.9rem;
+    }
+
+    a {
+        font-size: 1.75rem !important;
+        text-decoration: none;
+
+        color: black;
+    }
+
+    .h1 {
+        font-size: 5rem !important;
+
+        transition: .2s;
+    }
+
+    .h2 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    .h3 {
+        font-size: 3rem !important;
+
+        transition: .2s;
+    }
+}
+
+
+
+
+
+.text-indent {
+    text-indent: 2rem;
+}
+
+@each $value in left,
+center,
+right {
+    .text-align-#{$value} {
+        text-align: #{$value};
+    }
+}
+
+@import "_colors";
+
+@each $key,
+$value in $colors {
+    .color-#{$key} {
+        color: #{$value} !important;
+    }
+}
+
+@each $key,
+$value in $colors {
+    .fill-#{$key} {
+        fill: #{$value} !important;
+    }
+}
