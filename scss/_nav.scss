@@ -1,7 +1,13 @@
 @import "colors";
 
+nav {
+    &>div {
+        width: 85%;
+    }
+}
+
 #nav-logo>img {
-    width: 25rem;
+    width: 20rem;
     height: auto;
 }
 
@@ -15,5 +21,48 @@
 
     &:hover {
         color: map-get($map: $colors, $key: "platinum");
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    nav {
+        &>div {
+            width: 85%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #nav-logo>img {
+        width: 25rem;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    nav {
+        &>div {
+            width: 75%;
+        }
+    }
+
+    #nav-logo>img {
+        width: 35rem;
+        height: auto;
+    }
+
+}
+
+@media only screen and (min-width: 2100px) {
+    #nav-logo>img {
+        width: 38rem;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 2400px) {
+    #nav-logo>img {
+        width: 42rem;
+        height: auto;
     }
 }

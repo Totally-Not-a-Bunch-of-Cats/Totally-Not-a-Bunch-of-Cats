@@ -28,7 +28,7 @@
 
 // Adomition
 
-.adomition {
+.admonition {
 
     display: flex;
     flex-direction: column;
@@ -39,6 +39,7 @@
 
 
     padding: 2rem;
+    margin-inline: auto;
 
     width: fit-content;
     border-radius: 1rem;
@@ -68,24 +69,20 @@
 
 // Media Queries
 
-@media only screen and (min-width: 570px) {
-    .adomition {
-        flex-direction: row;
-    }
-}
 
 @media only screen and (min-width: 850px) {
     .content {
         width: 90%;
     }
 
-    footer {
-        &>div {
-            flex-direction: row;
-        }
+    .admonition {
+        flex-direction: row;
+        margin-inline: 0;
+    }
+}
 
-        #social-links {
-            margin: 0;
-        }
+@media only screen and (min-width: 1440px) {
+    .content {
+        width: 80%;
     }
 }

@@ -1,6 +1,7 @@
 footer {
     width: 90%;
-    margin: auto;
+    margin-top: 5rem;
+    margin-inline: auto;
     padding-block: 1.5rem;
     background-color: map-get($map: $colors, $key: "green-sheen");
 
@@ -32,4 +33,37 @@ footer {
 
 #social-links a:hover {
     color: map-get($map: $colors, $key: "platinum")
+}
+
+@media only screen and (min-width: 850px) {
+    footer {
+
+        &>div {
+            flex-direction: row;
+        }
+
+        #social-links {
+            margin: 0;
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    footer {
+        width: 80%;
+
+        &>div {
+            flex-direction: row;
+        }
+
+        #copyright {
+            font-size: 2.2rem;
+        }
+
+        #social-links {
+            svg {
+                width: 3rem;
+            }
+        }
+    }
 }
