@@ -38,6 +38,24 @@ p {
     transition: .2s;
 }
 
+h1 {
+    font-size: 4rem !important;
+
+    transition: .2s;
+}
+
+h2 {
+    font-size: 3rem !important;
+
+    transition: .2s;
+}
+
+h3 {
+    font-size: 2rem !important;
+
+    transition: .2s;
+}
+
 .fit-content {
     width: fit-content;
     height: fit-content;
@@ -89,6 +107,24 @@ p {
     }
 
     .h3 {
+        font-size: 3rem !important;
+
+        transition: .2s;
+    }
+
+    h1 {
+        font-size: 5rem !important;
+
+        transition: .2s;
+    }
+
+    h2 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    h3 {
         font-size: 3rem !important;
 
         transition: .2s;

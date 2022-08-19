@@ -17,13 +17,6 @@ body {
     background-color: map-get($map: $colors, $key: "green-sheen");
 }
 
-
-.content {
-    margin-block: 2rem;
-    margin-inline: auto;
-    width: 80%;
-}
-
 .d-flex {
     display: flex
 }

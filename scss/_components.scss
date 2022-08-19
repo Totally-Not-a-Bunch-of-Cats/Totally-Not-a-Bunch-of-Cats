@@ -47,18 +47,63 @@
     }
 }
 
+footer {
+    width: 90%;
+    margin: auto;
+    padding-block: 1.5rem;
+    background-color: map-get($map: $colors, $key: "green-sheen");
+
+    &>div {
+        flex-direction: column-reverse;
+    }
+
+    #copyright {
+        font-size: 1.5rem;
+    }
+
+    #social-links {
+        margin-top: 1rem;
+
+        a {
+            &:hover {
+                svg {
+                    fill: map-get($map: $colors, $key: "platinum")
+                }
+            }
+        }
+
+        svg {
+            width: 2.2rem;
+            height: auto;
+        }
+    }
+}
+
+#social-links a:hover {
+    color: map-get($map: $colors, $key: "platinum")
+}
 
 #nextjs-text {
     width: 10rem;
     height: 5rem;
 }
 
-#about>div {
-    background-color: map-get($map: $colors, $key: "platinum");
+.content {
+    width: 100%;
 
-    border-radius: 2rem;
+    &>div {
 
-    box-shadow: 7px 8px 33px -10px black;
+        background-color: map-get($map: $colors, $key: "platinum");
+
+        border-radius: 2rem;
+
+        box-shadow: 7px 8px 33px -10px black;
+    }
+}
+
+#projects {
+    width: 100%;
+    min-height: 10rem;
 }
 
 // Media Queries
@@ -70,7 +115,17 @@
 }
 
 @media only screen and (min-width: 850px) {
-    #about {
+    .content {
         width: 90%;
+    }
+
+    footer {
+        &>div {
+            flex-direction: row;
+        }
+
+        #social-links {
+            margin: 0;
+        }
     }
 }
