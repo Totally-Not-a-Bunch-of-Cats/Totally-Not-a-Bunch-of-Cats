@@ -17,6 +17,10 @@ footer {
         margin-top: 1rem;
 
         a {
+            svg {
+                transition: .3s;
+            }
+
             &:hover {
                 svg {
                     fill: map-get($map: $colors, $key: "platinum")

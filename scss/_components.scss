@@ -57,6 +57,8 @@
     width: 100%;
 
     &>div {
+        padding: 15rem;
+
 
         background-color: map-get($map: $colors, $key: "platinum");
 
@@ -66,6 +68,71 @@
     }
 }
 
+.seporator {
+    width: 70%;
+    height: .25rem;
+
+    margin-block: 6rem;
+    margin-inline: auto;
+    border-radius: 1rem;
+}
+
+
+
+.trailer {
+    padding: 1rem;
+    background-color: white;
+
+    border-radius: 1rem;
+}
+
+.trailer-temp {
+    &>div {
+        $scale: 3rem;
+        width: (16 * $scale);
+        height: (9 * $scale);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+iframe {
+    $scale: 3rem;
+    width: (16 * $scale);
+    height: (9 * $scale);
+
+    box-shadow: 7px 8px 33px -14px black;
+}
+
+#more-projects {
+    transition: .5s;
+    width: fit-content;
+    background-color: map-get($map: $colors, $key: "cinnamon-satin");
+
+    padding-inline: 1.75rem;
+    padding-block: 1.25rem;
+    border-radius: 1rem;
+    margin-inline: auto;
+
+    a {
+        font-size: 1.75rem !important;
+        transition: .5s;
+        letter-spacing: .25rem;
+
+        color: map-get($map: $colors, $key: "platinum");
+
+        &:hover {
+            color: map-get($map: $colors, $key: "platinum");
+        }
+    }
+
+    #more-projects-arrow {
+        display: none;
+    }
+}
 
 // Media Queries
 
@@ -79,10 +146,58 @@
         flex-direction: row;
         margin-inline: 0;
     }
+
+    #more-projects {
+        background-color: map-get($map: $colors, $key: "platinum");
+        margin: 0;
+        margin-left: auto;
+
+        a {
+            text-decoration: underline;
+            text-underline-offset: .75rem;
+
+            color: black;
+
+            &:hover {
+                color: map-get($map: $colors, $key: "cinnamon-satin");
+                margin-right: 1rem;
+                letter-spacing: .5rem;
+            }
+        }
+
+        #more-projects-arrow {
+            display: inline;
+        }
+    }
 }
 
 @media only screen and (min-width: 1440px) {
     .content {
         width: 80%;
+    }
+
+    .trailer-temp {
+        &>div {
+            $scale: 4rem;
+            width: (16 * $scale);
+            height: (9 * $scale);
+        }
+    }
+
+    iframe {
+        $scale: 4rem;
+        width: (16 * $scale);
+        height: (9 * $scale);
+    }
+
+    #more-projects {
+        a {
+            letter-spacing: .25rem;
+
+            &:hover {
+                margin-right: 1rem;
+                letter-spacing: .5rem;
+            }
+        }
     }
 }

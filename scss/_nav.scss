@@ -16,11 +16,12 @@ nav {
     transition: .2s;
 
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: .25rem;
     color: #181717;
 
     &:hover {
         color: map-get($map: $colors, $key: "platinum");
+        letter-spacing: .5rem;
     }
 }
 

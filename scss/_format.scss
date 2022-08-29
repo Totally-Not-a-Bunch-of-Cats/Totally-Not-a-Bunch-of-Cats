@@ -61,6 +61,13 @@ h3 {
     height: fit-content;
 }
 
+@each $name,
+$color in $colors {
+    .#{$name} {
+        background-color: $color  !important;
+    }
+}
+
 @media only screen and (min-width: 500px) {
     p {
         font-size: 1.3rem;
