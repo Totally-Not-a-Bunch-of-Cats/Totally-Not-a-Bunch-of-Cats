@@ -83,7 +83,7 @@ span {
 
 @for $i from 1 through 20 {
     .w-#{$i*5}p {
-        width: #{$i*5}% !important;
+        width: #{$i*5%} !important;
     }
 }
 

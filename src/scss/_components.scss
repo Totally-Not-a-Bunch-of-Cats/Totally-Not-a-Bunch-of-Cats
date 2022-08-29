@@ -29,7 +29,6 @@
 // Adomition
 
 
-
 .content {
     width: 100%;
 
@@ -67,7 +66,7 @@
 
 .trailer-temp {
     &>div {
-        $scale: 2rem;
+        $scale: 1.8rem;
         width: (16 * $scale);
         height: (9 * $scale);
 
@@ -79,7 +78,7 @@
 }
 
 iframe {
-    $scale: 2rem;
+    $scale: 1.8rem;
     width: (16 * $scale);
     height: (9 * $scale);
 
