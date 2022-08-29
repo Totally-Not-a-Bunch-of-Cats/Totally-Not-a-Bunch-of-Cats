@@ -69,65 +69,21 @@ $color in $colors {
 }
 
 @media only screen and (min-width: 500px) {
-    p {
-        font-size: 1.3rem;
-    }
-
-    .para {
-        font-size: 1.3rem;
-    }
-
     a {
         font-size: 1.45rem !important;
         text-decoration: none;
 
         color: black;
     }
-
-    .h1 {
-        font-size: 3rem !important;
-
-        transition: .2s;
-    }
-
-    .h2 {
-        font-size: 2.5rem !important;
-
-        transition: .2s;
-    }
-
-    .h3 {
-        font-size: 2rem !important;
-
-        transition: .2s;
-    }
-
-    h1 {
-        font-size: 3rem !important;
-
-        transition: .2s;
-    }
-
-    h2 {
-        font-size: 2.5rem !important;
-
-        transition: .2s;
-    }
-
-    h3 {
-        font-size: 2rem !important;
-
-        transition: .2s;
-    }
 }
 
 @media only screen and (min-width: 850px) {
     p {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     .para {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     a {
@@ -184,7 +140,7 @@ $color in $colors {
     }
 
     a {
-        font-size: 1.75rem !important;
+        font-size: 2.2rem !important;
         text-decoration: none;
 
         color: black;
