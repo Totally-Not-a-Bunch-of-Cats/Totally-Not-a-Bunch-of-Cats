@@ -28,30 +28,7 @@
 
 // Adomition
 
-.admonition {
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-color: white;
-    box-shadow: 0px 13px 33px -20px #000000;
-
-
-    padding: 2rem;
-    margin-inline: auto;
-
-    width: fit-content;
-    border-radius: 1rem;
-
-    .icon {
-        margin-right: 2rem;
-    }
-
-    svg {
-        width: 2.5rem;
-    }
-}
 
 .content {
     width: 100%;
@@ -166,11 +143,6 @@ iframe {
         &>div {
             padding: 8rem;
         }
-    }
-
-    .admonition {
-        flex-direction: row;
-        margin-inline: 0;
     }
 
     #more-projects {

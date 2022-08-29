@@ -1,0 +1,19 @@
+---
+import "./admonition.scss";
+import Exclamation from "./icons/exclamation.astro";
+import Fire from "./icons/fire.astro";
+import StickyNote from "./icons/note.astro";
+import Question from "./icons/question.astro";
+
+const { icon = "StickyNote", text } = Astro.props;
+---
+
+<div class="admonition mb-6">
+    {icon === "Note" && <StickyNote />}
+    {icon === "Important" && <Exclamation />}
+    {icon === "Question" && <Question />}
+    {icon === "Fire" && <Fire />}
+    <p>
+        {text}
+    </p>
+</div>
