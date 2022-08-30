@@ -13,10 +13,6 @@
     color: #181717
 }
 
-body {
-    background-color: map-get($map: $colors, $key: "green-sheen");
-}
-
 strong {
     font-size: inherit;
     color: inherit;

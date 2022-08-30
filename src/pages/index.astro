@@ -2,7 +2,18 @@
 import { Admonition } from "../components/admonition/admonition";
 import Footer from "../components/footer/footer.astro";
 import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
 import Trailer from "../components/Trailer/Trailer.astro";
+
+// Init font awesome solid icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { h } from "preact";
+
+library.add(fas);
+
+import "../scss/home.scss";
+import { home } from "../data/links.json";
 ---
 
 <html lang="en">
@@ -10,29 +21,7 @@ import Trailer from "../components/Trailer/Trailer.astro";
         <Head title="Home" />
     </head>
     <body>
-        <nav>
-            <div
-                class="d-flex justify-content-between align-items-end p-1 m-auto"
-            >
-                <div id="nav-logo">
-                    <img
-                        src="images/Logo-1.png"
-                        alt="Logo"
-                        aria-label="Three cats in basket logo"
-                    />
-                </div>
-                <div id="nav-links">
-                    <a href="#about" aria-label="About Section Link"> About</a>
-                    <a href="#projects" aria-label="Projects Section Link">
-                        Projects</a
-                    >
-                    <a href="#team" aria-label="Team Section Link"> Team</a>
-                    <a href="#" aria-label="Blog Link" title="Coming Soon!">
-                        Blog</a
-                    >
-                </div>
-            </div>
-        </nav>
+        <Header links={home} />
         <div id="about" class="p-block-4">
             <div class="content m-auto">
                 <div>
@@ -196,7 +185,7 @@ import Trailer from "../components/Trailer/Trailer.astro";
                         </p>
                     </div>
                     <div id="more-projects" class="text-align-right mt-10">
-                        <a href="#"
+                        <a href="projects.html"
                             >More<span id="more-projects-arrow">→</span>
                         </a>
                     </div>
@@ -214,11 +203,6 @@ import Trailer from "../components/Trailer/Trailer.astro";
             </div>
         </div>
 
-        <Footer>
-            <a href="#about" aria-label="About Section Link"> About</a>
-            <a href="#projects" aria-label="Projects Section Link"> Projects</a>
-            <a href="#team" aria-label="Team Section Link"> Team</a>
-            <a href="#" aria-label="Blog Link" title="Coming Soon!"> Blog</a>
-        </Footer>
+        <Footer links={home} />
     </body>
 </html>

@@ -1,0 +1,30 @@
+---
+import { Admonition } from "../components/admonition/admonition";
+import Footer from "../components/footer/footer.astro";
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+
+import { projects } from "../data/links.json";
+import "../scss/projects.scss";
+---
+
+<html lang="en">
+    <head>
+        <Head />
+    </head>
+
+    <body>
+        <Header links={projects} />
+        <div id="main" class="p-block-4">
+            <div class="content m-auto">
+                <div>
+                    <Admonition>
+                        <h2>Content Coming Soon!</h2>
+                    </Admonition>
+                </div>
+            </div>
+        </div>
+
+        <Footer links={projects} />
+    </body>
+</html>
