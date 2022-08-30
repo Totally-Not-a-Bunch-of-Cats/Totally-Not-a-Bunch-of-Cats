@@ -8,7 +8,7 @@ export class Admonition extends Component {
         return (
             <>
                 <div class="admonition mb-6">
-                    {props.icon &&
+                    {props.icon !== undefined &&
                         <div class="icon">
                             <FontAwesomeIcon
                                 icon={props.icon === undefined ? "circle-info" : props.icon}

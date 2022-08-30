@@ -3,14 +3,9 @@ import { Admonition } from "../components/admonition/admonition";
 import Footer from "../components/footer/footer.astro";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
-import Trailer from "../components/Trailer/Trailer.astro";
+import { Trailer } from "../components/Trailer/Trailer";
 
-// Init font awesome solid icons
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { h } from "preact";
-
-library.add(fas);
+import "../js/init";
 
 import "../scss/home.scss";
 import { home } from "../data/links.json";
@@ -121,7 +116,7 @@ import Content from "../components/Content.astro";
             </div>
             <div id="projects-featured">
                 <div class="d-flex flex-column align-items-center m-block-2">
-                    <Trailer />
+                    <Trailer client:visible />
                     <p class="h3 m-block-2">
                         <strong class="color-cinnamon-satin">Featured:</strong> Herding
                         Cats
@@ -149,6 +144,7 @@ import Content from "../components/Content.astro";
                 <div class="d-flex flex-column align-items-center m-block-2">
                     <Trailer
                         url="https://www.youtube.com/watch?v=aMWQS8Ei_No"
+                        client:visible
                     />
                     <p class="text-indent h3 m-block-2">
                         <strong class="color-cinnamon-satin"

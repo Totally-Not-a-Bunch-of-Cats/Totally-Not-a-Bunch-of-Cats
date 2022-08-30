@@ -7,7 +7,7 @@ footer {
     padding-block: 1.5rem;
 
     &>div {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     div {
@@ -49,18 +49,18 @@ footer {
             flex-direction: row;
             flex-wrap: wrap;
 
-            margin-left: 1rem;
-            gap: 1rem;
+            gap: 2rem;
 
-            &>a {
-                margin-left: 1.2rem;
-            }
+            margin-bottom: 2rem;
 
         }
 
         #socials {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            gap: 1rem;
 
             a {
                 svg {
@@ -101,6 +101,10 @@ footer {
 
             &>div {
                 flex-direction: column;
+
+                margin-left: 2.5rem;
+
+                gap: .7rem;
             }
         }
     }
