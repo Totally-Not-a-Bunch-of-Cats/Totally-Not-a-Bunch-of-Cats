@@ -1,0 +1,26 @@
+---
+import { Admonition } from "../components/admonition/admonition";
+import Content from "../components/Content.astro";
+import Footer from "../components/footer/footer.astro";
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+
+import { projects } from "../data/links.json";
+import "../scss/projects.scss";
+---
+
+<html lang="en">
+    <head>
+        <Head />
+    </head>
+
+    <body>
+        <Header links={projects} />
+        <Content id="main">
+            <Admonition>
+                <h2>Content Coming Soon!</h2>
+            </Admonition>
+        </Content>
+        <Footer links={projects} />
+    </body>
+</html>

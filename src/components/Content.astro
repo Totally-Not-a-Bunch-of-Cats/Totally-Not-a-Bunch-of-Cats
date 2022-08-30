@@ -1,0 +1,11 @@
+---
+const { id } = Astro.props;
+---
+
+<div id={id} class="p-block-4">
+    <div class="content m-auto">
+        <div>
+            <slot />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,273 @@
+a {
+    font-size: 1.25rem !important;
+    text-decoration: none;
+
+    color: black;
+
+    transition: .2s;
+}
+
+p {
+    font-size: 1.5rem;
+
+    transition: .2s;
+}
+
+.para {
+    font-size: 1.5rem;
+
+    transition: .2s;
+}
+
+
+.h1 {
+    font-size: 4rem !important;
+
+    transition: .2s;
+}
+
+.h2 {
+    font-size: 3rem !important;
+
+    transition: .2s;
+}
+
+.h3 {
+    font-size: 2rem !important;
+
+    transition: .2s;
+}
+
+h1 {
+    font-size: 4rem !important;
+
+    transition: .2s;
+}
+
+h2 {
+    font-size: 3rem !important;
+
+    transition: .2s;
+}
+
+h3 {
+    font-size: 2rem !important;
+
+    transition: .2s;
+}
+
+.fit-content {
+    width: fit-content;
+    height: fit-content;
+}
+
+@each $name,
+$color in $colors {
+    .#{$name} {
+        background-color: $color  !important;
+    }
+
+    .path-#{$name} {
+        path {
+            fill: $color  !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    a {
+        font-size: 1.45rem !important;
+        text-decoration: none;
+
+        color: black;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    p {
+        font-size: 1.7rem;
+    }
+
+    .para {
+        font-size: 1.7rem;
+    }
+
+    a {
+        font-size: 1.75rem !important;
+        text-decoration: none;
+
+        color: black;
+    }
+
+    .h1 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    .h2 {
+        font-size: 3rem !important;
+
+        transition: .2s;
+    }
+
+    .h3 {
+        font-size: 2rem !important;
+
+        transition: .2s;
+    }
+
+    h1 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    h2 {
+        font-size: 3rem !important;
+
+        transition: .2s;
+    }
+
+    h3 {
+        font-size: 2rem !important;
+
+        transition: .2s;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    p {
+        font-size: 2.2rem;
+    }
+
+    .para {
+        font-size: 2.2rem;
+    }
+
+    a {
+        font-size: 2.2rem !important;
+        text-decoration: none;
+
+        color: black;
+    }
+
+    .h1 {
+        font-size: 5rem !important;
+
+        transition: .2s;
+    }
+
+    .h2 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    .h3 {
+        font-size: 3rem !important;
+
+        transition: .2s;
+    }
+
+    h1 {
+        font-size: 5rem !important;
+
+        transition: .2s;
+    }
+
+    h2 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    h3 {
+        font-size: 3rem !important;
+
+        transition: .2s;
+    }
+}
+
+
+@media only screen and (min-width: 2100px) {
+    p {
+        font-size: 2.7rem;
+    }
+
+    .para {
+        font-size: 2.7rem;
+    }
+
+    a {
+        font-size: 2.5rem !important;
+        text-decoration: none;
+
+        color: black;
+    }
+
+    .h1 {
+        font-size: 6rem !important;
+
+        transition: .2s;
+    }
+
+    .h2 {
+        font-size: 5rem !important;
+
+        transition: .2s;
+    }
+
+    .h3 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+
+    h1 {
+        font-size: 6rem !important;
+
+        transition: .2s;
+    }
+
+    h2 {
+        font-size: 5rem !important;
+
+        transition: .2s;
+    }
+
+    h3 {
+        font-size: 4rem !important;
+
+        transition: .2s;
+    }
+}
+
+
+.text-indent {
+    text-indent: 2rem;
+}
+
+@each $value in left,
+center,
+right {
+    .text-align-#{$value} {
+        text-align: #{$value};
+    }
+}
+
+@import "_colors";
+
+@each $key,
+$value in $colors {
+    .color-#{$key} {
+        color: #{$value} !important;
+    }
+}
+
+@each $key,
+$value in $colors {
+    .fill-#{$key} {
+        fill: #{$value} !important;
+    }
+}

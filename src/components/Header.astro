@@ -1,0 +1,28 @@
+---
+const { links } = Astro.props;
+
+import Logo from "/images/Logo-1.png";
+---
+
+<nav>
+    <div
+        class="d-flex justify-content-between align-items-end p-1 m-inline-auto mt-2"
+    >
+        <div id="nav-logo">
+            <img src={Logo} aria-label="Three cats in basket logo" />
+        </div>
+        <div id="nav-links">
+            {
+                links.map((data) => (
+                    <a
+                        href={data.link}
+                        aria-label={data.aria}
+                        title={data.title !== "" ? data.title : ""}
+                    >
+                        {data.text}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</nav>

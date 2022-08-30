@@ -1,10 +1,23 @@
 {
-    "devDependencies": {
-        "node-sass": "^7.0.1"
-    },
+    "name": "@example/basics",
+    "version": "0.0.1",
+    "private": true,
     "scripts": {
-        "css": "node-sass scss/main.scss -o css/non-compressed/",
-        "css:compress": "node-sass scss/main.scss -o css/ --output-style compressed",
-        "css:watch": "npm run css:compress && node-sass scss/main.scss -wo css/ --output-style compressed"
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "devDependencies": {
+        "@astrojs/preact": "^1.0.2",
+        "astro": "^1.1.1",
+        "preact": "^10.6.5"
+    },
+    "dependencies": {
+        "@aduh95/preact-fontawesome": "^0.1.5",
+        "@fortawesome/fontawesome-svg-core": "6.2.0",
+        "@fortawesome/free-solid-svg-icons": "^6.2.0",
+        "sass": "^1.54.5"
     }
 }
