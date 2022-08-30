@@ -9,4 +9,11 @@
     @media only screen and (min-width: 850px) {
         margin-top: 0;
     }
+
+    @media only screen and (min-width: 1900px) {
+        $size: 5rem;
+
+        width: $size;
+        height: $size;
+    }
 }

@@ -27,7 +27,11 @@ import Content from "../components/Content.astro";
                 it.
             </p>
 
-            <Admonition color="mustard" icon="triangle-exclamation">
+            <Admonition
+                color="mustard"
+                icon="triangle-exclamation"
+                client:visible
+            >
                 <p>
                     We don't currently have any games finished, but we are
                     working on our first right now.

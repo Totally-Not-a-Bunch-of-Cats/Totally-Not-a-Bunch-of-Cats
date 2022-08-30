@@ -1,9 +1,9 @@
-import { Component } from 'preact';
+import { h, Component } from 'preact';
 import { FontAwesomeIcon } from '@aduh95/preact-fontawesome';
-// Init free font awesome solid
+
+//Init free solid font awesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-
 library.add(fas);
 
 import "./admonition.scss";
