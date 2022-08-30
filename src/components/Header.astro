@@ -1,5 +1,7 @@
 ---
 const { links } = Astro.props;
+
+import Logo from "/images/Logo-1.png";
 ---
 
 <nav>
@@ -7,11 +9,7 @@ const { links } = Astro.props;
         class="d-flex justify-content-between align-items-end p-1 m-inline-auto mt-2"
     >
         <div id="nav-logo">
-            <img
-                src="images/Logo-1.png"
-                alt="Logo"
-                aria-label="Three cats in basket logo"
-            />
+            <img src={Logo} aria-label="Three cats in basket logo" />
         </div>
         <div id="nav-links">
             {
