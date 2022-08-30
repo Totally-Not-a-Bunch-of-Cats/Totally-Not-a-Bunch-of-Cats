@@ -28,7 +28,7 @@
     "projects": [
         {
             "aria": "Link To Home Page",
-            "link": "index.html",
+            "link": "../index.html",
             "text": "Home",
             "title": ""
         },
