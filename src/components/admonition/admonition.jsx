@@ -5,6 +5,7 @@ import "../../scss/main.scss";
 import { FontAwesomeIcon } from '@aduh95/preact-fontawesome';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+
 library.add(fas);
 
 export class Admonition extends Component {
