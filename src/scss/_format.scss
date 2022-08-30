@@ -66,6 +66,12 @@ $color in $colors {
     .#{$name} {
         background-color: $color  !important;
     }
+
+    .path-#{$name} {
+        path {
+            fill: $color  !important;
+        }
+    }
 }
 
 @media only screen and (min-width: 500px) {

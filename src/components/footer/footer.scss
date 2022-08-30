@@ -1,0 +1,134 @@
+@import "../../scss/colors";
+
+footer {
+    width: 90%;
+    margin-block: 3rem;
+    margin-inline: auto;
+    padding-block: 1.5rem;
+    background-color: map-get($map: $colors, $key: "green-sheen");
+
+    &>div {
+        flex-direction: column-reverse;
+    }
+
+    div {
+        width: fit-content;
+        margin: auto;
+    }
+
+    a {
+        transition: .1s;
+
+        svg {
+            transition: .5s;
+        }
+
+        &:hover {
+            color: map-get($map: $colors, $key: "platinum");
+            text-decoration: underline;
+            text-underline-offset: .5rem;
+
+            svg {
+                fill: map-get($map: $colors, $key: "platinum") !important;
+                color: map-get($map: $colors, $key: "platinum") !important;
+            }
+        }
+
+
+    }
+
+    #copyright {
+        font-size: 1.5rem;
+    }
+
+    #social-links {
+        margin-top: 2rem;
+        flex-direction: column;
+
+        &>div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            margin-left: 1rem;
+            gap: 1rem;
+
+            &>a {
+                margin-left: 1.2rem;
+            }
+
+        }
+
+        #socials {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                svg {
+                    transition: .3s;
+                }
+
+                &:hover {
+                    svg {
+                        fill: #6e5494;
+                    }
+                }
+            }
+
+            svg {
+                width: 2.2rem;
+                height: auto;
+            }
+
+            &:hover {
+                color: map-get($map: $colors, $key: "platinum");
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: 850px) {
+    footer {
+        div {
+            margin: 0;
+        }
+
+        &>div {
+            margin: 0;
+            width: 100%;
+            flex-direction: row;
+
+        }
+
+        #social-links {
+            margin: 0;
+            flex-direction: row;
+
+            &>div {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    footer {
+        width: 80%;
+
+        &>div {
+            flex-direction: row;
+        }
+
+        #copyright {
+            font-size: 2.2rem;
+        }
+
+        #social-links {
+            svg {
+                width: 3rem;
+            }
+        }
+    }
+}

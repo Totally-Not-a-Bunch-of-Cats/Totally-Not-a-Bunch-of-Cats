@@ -47,3 +47,28 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+**Sample Preact**
+```javascript
+import { h, Fragment } from 'preact';
+import { useState } from 'preact/hooks';
+import './Counter.css';
+
+export default function Counter({ children }) {
+	const [count, setCount] = useState(0);
+	const add = () => setCount((i) => i + 1);
+	const subtract = () => setCount((i) => i - 1);
+
+	return (
+		<>
+			<div class="counter">
+				<button onClick={subtract}>-</button>
+				<pre>{count}</pre>
+				<button onClick={add}>+</button>
+			</div>
+			<div class="counter-message">{children}</div>
+		</>
+	);
+}
+```

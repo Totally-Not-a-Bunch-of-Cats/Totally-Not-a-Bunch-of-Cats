@@ -13,7 +13,7 @@ nav {
 
 #nav-links>a {
     margin: 1rem;
-    transition: .2s;
+    transition: .15s;
 
     font-weight: bold;
     letter-spacing: .25rem;
@@ -21,7 +21,8 @@ nav {
 
     &:hover {
         color: map-get($map: $colors, $key: "platinum");
-        letter-spacing: .5rem;
+        text-decoration: underline;
+        text-underline-offset: .75rem;
     }
 }
 
