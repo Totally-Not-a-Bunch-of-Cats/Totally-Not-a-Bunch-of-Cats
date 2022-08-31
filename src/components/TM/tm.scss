@@ -35,17 +35,14 @@
         gap: 2rem;
 
         a {
-            path {
+            i {
                 transition: .2s;
             }
         }
     }
 
     .tm-social {
-        $size: 3rem;
-        width: $size;
-        height: $size;
-
+        font-size: 3rem;
     }
 }
 

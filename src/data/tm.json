@@ -13,20 +13,14 @@
             "socials": [
                 {
                     "name": "Github",
-                    "class": "path-hover-royal-purple",
+                    "class": "i-hover-royal-purple",
                     "link": "https://github.com/Tired-Fox",
-                    "icon": [
-                        "fab",
-                        "github"
-                    ]
+                    "icon": "fab github"
                 },
                 {
                     "name": "Codepen",
-                    "class": "path-hover-emerald",
-                    "icon": [
-                        "fab",
-                        "codepen"
-                    ],
+                    "class": "i-hover-emerald",
+                    "icon": "fab codepen",
                     "link": "https://codepen.io/boehm-zachary"
                 }
             ]

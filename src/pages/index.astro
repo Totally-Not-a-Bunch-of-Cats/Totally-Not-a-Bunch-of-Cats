@@ -1,5 +1,5 @@
 ---
-import { Admonition } from "../components/admonition/admonition";
+import Admonition from "../components/admonition/admonition.astro";
 import Footer from "../components/footer/footer.astro";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
@@ -15,6 +15,7 @@ import TMList from "../components/TM/TMList.astro";
     <head>
         <Head title="Home" />
     </head>
+
     <body>
         <Header links={home} />
         <Content id="about">
@@ -28,11 +29,7 @@ import TMList from "../components/TM/TMList.astro";
                 it.
             </p>
 
-            <Admonition
-                color="mustard"
-                icon="triangle-exclamation"
-                client:visible
-            >
+            <Admonition color="mustard" icon="fas triangle-exclamation">
                 <p>
                     We don't currently have any games finished, but we are
                     working on our first right now.

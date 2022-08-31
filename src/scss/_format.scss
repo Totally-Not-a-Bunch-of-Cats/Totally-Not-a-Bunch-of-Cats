@@ -67,16 +67,8 @@ $color in $colors {
         background-color: $color  !important;
     }
 
-    .path-#{$name} {
-        path {
-            fill: $color  !important;
-        }
-    }
-
-    a:hover .path-hover-#{$name} {
-        path {
-            fill: $color  !important;
-        }
+    a:hover .i-hover-#{$name} {
+        color: $color  !important;
     }
 }
 

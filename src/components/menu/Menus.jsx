@@ -43,7 +43,7 @@ export const MobileMenu = ({ ...props }) => {
                     aria-label={data.aria}
                     title={data.title !== "" ? data.title : ""}
                     onclick={e => {
-                        document.body.classList.toggle("hide-overflow");
+                        document.body.classList.toggle("hide-overflow  open");
                         document.getElementsByClassName("menu")[0].classList.toggle("open");
                         document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
                     }}
@@ -67,7 +67,7 @@ export const MobileMenu = ({ ...props }) => {
                 <div class="menu-overlay">
                     <div class="quick-nav">
                         <a href="#header" onclick={e => {
-                            document.body.classList.toggle("hide-overflow");
+                            document.body.classList.toggle("hide-overflow  open");
                             document.getElementsByClassName("menu")[0].classList.toggle("open");
                             document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
                         }}>
@@ -81,7 +81,7 @@ export const MobileMenu = ({ ...props }) => {
 
                     <div class="quick-nav">
                         <a href="#footer" onclick={e => {
-                            document.body.classList.toggle("hide-overflow");
+                            document.body.classList.toggle("hide-overflow  open");
                             document.getElementsByClassName("menu")[0].classList.toggle("open");
                             document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
                         }}>
@@ -100,6 +100,7 @@ export const MobileMenu = ({ ...props }) => {
                         aria-label="Collapse or expand the menu"
                         onclick={e => {
                             document.body.classList.toggle("hide-overflow");
+                            document.body.classList.toggle("open");
                             document.getElementsByClassName("menu")[0].classList.toggle("open");
                             document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
 

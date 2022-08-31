@@ -2,7 +2,7 @@
 import "./footer.scss";
 import "../../scss/main.scss";
 import Logo from "../Logo/Logo.astro";
-import { FAIcon } from "../FAIcon";
+import FAIcon from "../FAIcon.astro";
 
 const { links } = Astro.props;
 ---
@@ -20,7 +20,7 @@ const { links } = Astro.props;
                     target="_blank"
                     aria-label="Github Link"
                 >
-                    <FAIcon icon={["fab", "github"]} client:visible />
+                    <FAIcon icon="fab github" klass="social" />
                 </a>
             </div>
             <div>

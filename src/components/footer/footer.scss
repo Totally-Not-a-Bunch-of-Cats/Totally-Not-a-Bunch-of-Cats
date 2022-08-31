@@ -15,20 +15,27 @@ footer {
         margin: auto;
     }
 
-    a {
-        transition: .1s;
+    .social {
+        transition: .5s;
+        font-size: 2rem;
+    }
 
-        svg {
-            transition: .5s;
-        }
+    a {
+        transition: .2s;
 
         &:hover {
             color: map-get($map: $colors, $key: "platinum");
             text-decoration: underline;
             text-underline-offset: .5rem;
 
+            i {
+                transition: .2s;
+                color: map-get($map: $colors, $key: "platinum") !important;
+            }
+
             svg {
                 path {
+                    transition: .2s;
                     fill: map-get($map: $colors, $key: "platinum") !important;
                 }
             }
@@ -94,6 +101,16 @@ footer {
             width: 100%;
             flex-direction: row;
 
+            &>div {
+                &>a {
+                    &:hover {
+                        svg {
+                            fill: map-get($map: $colors, $key: "platinum");
+                        }
+                    }
+                }
+            }
+
         }
 
         #social-links {
@@ -107,6 +124,10 @@ footer {
 
                 gap: .7rem;
             }
+        }
+
+        .social {
+            font-size: 2.4rem;
         }
     }
 }
@@ -127,6 +148,12 @@ footer {
             svg {
                 width: 3rem;
             }
+
+
+        }
+
+        .social {
+            font-size: 3rem;
         }
     }
 }

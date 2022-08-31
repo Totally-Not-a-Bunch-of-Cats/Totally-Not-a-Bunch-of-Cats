@@ -6,6 +6,12 @@ nav {
     }
 }
 
+#nav-logo {
+    @media only screen and (max-width: 850px) {
+
+        margin: auto;
+    }
+}
 
 #nav-logo>img {
     width: 20rem;
@@ -85,6 +91,12 @@ nav {
 .mobile {
     @media screen and (min-width: 850px) {
         display: none !important;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .hide-overflow {
+        overflow: hidden;
     }
 }
 
@@ -240,10 +252,6 @@ nav {
     height: 100%;
 
     transform: scale(100%);
-}
-
-.hide-overflow {
-    overflow: hidden;
 }
 
 /* ------------- */
