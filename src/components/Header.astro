@@ -2,6 +2,8 @@
 const { links } = Astro.props;
 
 import Logo from "/images/Logo-1.png";
+
+import { DesktopMenu, MobileMenu } from "./menu/Menus";
 ---
 
 <nav>
@@ -11,18 +13,7 @@ import Logo from "/images/Logo-1.png";
         <div id="nav-logo">
             <img src={Logo} aria-label="Three cats in basket logo" />
         </div>
-        <div id="nav-links">
-            {
-                links.map((data) => (
-                    <a
-                        href={data.link}
-                        aria-label={data.aria}
-                        title={data.title !== "" ? data.title : ""}
-                    >
-                        {data.text}
-                    </a>
-                ))
-            }
-        </div>
+        <DesktopMenu links={links} client:visible />
+        <MobileMenu links={links} client:visible />
     </div>
 </nav>
