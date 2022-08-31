@@ -7,8 +7,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 library.add(fas, fab);
 
+import "../scss/main.scss";
+
 export const FAIcon = ({ ...props }) => {
-    const icon = props.icon ? props.icon : ["fas", "circle-info"];
+    const icon = props.icon && (props.icon !== [] || props.icon !== "")
+        ? props.icon
+        : ["fas", "circle-info"];
 
     return (
         <>

@@ -14,11 +14,11 @@
                 {
                     "name": "Github",
                     "class": "path-hover-royal-purple",
+                    "link": "https://github.com/Tired-Fox",
                     "icon": [
                         "fab",
                         "github"
-                    ],
-                    "link": "https://github.com/Tired-Fox"
+                    ]
                 },
                 {
                     "name": "Codepen",

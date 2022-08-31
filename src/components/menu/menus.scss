@@ -83,14 +83,12 @@ nav {
 }
 
 .mobile {
-
     @media screen and (min-width: 850px) {
         display: none !important;
     }
 }
 
 .menu-mobile {
-
     position: fixed;
     width: 100%;
     height: 100%;

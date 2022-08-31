@@ -1,3 +1,5 @@
+[![Website Build & Deploy](https://github.com/Totally-Not-a-Bunch-of-Cats/Totally-Not-a-Bunch-of-Cats/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/Totally-Not-a-Bunch-of-Cats/Totally-Not-a-Bunch-of-Cats/actions/workflows/deploy.yml)
+
 This website is built with [Astro](https://astro.build/) with added [Preact](https://preactjs.com/) integration.
 * [Preact 10 minute Tutorial](https://preactjs.com/tutorial/)
 * [Astro Docs](https://docs.astro.build/en/getting-started/)

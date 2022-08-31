@@ -16,8 +16,6 @@ let pfps = {};
 images.forEach((image) => {
     pfps[image.split("\\").pop().split("/").pop().split(".")[0]] = image;
 });
-
-console.log(pfps);
 ---
 
 <div class="tm">
@@ -32,19 +30,20 @@ console.log(pfps);
                 <p class="tm-name">{member.name}</p>
                 <p class="tm-title">{member.title}</p>
                 <div class="tm-socials">
-                    {member.socials.map((social) => (
-                        <a
-                            href={social.link}
-                            target="_blank"
-                            aria-label={`${member.name}'s ${social.name} Link'`}
-                        >
-                            <FAIcon
-                                icon={social.icon}
-                                class={social.class + " tm-social"}
-                                client:visible
-                            />
-                        </a>
-                    ))}
+                    {member.socials.length !== 0 &&
+                        member.socials.map((social) => (
+                            <a
+                                href={social.link}
+                                target="_blank"
+                                aria-label={`${member.name}'s ${social.name} Link'`}
+                                title={social.name}
+                            >
+                                <FAIcon
+                                    icon={social.icon}
+                                    class={social.class + " tm-social"}
+                                />
+                            </a>
+                        ))}
                 </div>
             </div>
         ))
