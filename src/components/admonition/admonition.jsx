@@ -1,10 +1,5 @@
 import { h, Component } from 'preact';
-import { FontAwesomeIcon } from '@aduh95/preact-fontawesome';
-
-//Init free solid font awesome
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-library.add(fas);
+import { FAIcon } from '../FAIcon';
 
 import "./admonition.scss";
 import "../../scss/main.scss";
@@ -15,9 +10,9 @@ export class Admonition extends Component {
                 <div class="admonition mb-6">
                     {props.icon !== undefined &&
                         <div class="icon">
-                            <FontAwesomeIcon
+                            <FAIcon
                                 icon={props.icon === undefined ? "circle-info" : props.icon}
-                                className={props.color === undefined ? "path-blue-gray" : 'path-' + props.color}
+                                class={props.color === undefined ? "path-blue-gray" : 'path-' + props.color}
                             />
                         </div>
                     }

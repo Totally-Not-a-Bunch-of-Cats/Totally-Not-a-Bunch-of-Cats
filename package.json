@@ -12,13 +12,13 @@
     "devDependencies": {
         "@astrojs/preact": "^1.0.2",
         "astro": "^1.1.1",
-        "preact": "^10.6.5"
+        "sass": "^1.54.5"
     },
     "dependencies": {
+        "preact": "^10.6.5",
         "@aduh95/preact-fontawesome": "^0.1.5",
         "@fortawesome/fontawesome-svg-core": "6.2.0",
         "@fortawesome/free-brands-svg-icons": "^6.2.0",
-        "@fortawesome/free-solid-svg-icons": "^6.2.0",
-        "sass": "^1.54.5"
+        "@fortawesome/free-solid-svg-icons": "^6.2.0"
     }
 }
