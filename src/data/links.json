@@ -1,25 +1,25 @@
 {
     "home": [
         {
-            "aria": "About Section Link",
+            "aria": "Jump to about section",
             "link": "#about",
             "text": "About",
             "title": ""
         },
         {
-            "aria": "Projects Section Link",
+            "aria": "Jump to projects section",
             "link": "#projects",
             "text": "Projects",
             "title": ""
         },
         {
-            "aria": "Team Section Link",
+            "aria": "Jump to team section",
             "link": "#team",
             "text": "Team",
             "title": ""
         },
         {
-            "aria": "Blog Link",
+            "aria": "Redirect to the blog page",
             "link": "#",
             "text": "Blog",
             "title": "Coming Soon!"
@@ -27,13 +27,13 @@
     ],
     "projects": [
         {
-            "aria": "Link To Home Page",
+            "aria": "Redirect to homepage",
             "link": "../index.html",
             "text": "Home",
             "title": ""
         },
         {
-            "aria": "Link to Block",
+            "aria": "Redirect to blog page",
             "link": "#",
             "text": "Blog",
             "title": "Coming Soon!"

@@ -72,11 +72,26 @@ export const MobileMenu = ({ ...props }) => {
 
                 <div class="menu">
                     <span class="menu-circle"></span>
-                    <button class="menu-link" onclick={e => {
-                        document.body.classList.toggle("hide-overflow");
-                        document.getElementsByClassName("menu")[0].classList.toggle("open");
-                        document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
-                    }}>
+                    <input id="mobile-expanded" hidden />
+                    <button
+                        class="menu-link"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="Collapse or expand the menu"
+                        onclick={e => {
+                            document.body.classList.toggle("hide-overflow");
+                            document.getElementsByClassName("menu")[0].classList.toggle("open");
+                            document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
+
+                            if (document.getElementById("menu").classList.contains("open")) {
+                                const button = document.getElementsByClassName("menu-link")[0];
+                                button.setAttribute("aria-expanded", "false");
+                            } else {
+                                const button = document.getElementsByClassName("menu-link")[0];
+                                button.setAttribute("aria-expanded", "true");
+                            }
+                        }}
+                    >
                         <span class="menu-icon">
                             <span class="menu-line menu-line-1"></span>
                             <span class="menu-line menu-line-2"></span>
