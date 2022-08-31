@@ -8,7 +8,7 @@ import { Trailer } from "../components/Trailer/Trailer";
 import "../scss/home.scss";
 import { home } from "../data/links.json";
 import Content from "../components/Content.astro";
-import TMPreview from "../components/TM/TMPreview.astro";
+import TMList from "../components/TM/TMList.astro";
 ---
 
 <html lang="en">
@@ -179,7 +179,7 @@ import TMPreview from "../components/TM/TMPreview.astro";
             <div class="h1 mb-6">
                 <strong>Team</strong>
             </div>
-            <TMPreview />
+            <TMList />
         </Content>
 
         <Footer links={home} />
