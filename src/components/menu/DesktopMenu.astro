@@ -1,0 +1,17 @@
+---
+const { links } = Astro.props;
+---
+
+<div id="nav-links" class="desktop">
+    {
+        links.map((data) => (
+            <a
+                href={data.link}
+                aria-label={data.aria}
+                title={data.title !== "" ? data.title : ""}
+            >
+                {data.text}
+            </a>
+        ))
+    }
+</div>

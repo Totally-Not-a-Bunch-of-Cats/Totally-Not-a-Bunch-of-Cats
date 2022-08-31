@@ -1,0 +1,34 @@
+---
+let { klass, style, icon } = Astro.props;
+
+icon = icon.split(" ");
+
+function getIconType() {
+    let result = [];
+    if (typeof icon === "string") {
+        result.push("fas");
+        result.push("fa-" + icon);
+    } else {
+        if (icon.length > 1) {
+            switch (icon[0]) {
+                case "fab":
+                    result.push("fa-brands");
+                    break;
+                case "fas":
+                default:
+                    result.push("fa-solid");
+            }
+
+            result.push("fa-" + icon[1]);
+        } else {
+            result = ["fa-solid", "fa-circle-solid"];
+        }
+    }
+
+    return result;
+}
+
+icon = getIconType();
+---
+
+<i class={`${icon[0]} ${icon[1]} ${klass}`} style={style}></i>
