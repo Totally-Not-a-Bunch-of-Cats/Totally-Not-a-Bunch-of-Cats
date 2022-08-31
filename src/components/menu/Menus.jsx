@@ -1,6 +1,7 @@
 import { h, Fragment } from 'preact';
 import "../../scss/main.scss";
 import "./menus.scss";
+import { FAIcon } from "../FAIcon";
 
 export const DesktopMenu = ({ ...props }) => {
     let links = [];
@@ -55,7 +56,7 @@ export const MobileMenu = ({ ...props }) => {
 
     return (
         <>
-            <div class="mobile">
+            <div id="mobile-menu" class="mobile menu-mobile">
 
                 {/* 
                  Hamburger menu inspired by Dronca Raul from CodePen
@@ -64,9 +65,28 @@ export const MobileMenu = ({ ...props }) => {
                 */}
 
                 <div class="menu-overlay">
-                    <div class="overlay-info">
+                    <div class="quick-nav">
+                        <a href="#header" onclick={e => {
+                            document.body.classList.toggle("hide-overflow");
+                            document.getElementsByClassName("menu")[0].classList.toggle("open");
+                            document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
+                        }}>
+                            <FAIcon icon={["fas", "arrow-up-short-wide"]} />
+                        </a>
 
+                    </div>
+                    <div class="overlay-info">
                         {links}
+                    </div>
+
+                    <div class="quick-nav">
+                        <a href="#footer" onclick={e => {
+                            document.body.classList.toggle("hide-overflow");
+                            document.getElementsByClassName("menu")[0].classList.toggle("open");
+                            document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
+                        }}>
+                            <FAIcon icon={["fas", "arrow-down-wide-short"]} />
+                        </a>
                     </div>
                 </div>
 

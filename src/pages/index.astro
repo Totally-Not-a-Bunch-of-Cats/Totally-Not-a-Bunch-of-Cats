@@ -8,6 +8,7 @@ import { Trailer } from "../components/Trailer/Trailer";
 import "../scss/home.scss";
 import { home } from "../data/links.json";
 import Content from "../components/Content.astro";
+import TMPreview from "../components/TM/TMPreview.astro";
 ---
 
 <html lang="en">
@@ -140,8 +141,6 @@ import Content from "../components/Content.astro";
                 </p>
             </div>
 
-            <div class="seporator cinnamon-satin"></div>
-
             <div id="projects-current">
                 <div class="d-flex flex-column align-items-center m-block-2">
                     <Trailer
@@ -177,9 +176,10 @@ import Content from "../components/Content.astro";
         </Content>
 
         <Content id="team">
-            <div class="h1">
+            <div class="h1 mb-6">
                 <strong>Team</strong>
             </div>
+            <TMPreview />
         </Content>
 
         <Footer links={home} />

@@ -6,7 +6,23 @@ import Logo from "/images/Logo-1.png";
 import { DesktopMenu, MobileMenu } from "./menu/Menus";
 ---
 
-<nav>
+<nav id="header">
+    <!-- <script>
+        var observer = new IntersectionObserver(
+            function (entries) {
+                console.log("dog");
+                const MobileMenu = document.getElementById("desktop-menu");
+                if (entries[0].isIntersecting === true) {
+                    MobileMenu.classList.add("hide");
+                } else {
+                    MobileMenu.classList.remove("hide");
+                }
+            },
+            { threshold: [0] }
+        );
+
+        observer.observe(document.querySelector("nav"));
+    </script> -->
     <div
         class="d-flex justify-content-between align-items-end p-1 m-inline-auto mt-2"
     >
@@ -14,6 +30,6 @@ import { DesktopMenu, MobileMenu } from "./menu/Menus";
             <img src={Logo} aria-label="Three cats in basket logo" />
         </div>
         <DesktopMenu links={links} client:visible />
-        <MobileMenu links={links} client:visible />
+        <MobileMenu links={links} client:load />
     </div>
 </nav>

@@ -1,0 +1,78 @@
+@import "../../scss/colors";
+
+.pfp {
+    $size: 15rem;
+
+    width: $size;
+    height: $size;
+
+    border-radius: 50%;
+}
+
+.tm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-self: center;
+
+    gap: 4rem;
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tm-socials {
+        margin-top: 1rem;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+
+        a {
+            path {
+                transition: .2s;
+            }
+        }
+    }
+
+    .tm-social {
+        $size: 3rem;
+        width: $size;
+        height: $size;
+
+    }
+}
+
+.tm-name {
+    font-size: 3rem !important;
+    font-weight: bold;
+    text-align: center;
+
+    margin-top: 1rem;
+}
+
+.tm-title {
+    font-size: 2.5rem !important;
+    text-align: center;
+}
+
+@media only screen and (min-width: 500px) {
+    .tm-name {
+        font-size: 3.5rem !important;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .tm {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10rem;
+    }
+}

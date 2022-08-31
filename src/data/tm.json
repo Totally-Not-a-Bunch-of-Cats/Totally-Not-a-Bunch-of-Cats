@@ -1,0 +1,35 @@
+{
+    "members": [
+        {
+            "pfp": "kitty",
+            "name": "Aaron T.",
+            "title": "Team Lead",
+            "socials": []
+        },
+        {
+            "pfp": "ZacharyBoehm",
+            "name": "Zachary Boehm",
+            "title": "Lead Programmer",
+            "socials": [
+                {
+                    "name": "Github",
+                    "class": "path-hover-royal-purple",
+                    "icon": [
+                        "fab",
+                        "github"
+                    ],
+                    "link": "https://github.com/Tired-Fox"
+                },
+                {
+                    "name": "Codepen",
+                    "class": "path-hover-emerald",
+                    "icon": [
+                        "fab",
+                        "codepen"
+                    ],
+                    "link": "https://codepen.io/boehm-zachary"
+                }
+            ]
+        }
+    ]
+}

@@ -28,8 +28,9 @@ footer {
             text-underline-offset: .5rem;
 
             svg {
-                fill: map-get($map: $colors, $key: "platinum") !important;
-                color: map-get($map: $colors, $key: "platinum") !important;
+                path {
+                    fill: map-get($map: $colors, $key: "platinum") !important;
+                }
             }
         }
 
