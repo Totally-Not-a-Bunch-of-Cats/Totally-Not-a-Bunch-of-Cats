@@ -89,6 +89,8 @@ nav {
     top: 0;
     left: 0;
 
+    pointer-events: none;
+
     @media screen and (min-width: 850px) {
         display: none !important;
     }
@@ -101,6 +103,8 @@ nav {
     right: 3rem;
     height: 46px;
     width: 46px;
+
+    pointer-events: all;
 }
 
 .menu-link {
@@ -181,6 +185,7 @@ nav {
 
 /* ------------- */
 .menu-overlay {
+    pointer-events: all;
     background-color: white;
     color: #333;
     height: 100%;
@@ -203,6 +208,8 @@ nav {
 .menu-overlay.open {
     opacity: 1;
     visibility: visible;
+    width: 100%;
+    height: 100%;
 }
 
 .hide-overflow {
