@@ -22,7 +22,7 @@
             "aria": "Redirect to the blog page",
             "link": "blog/",
             "text": "Blog",
-            "title": "Coming Soon!"
+            "title": ""
         }
     ],
     "projects": [
@@ -35,8 +35,8 @@
         {
             "aria": "Redirect to blog page",
             "link": "blog/",
-            "text": "Blogs",
-            "title": "Coming Soon!"
+            "text": "Blog",
+            "title": ""
         }
     ],
     "blog": [
