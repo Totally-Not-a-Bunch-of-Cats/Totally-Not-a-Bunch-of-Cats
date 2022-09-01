@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/BlogPost.astro"
+layout: "../../layouts/BlogPost.astro"
 title: "Totally Not a Bunch of Cats All New Website"
 description: "Read about our new website and how it is created"
 pubDate: "Sept 01 2022"
