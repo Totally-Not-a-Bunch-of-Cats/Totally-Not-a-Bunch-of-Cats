@@ -13,6 +13,7 @@ export interface Props {
 }
 
 const { title, description, permalink, links, fa } = Astro.props;
+console.log(permalink);
 ---
 
 <html lang="en">
@@ -22,7 +23,6 @@ const { title, description, permalink, links, fa } = Astro.props;
             description={description}
             permalink={permalink}
         />
-        {fa && <FAHead />}
     </head>
 
     <body>

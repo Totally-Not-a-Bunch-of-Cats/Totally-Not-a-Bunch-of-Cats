@@ -19,7 +19,6 @@ const {
 	content: { title, description, pubDate, updatedDate, heroImage },
 } = Astro.props;
 
-console.log(permalink);
 ---
 
 <BaseLayout 
@@ -34,7 +33,7 @@ console.log(permalink);
             {heroImage && (
                 <div class="fit-content m-auto">
                     <img
-                        src={heroImage}
+                        src={permalink + heroImage}
                         alt=""
                     />
                 </div>
