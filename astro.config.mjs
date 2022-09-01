@@ -10,15 +10,7 @@ export default defineConfig({
     integrations: [mdx(), preact()],
     markdown: {
         shikiConfig: {
-            theme: 'dracula'
+            theme: 'dracula',
         },
-        rehypePlugins: [
-            [
-                'rehype-external-links',
-                {
-                    target: '_blank',
-                },
-            ],
-        ],
-    }
+    },
 });

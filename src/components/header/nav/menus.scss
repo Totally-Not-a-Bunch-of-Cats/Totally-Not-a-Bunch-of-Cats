@@ -16,6 +16,12 @@
     pointer-events: none;
 }
 
+span {
+    font-size: inherit;
+    line-height: normal;
+    margin: 1;
+}
+
 .quick-nav {
     margin-block: 2rem;
 

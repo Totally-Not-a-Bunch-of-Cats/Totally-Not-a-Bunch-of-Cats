@@ -1,58 +1,5 @@
 @import "../styles/colors.scss";
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    // Custom font family
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0 0 0.5em 0;
-}
-
-h1 {
-    // Custom font family
-    font-size: 4em;
-    margin: 0 0 1em 0;
-}
-
-h2 {
-    margin: 1.6em 0 0 0;
-    font-size: 1.8em;
-}
-
-h3 {
-    font-size: 1.5em;
-}
-
-h4 {
-    font-size: 1.4em;
-}
-
-h5 {
-    font-size: 1.3em;
-}
-
-h6 {
-    font-size: 1.2em;
-}
-
-p,
-ul,
-ol,
-span {
-    font-size: 1.3rem;
-    line-height: 1.75em;
-    margin: 1.2em 0;
-}
 
 ol,
 ul {
@@ -70,18 +17,11 @@ li p {
     margin-top: 0.5rem;
 }
 
-a {
-    font-size: inherit;
-    color: inherit;
-    transition: color linear 0.15s;
-}
-
 a:hover {
     color: map-get($map: $colors, $key: "quick-silver");
 }
 
 p a {
-    font-size: inherit;
     text-decoration: none;
     box-shadow: inset 0 -0.12em 0 map-get($map: $colors, $key: "quick-silver");
     -webkit-transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -152,41 +92,26 @@ figure {
     vertical-align: baseline;
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
-    margin: 0 0 3em 0;
+    margin: 0 0 3rem 0;
 }
 
 table {
     border-collapse: collapse;
-    font-size: 1.125em;
-    margin: 2em 0;
+    font-size: 1.125rem;
+    margin: 2rem 0;
 }
 
 th {
     border-bottom: 2px solid #cccccc;
-    padding: 0.4em 0.8em;
+    padding: 0.4rem 0.8rem;
 }
 
 td {
-    padding: 0.4em 0.8em;
+    padding: 0.4rem 0.8rem;
 }
 
 .container {
     margin: 0 auto;
-    max-width: 42em;
+    max-width: 42rem;
     width: 100%;
-}
-
-.content h1 {
-    font-size: 3em;
-    margin: 1em 0;
-}
-
-@media (max-width: 1020px) {
-    h1 {
-        font-size: 3em;
-    }
-
-    .content h1 {
-        font-size: 2.4em;
-    }
 }

@@ -41,7 +41,7 @@ const {
                 </div>
             )}
             <h1 class="title">{title}</h1>
-            {pubDate && <p><time>{pubDate}</time></p>}
+            {pubDate && <p>~ <time>{pubDate}</time></p>}
             {updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
             <hr class="mb-4"/>
             <slot />
