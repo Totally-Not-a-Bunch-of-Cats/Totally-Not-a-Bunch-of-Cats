@@ -10,15 +10,17 @@
         "astro": "astro"
     },
     "devDependencies": {
+        "@astrojs/mdx": "^0.11.0",
         "@astrojs/preact": "^1.0.2",
-        "astro": "^1.1.1"
+        "astro": "^1.1.1",
+        "rehype-external-links": "^2.0.1"
     },
     "dependencies": {
-        "preact": "^10.6.5",
         "@aduh95/preact-fontawesome": "^0.1.5",
         "@fortawesome/fontawesome-svg-core": "6.2.0",
         "@fortawesome/free-brands-svg-icons": "^6.2.0",
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
+        "preact": "^10.6.5",
         "sass": "^1.54.5"
     }
 }

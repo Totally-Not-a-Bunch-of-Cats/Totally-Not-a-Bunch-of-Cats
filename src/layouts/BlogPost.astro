@@ -1,4 +1,6 @@
 ---
+import "./BlogPost.scss";
+
 import BaseLayout from "./BaseLayout.astro";
 import Content from "../components/Content.astro";
 
@@ -12,7 +14,7 @@ export interface Props {
 	};
 }
 
-const permalink = Astro.site.href + "Totally-Not-a-Bunch-of-Cats/";
+const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
 import { post } from "../data/links.json";
 
 const {
@@ -31,7 +33,7 @@ const {
     <Content>
         <article>
             {heroImage && (
-                <div class="fit-content m-auto">
+                <div id="hero-image" class="fit-content m-auto">
                     <img
                         src={permalink + heroImage}
                         alt=""
@@ -45,7 +47,7 @@ const {
             <slot />
         </article>
     </Content>
-    <style>
+    <style lang="scss">
         .title {
             font-size: 2em;
             margin: 0.25em 0 0;
@@ -56,6 +58,12 @@ const {
         }
         time {
             font-size: inherit;
+        }
+
+        #hero-image {
+            img {
+                max-width: 90% !important;
+            }
         }
     </style>
 </BaseLayout>

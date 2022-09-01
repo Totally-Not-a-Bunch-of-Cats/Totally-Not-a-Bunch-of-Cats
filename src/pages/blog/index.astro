@@ -7,7 +7,7 @@ import Content from "../../components/Content.astro";
 const title = "Blog";
 const description =
     "Keep up to date with what is going on with Totally Not a Bunch of Cats";
-const permalink = Astro.site.href  + "Totally-Not-a-Bunch-of-Cats/";
+const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
 import { blog } from "../../data/links.json";
 
 const posts = (await Astro.glob('../blogs/**/*.{md,mdx}')).sort(

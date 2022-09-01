@@ -17,19 +17,11 @@ body {
     background-color: map-get($map: $colors, $key: "tumbleweed");
 }
 
+em,
+span,
 strong {
     font-size: inherit;
     color: inherit;
-}
-
-em {
-    font-size: inherit;
-    color: inherit;
-}
-
-span {
-    color: inherit;
-    font-size: inherit;
 }
 
 .d-flex {
@@ -166,50 +158,33 @@ a {
     transition: .2s;
 }
 
-p {
+p,
+.p,
+code,
+ul,
+ol,
+li {
     font-size: 1.5rem;
 
     transition: .2s;
 }
 
-.para {
-    font-size: 1.5rem;
-
-    transition: .2s;
-}
-
-
+h1,
 .h1 {
     font-size: 4rem !important;
 
     transition: .2s;
 }
 
+h2,
 .h2 {
     font-size: 3rem !important;
 
     transition: .2s;
 }
 
+h3,
 .h3 {
-    font-size: 2rem !important;
-
-    transition: .2s;
-}
-
-h1 {
-    font-size: 4rem !important;
-
-    transition: .2s;
-}
-
-h2 {
-    font-size: 3rem !important;
-
-    transition: .2s;
-}
-
-h3 {
     font-size: 2rem !important;
 
     transition: .2s;
@@ -259,11 +234,13 @@ $color in $colors {
 }
 
 @media only screen and (min-width: 850px) {
-    p {
-        font-size: 1.7rem;
-    }
 
-    .para {
+    p,
+    .p,
+    code,
+    ul,
+    ol,
+    li {
         font-size: 1.7rem;
     }
 
@@ -274,37 +251,22 @@ $color in $colors {
         color: black;
     }
 
+    h1,
     .h1 {
         font-size: 4rem !important;
 
         transition: .2s;
     }
 
+    h2,
     .h2 {
         font-size: 3rem !important;
 
         transition: .2s;
     }
 
+    h3,
     .h3 {
-        font-size: 2rem !important;
-
-        transition: .2s;
-    }
-
-    h1 {
-        font-size: 4rem !important;
-
-        transition: .2s;
-    }
-
-    h2 {
-        font-size: 3rem !important;
-
-        transition: .2s;
-    }
-
-    h3 {
         font-size: 2rem !important;
 
         transition: .2s;
@@ -312,11 +274,13 @@ $color in $colors {
 }
 
 @media only screen and (min-width: 1200px) {
-    p {
-        font-size: 2.2rem;
-    }
 
-    .para {
+    p,
+    .p,
+    code,
+    ul,
+    ol,
+    li {
         font-size: 2.2rem;
     }
 
@@ -327,37 +291,22 @@ $color in $colors {
         color: black;
     }
 
+    h1,
     .h1 {
         font-size: 5rem !important;
 
         transition: .2s;
     }
 
+    h2,
     .h2 {
         font-size: 4rem !important;
 
         transition: .2s;
     }
 
+    h3,
     .h3 {
-        font-size: 3rem !important;
-
-        transition: .2s;
-    }
-
-    h1 {
-        font-size: 5rem !important;
-
-        transition: .2s;
-    }
-
-    h2 {
-        font-size: 4rem !important;
-
-        transition: .2s;
-    }
-
-    h3 {
         font-size: 3rem !important;
 
         transition: .2s;
@@ -366,11 +315,13 @@ $color in $colors {
 
 
 @media only screen and (min-width: 2100px) {
-    p {
-        font-size: 2.7rem;
-    }
 
-    .para {
+    p,
+    .p,
+    code,
+    ul,
+    ol,
+    li {
         font-size: 2.7rem;
     }
 
@@ -381,37 +332,22 @@ $color in $colors {
         color: black;
     }
 
+    h1,
     .h1 {
         font-size: 6rem !important;
 
         transition: .2s;
     }
 
+    h2,
     .h2 {
         font-size: 5rem !important;
 
         transition: .2s;
     }
 
+    h3,
     .h3 {
-        font-size: 4rem !important;
-
-        transition: .2s;
-    }
-
-    h1 {
-        font-size: 6rem !important;
-
-        transition: .2s;
-    }
-
-    h2 {
-        font-size: 5rem !important;
-
-        transition: .2s;
-    }
-
-    h3 {
         font-size: 4rem !important;
 
         transition: .2s;

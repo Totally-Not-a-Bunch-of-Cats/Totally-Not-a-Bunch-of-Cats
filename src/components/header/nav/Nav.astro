@@ -7,7 +7,7 @@ export interface Props {
 
 const { links } = Astro.props;
 
-const permalink = Astro.site.href + "Totally-Not-a-Bunch-of-Cats/";
+const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
 ---
 
 <DesktopMenu links={links} permalink={permalink} client:visible />
