@@ -1,0 +1,70 @@
+<p class="h2 mb-4 text-align-center">Workflow</p>
+        <p class="text-indent mb-6">
+            The core components that we use for creating games include, task
+            management, source control, communication, and a game engine. Let's
+            start with the task management.
+        </p>
+        <div class="d-flex justify-content-center">
+            <img
+                src="svg/logo-gradient-blue-jira.svg"
+                alt="Jira Logo"
+                class="m-block-2"
+                title="Jira"
+            />
+        </div>
+        <p class="text-indent fit-content mb-6">
+            For task management and time logging our team chose to use Jira. The
+            customizability, automation, integration with source control, and
+            other amazing features make Jira the best pick for our team.
+            Speaking of source control integration let's descuss that next.
+        </p>
+        <div class="d-flex justify-content-center">
+            <img
+                src="images/Octocat.png"
+                alt="Github"
+                title="Github"
+                class="m-block-2 w-10"
+            />
+        </div>
+        <p class="text-indent mb-6">
+            For source control we are using Github. We create a branch for eash
+            Jira issue we are working on. When we commit our changes we can
+            create a Pull Request (PR) to merge into the main branch. All of
+            these steps trigger automatimation in Jira which keeps everything up
+            to date.
+        </p>
+        <div class="d-flex justify-content-center">
+            <img
+                src="svg/logo-discord.svg"
+                alt="Discord"
+                title="Discord"
+                class="m-block-2 w-5"
+            />
+        </div>
+        <p class="text-indent mb-6">
+            With many 'Gamers' using Discord as a form of communication it is
+            really natural for our team to use it as well. Everyone on the team
+            has experience with the software and it is a familiar tool. This is
+            the main reason our team chose to use Discord.
+        </p>
+        <div class="d-flex justify-content-center">
+            <img
+                src="svg/U_Logo_Black_RGB.svg"
+                alt="Unity"
+                title="Unity"
+                class="mt-2 w-15"
+            />
+        </div>
+        <p class="text-indent">
+            There are a few choices for what game engine to use while building a
+            game. There is Godo, Unreal Engine, and Unity as the big three. Most
+            people on our team went to the same school and got the same game
+            design degree. With this we were all introduced to Unity and were
+            most familiar with the engine. This is why Unity is our primary game
+            engine.
+        </p>
+        <p class="text-indent mt-2">
+            In the future we plan to explore some new tools such as different
+            game engines. Future projects may involve these new tools or we may
+            decide that our current workflow is a good standard for our team.
+        </p>

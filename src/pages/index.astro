@@ -1,184 +1,206 @@
 ---
-import Admonition from "../components/admonition/admonition.astro";
-import Footer from "../components/footer/footer.astro";
-import Head from "../components/Head.astro";
-import Header from "../components/Header.astro";
-import { Trailer } from "../components/Trailer/Trailer";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import "../scss/home.scss";
-import { home } from "../data/links.json";
+import Admonition from "../components/admonition/admonition.astro";
 import Content from "../components/Content.astro";
 import TMList from "../components/TM/TMList.astro";
+import { Trailer } from "../components/Trailer/Trailer";
+
+const title = "Home";
+const description =
+    "Totally Not a Bunch of Cats is an indie game dev group looking to make new content.";
+const permalink = Astro.site.href  + "Totally-Not-a-Bunch-of-Cats/";
+import { home } from "../data/links.json";
 ---
 
-<html lang="en">
-    <head>
-        <Head title="Home" />
-    </head>
+<BaseLayout
+    title={title}
+    description={description}
+    permalink={permalink}
+    links={home}
+    fa={true}
+>
+    <Content id="about">
+        
+        <div class="h1 header">
+            <strong>About</strong>
+        </div>
 
-    <body>
-        <Header links={home} />
-        <Content id="about">
-            <div class="h1 header">
-                <strong>About</strong>
-            </div>
-            <p class="text-indent mb-4">
-                Totally Not a Bunch of Cats is a small, just for fun, game
-                development group looking to make enjoyable content. We all
-                strive to learn about game development and the tools used with
-                it.
+        
+        <div class="m-auto fit-content">
+            <a 
+                href="https://icons8.com/illustrations/author/zD2oqC8lLBBA"
+                target="_blank"
+            >
+                <img 
+                src="images/casual-life-3d-cat-lying-on-books.png" 
+                title="Illustration by Icons 8 from Ouch!"  
+                />
+            </a>
+        </div>
+
+        <p class="text-indent mb-4">
+            Totally Not a Bunch of Cats is a small, just for fun, game
+            development group looking to make enjoyable content. We all strive
+            to learn about game development and the tools used with it.
+        </p>
+
+
+        <Admonition color="blue-gray" icon={["fas", "circle-info"]} className="mb-2">
+            <p>
+                Check out our <a href="blog/" aria-label="Check out our blog">blog</a> if you are interested in keeping up with the groups projects
             </p>
-
-            <Admonition color="mustard" icon="fas triangle-exclamation">
-                <p>
-                    We don't currently have any games finished, but we are
-                    working on our first right now.
-                </p>
+            <div class="blue-gray button mobile">
+                <a href="blog/" aria-label="Check out our blog">Blog</a>
+            </div>
             </Admonition>
 
-            <p class="h2 mb-4 text-align-center">Workflow</p>
-            <p class="text-indent mb-6">
-                The core components that we use for creating games include, task
-                management, source control, communication, and a game engine.
-                Let's start with the task management.
-            </p>
-            <div class="d-flex justify-content-center">
-                <img
-                    src="svg/logo-gradient-blue-jira.svg"
-                    alt="Jira Logo"
-                    class="m-block-2"
-                    title="Jira"
-                />
-            </div>
-            <p class="text-indent fit-content mb-6">
-                For task management and time logging our team chose to use Jira.
-                The customizability, automation, integration with source
-                control, and other amazing features make Jira the best pick for
-                our team. Speaking of source control integration let's descuss
-                that next.
-            </p>
-            <div class="d-flex justify-content-center">
-                <img
-                    src="images/Octocat.png"
-                    alt="Github"
-                    title="Github"
-                    class="m-block-2 w-10"
-                />
-            </div>
-            <p class="text-indent mb-6">
-                For source control we are using Github. We create a branch for
-                eash Jira issue we are working on. When we commit our changes we
-                can create a Pull Request (PR) to merge into the main branch.
-                All of these steps trigger automatimation in Jira which keeps
-                everything up to date.
-            </p>
-            <div class="d-flex justify-content-center">
-                <img
-                    src="svg/logo-discord.svg"
-                    alt="Discord"
-                    title="Discord"
-                    class="m-block-2 w-5"
-                />
-            </div>
-            <p class="text-indent mb-6">
-                With many 'Gamers' using Discord as a form of communication it
-                is really natural for our team to use it as well. Everyone on
-                the team has experience with the software and it is a familiar
-                tool. This is the main reason our team chose to use Discord.
-            </p>
-            <div class="d-flex justify-content-center">
-                <img
-                    src="svg/U_Logo_Black_RGB.svg"
-                    alt="Unity"
-                    title="Unity"
-                    class="mt-2 w-15"
-                />
-            </div>
-            <p class="text-indent">
-                There are a few choices for what game engine to use while
-                building a game. There is Godo, Unreal Engine, and Unity as the
-                big three. Most people on our team went to the same school and
-                got the same game design degree. With this we were all
-                introduced to Unity and were most familiar with the engine. This
-                is why Unity is our primary game engine.
-            </p>
-            <p class="text-indent mt-2">
-                In the future we plan to explore some new tools such as
-                different game engines. Future projects may involve these new
-                tools or we may decide that our current workflow is a good
-                standard for our team.
-            </p>
-        </Content>
+    </Content>
 
-        <Content id="projects">
-            <div class="h1 header">
-                <strong>Projects</strong>
-            </div>
-            <div id="projects-featured">
-                <div class="d-flex flex-column align-items-center m-block-2">
-                    <Trailer client:visible />
-                    <p class="h3 m-block-2">
-                        <strong class="color-cinnamon-satin">Featured:</strong> Herding
-                        Cats
-                    </p>
-                </div>
-
-                <p class="text-indent m-block-2">
-                    Herding Cats is a short, fun to play, puzzle game. Use items
-                    such as the scratching post or the catnip to lure the cats
-                    into their cage. Be careful, as walls and traps can get in
-                    your way.
-                </p>
-
-                <p class="text-indent m-block-2">
-                    This puzzle game is easy to pick up and play. It uses turn
-                    based strategy and puzzle solving. Can you to get all the
-                    cats into the cage with easily? Or will they cats playful
-                    behavior get the best of you?
+    <Content id="projects">
+        <div class="h1 header">
+            <strong>Projects</strong>
+        </div>
+        <div id="projects-featured">
+            <div class="d-flex flex-column align-items-center m-block-2">
+                <Trailer client:visible />
+                <p class="h3 m-block-2">
+                    <strong class="color-cinnamon-satin">Featured:</strong> Herding
+                    Cats
                 </p>
             </div>
 
-            <div id="projects-current">
-                <div class="d-flex flex-column align-items-center m-block-2">
-                    <Trailer
-                        url="https://www.youtube.com/watch?v=aMWQS8Ei_No"
-                        client:visible
-                    />
-                    <p class="text-indent h3 m-block-2">
-                        <strong class="color-cinnamon-satin"
-                            >In Progress:</strong
-                        > Herding Cats
-                    </p>
-                </div>
+            <p class="text-indent m-block-2">
+                Herding Cats is a short, fun to play, puzzle game. Use items
+                such as the scratching post or the catnip to lure the cats into
+                their cage. Be careful, as walls and traps can get in your way.
+            </p>
 
-                <p class="text-indent m-block-2">
-                    Herding Cats is a short, fun to play, puzzle game. Use items
-                    such as the scratching post or the catnip to lure the cats
-                    into their cage. Be careful, as walls and traps can get in
-                    your way.
-                </p>
+            <p class="text-indent m-block-2">
+                This puzzle game is easy to pick up and play. It uses turn based
+                strategy and puzzle solving. Can you to get all the cats into
+                the cage with easily? Or will they cats playful behavior get the
+                best of you?
+            </p>
+        </div>
 
-                <p class="text-indent m-block-2">
-                    This puzzle game is easy to pick up and play. It uses turn
-                    based strategy and puzzle solving. Can you to get all the
-                    cats into the cage with easily? Or will they cats playful
-                    behavior get the best of you?
-                </p>
-            </div>
-            <div id="more-projects" class="text-align-right mt-10">
-                <a href="projects/index.html"
-                    >More<span id="more-projects-arrow">→</span>
-                </a>
-            </div>
-        </Content>
+        <div id="more-projects" class="text-align-right mt-10">
+            <a href="projects/">More<span id="more-projects-arrow">→</span></a>
+        </div>
+    </Content>
 
-        <Content id="team">
-            <div class="h1 mb-6">
-                <strong>Team</strong>
-            </div>
-            <TMList />
-        </Content>
+    <Content id="team">
+        <div class="h1 mb-6">
+            <strong>Team</strong>
+        </div>
+        <TMList />
+    </Content>
 
-        <Footer links={home} />
-    </body>
-</html>
+    <style lang="scss">
+        @import "../styles/colors";
+
+        .header {
+            margin-bottom: 6rem;
+        }
+
+        .seporator {
+            width: 70%;
+            height: 0.25rem;
+
+            margin-block: 6rem;
+            margin-inline: auto;
+            border-radius: 1rem;
+        }
+
+
+        p > a {
+            text-decoration: none;
+            box-shadow: inset 0 -0.12em 0 map-get($map: $colors, $key: "quick-silver");
+            -webkit-transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+            transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+
+        p > a:hover {
+            box-shadow: inset 0 -1.5em 0 map-get($map: $colors, $key: "quick-silver");
+            color: #fff;
+        }
+
+        #more-projects {
+            transition: 0.5s;
+            width: fit-content;
+            background-color: map-get($map: $colors, $key: "cinnamon-satin");
+
+            padding-inline: 1.75rem;
+            padding-block: 1.25rem;
+            border-radius: 1rem;
+            margin-inline: auto;
+
+            a {
+                font-size: 1.75rem !important;
+                transition: 0.5s;
+                letter-spacing: 0.25rem;
+
+                color: map-get($map: $colors, $key: "platinum");
+
+                &:hover {
+                    color: map-get($map: $colors, $key: "platinum");
+                }
+
+                @media only screen and (min-width: 1200px) {
+                    font-size: 2rem !important;
+                    letter-spacing: 0.25rem;
+
+                    &:hover {
+                        margin-right: 1rem;
+                        letter-spacing: 0.5rem;
+                    }
+                }
+
+                @media only screen and (min-width: 1440px) {
+                    letter-spacing: 0.25rem;
+
+                    &:hover {
+                        margin-right: 1rem;
+                        letter-spacing: 0.5rem;
+                    }
+                }
+
+                @media only screen and (min-width: 1900px) {
+                    font-size: 2rem !important;
+                }
+
+                @media only screen and (min-width: 2100px) {
+                    font-size: 2.5rem !important;
+                }
+            }
+
+            #more-projects-arrow {
+                display: none;
+            }
+
+            @media only screen and (min-width: 850px) {
+                background-color: map-get($map: $colors, $key: "platinum");
+                margin: 0;
+                margin-left: auto;
+
+                a {
+                    font-size: 1.5rem !important;
+                    text-decoration: underline;
+                    text-underline-offset: 0.75rem;
+
+                    color: map-get($map: $colors, $key: "cinnamon-satin");
+
+                    &:hover {
+                        color: map-get($map: $colors, $key: "cinnamon-satin");
+                        margin-right: 1rem;
+                        letter-spacing: 0.5rem;
+                    }
+                }
+
+                #more-projects-arrow {
+                    display: inline;
+                }
+            }
+        }
+    </style>
+</BaseLayout>

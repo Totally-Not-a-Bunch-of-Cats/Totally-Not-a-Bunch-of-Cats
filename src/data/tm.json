@@ -15,12 +15,18 @@
                     "name": "Github",
                     "class": "i-hover-royal-purple",
                     "link": "https://github.com/Tired-Fox",
-                    "icon": "fab github"
+                    "icon": [
+                        "fab",
+                        "github"
+                    ]
                 },
                 {
                     "name": "Codepen",
                     "class": "i-hover-emerald",
-                    "icon": "fab codepen",
+                    "icon": [
+                        "fab",
+                        "codepen"
+                    ],
                     "link": "https://codepen.io/boehm-zachary"
                 }
             ]

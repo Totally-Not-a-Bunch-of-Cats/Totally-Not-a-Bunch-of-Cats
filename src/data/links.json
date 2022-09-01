@@ -20,7 +20,7 @@
         },
         {
             "aria": "Redirect to the blog page",
-            "link": "#",
+            "link": "blog/",
             "text": "Blog",
             "title": "Coming Soon!"
         }
@@ -28,15 +28,49 @@
     "projects": [
         {
             "aria": "Redirect to homepage",
-            "link": "../index.html",
+            "link": "",
             "text": "Home",
             "title": ""
         },
         {
             "aria": "Redirect to blog page",
-            "link": "#",
-            "text": "Blog",
+            "link": "blog/",
+            "text": "Blogs",
             "title": "Coming Soon!"
+        }
+    ],
+    "blog": [
+        {
+            "aria": "Redirect to homepage",
+            "link": "",
+            "text": "Home",
+            "title": ""
+        },
+        {
+            "aria": "Redirect to projects page",
+            "link": "projects/",
+            "text": "Projects",
+            "title": "Coming Soon!"
+        }
+    ],
+    "post": [
+        {
+            "aria": "Redirect to homepage",
+            "link": "",
+            "text": "Home",
+            "title": ""
+        },
+        {
+            "aria": "Redirect to blogs page",
+            "link": "projects/",
+            "text": "Projects",
+            "title": "Coming Soon!"
+        },
+        {
+            "aria": "Redirect to blog page",
+            "link": "blog/",
+            "text": "Blogs",
+            "title": ""
         }
     ]
 }

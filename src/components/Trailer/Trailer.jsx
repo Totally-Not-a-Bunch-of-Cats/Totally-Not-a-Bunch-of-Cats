@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 
 import "./Trailer.scss";
-import "../../scss/main.scss";
+import "../../styles/global.scss";
 
 export class Trailer extends Component {
     render(props, state) {

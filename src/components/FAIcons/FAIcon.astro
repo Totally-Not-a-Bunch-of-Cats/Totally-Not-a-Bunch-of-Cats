@@ -1,0 +1,45 @@
+---
+let { klass, style, icon } = Astro.props;
+
+function processArray() {
+    let result: Array<String> = [];
+
+    if (icon.length == 2) {
+        switch (icon[0]) {
+            case "fab":
+                result.push("fa-brands");
+                break;
+            case "fas":
+            default:
+                result.push("fa-solid");
+        }
+
+        result.push("fa-" + icon[1]);
+    } else if (icon.length == 1) {
+        result.push("fa-solid");
+        result.push("fa-" + icon[1]);
+    } else {
+        result = ["fa-solid", "fa-circle-info"];
+    }
+
+    return result;
+}
+
+function getIconType() {
+    let result: Array<String> = [];
+
+    if (icon.constructor.name === "Array") {
+        result = processArray();
+    } else if (typeof icon === "string") {
+        icon = icon.split(" ");
+    } else {
+        result = ["fa-solid", "fa-circle-info"];
+    }
+
+    return result;
+}
+
+icon = getIconType();
+---
+
+<i class={`${icon[0]} ${icon[1]} ${klass}`} style={style}></i>

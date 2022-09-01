@@ -1,7 +1,7 @@
 import { h, Fragment } from 'preact';
-import "../../scss/main.scss";
+import "../../../styles/global.scss";
 import "./menus.scss";
-import { FAIcon } from "../FAIcon";
+import { FAIcon } from "../../FAIcons/FAIcon";
 
 export const DesktopMenu = ({ ...props }) => {
     let links = [];
@@ -11,9 +11,9 @@ export const DesktopMenu = ({ ...props }) => {
             const data = props.links[i];
             links.push(
                 <a
-                    href={data.link}
+                    href={props.permalink + data.link}
                     aria-label={data.aria}
-                    title={data.title !== "" ? data.title : ""}
+                    title={data.title ? data.title : ""}
                 >
                     {data.text}
                 </a>
@@ -39,11 +39,11 @@ export const MobileMenu = ({ ...props }) => {
             const data = props.links[i];
             links.push(
                 <a
-                    href={data.link}
+                    href={props.permalink + data.link}
                     aria-label={data.aria}
-                    title={data.title !== "" ? data.title : ""}
+                    title={data.title ? data.title : ""}
                     onclick={e => {
-                        document.body.classList.toggle("hide-overflow  open");
+                        document.body.classList.toggle("hide-overflow");
                         document.getElementsByClassName("menu")[0].classList.toggle("open");
                         document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
                     }}
@@ -67,7 +67,7 @@ export const MobileMenu = ({ ...props }) => {
                 <div class="menu-overlay">
                     <div class="quick-nav">
                         <a href="#header" onclick={e => {
-                            document.body.classList.toggle("hide-overflow  open");
+                            document.body.classList.toggle("hide-overflow");
                             document.getElementsByClassName("menu")[0].classList.toggle("open");
                             document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
                         }}>
@@ -81,7 +81,7 @@ export const MobileMenu = ({ ...props }) => {
 
                     <div class="quick-nav">
                         <a href="#footer" onclick={e => {
-                            document.body.classList.toggle("hide-overflow  open");
+                            document.body.classList.toggle("hide-overflow");
                             document.getElementsByClassName("menu")[0].classList.toggle("open");
                             document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
                         }}>

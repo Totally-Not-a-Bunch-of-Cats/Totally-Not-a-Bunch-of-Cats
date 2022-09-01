@@ -1,3 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import "colors";
+
+* {
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+    font-family: 'Poppins', sans-serif;
+    color: #181717
+}
+
+body {
+    box-sizing: border-box;
+    background-color: map-get($map: $colors, $key: "tumbleweed");
+}
+
+strong {
+    font-size: inherit;
+    color: inherit;
+}
+
+em {
+    font-size: inherit;
+    color: inherit;
+}
+
+span {
+    color: inherit;
+    font-size: inherit;
+}
+
+.d-flex {
+    display: flex
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+@each $type in "justify",
+"align" {
+
+    @each $specifier in "content",
+    "items",
+    "self" {
+
+        @each $value in start,
+        center,
+        end {
+            .#{$type}-#{$specifier}-#{$value} {
+                #{$type}-#{$specifier}: $value  !important;
+            }
+        }
+    }
+}
+
+@each $context in "content",
+"items",
+"self" {
+
+    @each $key,
+    $value in ("between": space-between, "around": space-around, "evenly": space-evenly) {
+        .justify-#{$context}-#{$key} {
+            justify-#{$context}: #{$value} !important;
+        }
+    }
+}
+
+/* Navigation */
+
+
+
+#filler {
+    height: 150vh;
+}
+
+@for $i from 1 through 20 {
+    .w-#{$i*5}p {
+        width: #{$i*5%} !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    .w-#{$i*5} {
+        width: #{$i*5}rem !important;
+    }
+}
+
+@each $typekey,
+$type in ("margin": "m",
+    "padding": "p") {
+
+    @each $dirkey,
+    $dir in ("":"",
+        "-top":"t",
+        "-bottom":"b",
+        "-left":"l",
+        "-right":"r",
+        "-inline":"-inine",
+        "-block":"-block") {
+        @for $i from 1 through 6 {
+            .#{$type}#{$dir}-#{$i} {
+                #{$typekey}#{$dirkey}: #{$i}rem !important;
+            }
+        }
+    }
+
+    .#{$type}-auto {
+        #{$typekey}: auto !important;
+    }
+
+    .#{$type}-inline-auto {
+        #{$typekey}-inline: auto !important;
+    }
+
+    .#{$type}-block-auto {
+        #{$typekey}-block: auto !important;
+    }
+}
+
+@each $typekey,
+$type in ("margin": "m",
+    "padding": "p") {
+
+    @each $dirkey,
+    $dir in ("":"",
+        "-top":"t",
+        "-bottom":"b",
+        "-left":"l",
+        "-right":"r",
+        "-inline":"-inine",
+        "-block":"-block") {
+        @each $i in (10, 15) {
+            .#{$type}#{$dir}-#{$i} {
+                #{$typekey}#{$dirkey}: #{$i}rem !important;
+            }
+        }
+    }
+}
+
+.mobile {
+    @media only screen and (min-width: 850px) {
+        display: none !important;
+    }
+}
+
+.desktop {
+    @media only screen and (max-width: 850px) {
+        display: none !important;
+    }
+}
+
 a {
     font-size: 1.25rem !important;
     text-decoration: none;
@@ -59,6 +218,24 @@ h3 {
 .fit-content {
     width: fit-content;
     height: fit-content;
+}
+
+.button {
+    width: fit-content;
+    height: fit-content;
+
+    margin: auto;
+
+    padding-block: 1rem;
+    padding-inline: 1.75rem;
+
+    margin-top: 2rem;
+
+    &>a {
+        color: white;
+    }
+
+    border-radius: .75rem;
 }
 
 @each $name,
@@ -254,8 +431,6 @@ right {
     }
 }
 
-@import "_colors";
-
 @each $key,
 $value in $colors {
     .color-#{$key} {
@@ -267,5 +442,34 @@ $value in $colors {
 $value in $colors {
     .fill-#{$key} {
         fill: #{$value} !important;
+    }
+}
+
+
+@each $name,
+$value in $colors {
+    .border-#{$name} {
+        border-color: #{$value} !important;
+    }
+}
+
+@each $type in "dashed",
+"dotted",
+"solid",
+"double" {
+    .border-#{$type} {
+        border-style: #{$type} !important;
+    }
+}
+
+@each $dir in "",
+"-top",
+"-bottom",
+"-left",
+"-right" {
+    @for $i from 1 through 4 {
+        .border#{$dir}-#{$i} {
+            border#{$dir}-width: #{$i}px !important;
+        }
     }
 }

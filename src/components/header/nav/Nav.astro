@@ -1,0 +1,14 @@
+---
+import { DesktopMenu, MobileMenu } from "./Menus";
+
+export interface Props {
+    links: any;
+}
+
+const { links } = Astro.props;
+
+const permalink = Astro.site.href + "Totally-Not-a-Bunch-of-Cats/";
+---
+
+<DesktopMenu links={links} permalink={permalink} client:visible />
+<MobileMenu links={links} permalink={permalink} client:load />

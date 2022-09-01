@@ -1,8 +1,7 @@
 ---
 import "./tm.scss";
-import "../../scss/main.scss";
 
-import FAIcon from "../FAIcon.astro";
+import FAIcon from "../FAIcons/FAIcon.astro";
 
 import { members } from "../../data/tm.json";
 
@@ -27,8 +26,8 @@ images.forEach((image) => {
                     src={pfps[member.pfp]}
                     alt={member.name + "'s' Profile Image"}
                 />
-                <p class="tm-name">{member.name}</p>
-                <p class="tm-title">{member.title}</p>
+                <h2>{member.name}</h2>
+                <p class="h3">{member.title}</p>
                 <div class="tm-socials">
                     {member.socials.length !== 0 &&
                         member.socials.map((social) => (

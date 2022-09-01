@@ -1,10 +1,12 @@
 ---
 import "./footer.scss";
-import "../../scss/main.scss";
+
 import Logo from "../Logo/Logo.astro";
-import FAIcon from "../FAIcon.astro";
+import FAIcon from "../FAIcons/FAIcon.astro";
 
 const { links } = Astro.props;
+
+const permalink = Astro.site.href + "Totally-Not-a-Bunch-of-Cats/";
 ---
 
 <footer id="footer">
@@ -20,16 +22,16 @@ const { links } = Astro.props;
                     target="_blank"
                     aria-label="Github Link"
                 >
-                    <FAIcon icon="fab github" klass="social" />
+                    <FAIcon icon={["fab", "github"]} klass="social" />
                 </a>
             </div>
             <div>
                 {
                     links.map((data) => (
                         <a
-                            href={data.link}
+                            href={permalink + data.link}
                             aria-label={data.aria}
-                            title={data.title !== "" ? data.title : ""}
+                            title={data.title ? data.title : ""}
                         >
                             {data.text}
                         </a>

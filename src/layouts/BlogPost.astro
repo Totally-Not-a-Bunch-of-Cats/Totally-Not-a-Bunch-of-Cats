@@ -1,0 +1,62 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Content from "../components/Content.astro";
+
+export interface Props {
+	content: {
+		title: string;
+		description: string;
+		pubDate?: string;
+		updatedDate?: string;
+		heroImage?: string;
+	};
+}
+
+const permalink = Astro.site.href + "Totally-Not-a-Bunch-of-Cats/";
+import { post } from "../data/links.json";
+
+const {
+	content: { title, description, pubDate, updatedDate, heroImage },
+} = Astro.props;
+
+console.log(permalink);
+---
+
+<BaseLayout 
+    title={title} 
+    description={description}
+    permalink={permalink} 
+    links={post} 
+    fa={true}
+> 
+    <Content>
+        <article>
+            {heroImage && (
+                <div class="fit-content m-auto">
+                    <img
+                        src={heroImage}
+                        alt=""
+                    />
+                </div>
+            )}
+            <h1 class="title">{title}</h1>
+            {pubDate && <p><time>{pubDate}</time></p>}
+            {updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
+            <hr class="mb-4"/>
+            <slot />
+        </article>
+    </Content>
+    <style>
+        .title {
+            font-size: 2em;
+            margin: 0.25em 0 0;
+        }
+        hr {
+            border-top: 1px solid black;
+            margin: 1rem 0;
+        }
+        time {
+            font-size: inherit;
+        }
+    </style>
+</BaseLayout>

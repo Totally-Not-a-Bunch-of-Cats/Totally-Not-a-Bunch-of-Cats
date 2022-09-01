@@ -1,17 +1,17 @@
 ---
-import FAIcon from "../FAIcon.astro";
-
 import "./admonition.scss";
 
-const { icon, color } = Astro.props;
+import FAIcon from "../FAIcons/FAIcon.astro";
+
+const { icon, color, className } = Astro.props;
 ---
 
-<div class="admonition mb-6">
+<div class={"admonition " + className}>
     {
         icon !== undefined && (
             <div class="icon">
                 <FAIcon
-                    icon={icon === undefined ? "fas circle-info" : icon}
+                    icon={icon === undefined ? ["fas", "circle-info"] : icon}
                     klass={
                         color === undefined
                             ? "color-blue-gray"
