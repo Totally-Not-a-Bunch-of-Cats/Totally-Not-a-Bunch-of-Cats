@@ -1,7 +1,6 @@
 @import "../../styles/colors.scss";
 
 .admonition {
-    position: relative;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -17,6 +16,10 @@
 
     border-radius: 1rem;
 
+    border-top: 1rem solid;
+
+    z-index: 0;
+
     .icon {
         margin-top: 1rem;
         margin-bottom: 2rem;
@@ -28,13 +31,6 @@
 
     i {
         font-size: 2.5rem !important;
-    }
-
-    .admonition-bar {
-        position: absolute;
-        width: 100%;
-        height: 1rem;
-        background-color: map-get($map: $colors, $key: "quick-silver");
     }
 
     .admonition-content {
@@ -50,13 +46,16 @@
         margin-inline: auto;
         text-align: left;
 
+        border-top: none;
+        border-left: 1rem solid;
+
         .icon {
             margin-block: 0;
             margin-right: 2rem;
             margin-left: 1rem;
         }
 
-        .content {
+        .admonition-content {
             flex-direction: row;
         }
 

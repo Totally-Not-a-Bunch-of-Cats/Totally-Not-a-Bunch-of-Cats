@@ -6,8 +6,7 @@ import FAIcon from "../FAIcons/FAIcon.astro";
 const { icon, color, className } = Astro.props;
 ---
 
-<div class={"admonition " + className}>
-    <div class={"admonition-bar " + color}></div>
+<div class={`admonition border-${color} ` + className}>
     <div class="admonition-content">
         {
             icon !== undefined && (
