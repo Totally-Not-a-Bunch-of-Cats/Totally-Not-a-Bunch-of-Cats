@@ -1,0 +1,69 @@
+---
+const posts = (await Astro.glob('../pages/blogs/**/*.{md,mdx}')).sort(
+    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<ul>
+    {posts.map((post) => (
+        <li class="blog-list-item">
+            <a class="post" href={post.url}>
+                <p class="title"><strong>{post.frontmatter.title}</strong></p>
+                <p class="date">~
+                    <time datetime={post.frontmatter.pubDate}>
+                        {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                        })}
+                    </time>
+                </p>
+            </a>
+        </li>
+    ))}
+</ul>
+<style lang="scss">
+    @import "../styles/colors.scss";
+
+    ul {
+        list-style-type: none;
+        padding: unset;
+    }
+    ul li {
+        display: flex;
+        flex-direction: column;
+
+        &>div {
+            display: flex;
+        }
+    }
+    ul li time {
+        flex: 0 0 130px;
+        font-style: italic;
+        color: #888;
+        font-size: inherit;
+    }
+    ul li a:visited {
+        color: #8e32dc;
+    }
+
+    .date {
+        margin-left: 2rem;
+    }
+
+    .post {
+        display: inline;
+        width: fit-content;
+    }
+
+    a {
+        border-left: 3px solid map-get($map: $colors, $key: "quick-silver");
+        padding-left: 1rem;
+        &:hover {
+            color: white !important;
+            .title {
+                color: map-get($map: $colors, $key: "blue-gray");
+            }
+        }
+    }
+</style>

@@ -7,7 +7,7 @@ import preact from "@astrojs/preact";
 export default defineConfig({
     site: 'https://totally-not-a-bunch-of-cats.github.io',
     base: '/Totally-Not-a-Bunch-of-Cats',
-    integrations: [mdx(), preact()],
+    integrations: [mdx(), preact({ compat: true })],
     markdown: {
         shikiConfig: {
             theme: 'dracula',

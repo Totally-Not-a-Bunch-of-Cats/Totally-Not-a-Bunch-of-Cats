@@ -1,0 +1,132 @@
+@import "../../styles/colors.scss";
+
+.blog-list {
+    ul {
+        list-style-type: none;
+        padding: unset;
+    }
+
+    ul li {
+        display: flex;
+        flex-direction: column;
+
+        &>div {
+            display: flex;
+        }
+    }
+
+    ul li time {
+        flex: 0 0 130px;
+        font-style: italic;
+        color: #888;
+        font-size: inherit;
+    }
+
+    ul li a:visited {
+        color: #8e32dc;
+    }
+
+    .date {
+        margin-left: 2rem;
+    }
+
+    .post {
+        display: inline;
+        width: fit-content;
+    }
+
+    a {
+        border-left: 3px solid map-get($map: $colors, $key: "quick-silver");
+        padding-left: 1rem;
+
+        &:hover {
+            color: white !important;
+
+            .title {
+                color: map-get($map: $colors, $key: "blue-gray");
+            }
+        }
+    }
+}
+
+#pagination {
+    margin-top: 6rem;
+    width: fit-content;
+    margin-inline: auto;
+
+    button {
+        transition: .1s;
+
+        margin: 1.25rem;
+
+        $size: 3.25rem;
+        width: $size;
+        height: $size;
+        border: none;
+
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 1px 1px 8px -2px #000000;
+
+        &:hover {
+            background-color: map-get($map: $colors, $key: "blue-gray");
+
+            p {
+                color: white;
+            }
+        }
+
+        &:disabled {
+            background-color: white;
+            opacity: .75;
+
+            p {
+                color: black;
+            }
+        }
+    }
+
+    a {
+        color: inherit;
+        font-size: inherit;
+        box-shadow: none;
+
+        &:hover {
+            color: map-get($map: $colors, $key: "blue-gray");
+        }
+    }
+
+    &>div {
+        gap: 1rem;
+
+        .selected {
+            color: map-get($map: $colors, $key: "blue-gray");
+            text-decoration: underline;
+            text-underline-offset: .25rem;
+        }
+    }
+
+    @media only screen and (min-width: 850px) {
+        button {
+            $size: 4rem;
+            width: $size;
+            height: $size;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        button {
+            $size: 5rem;
+            width: $size;
+            height: $size;
+        }
+    }
+
+    @media only screen and (min-width: 2100px) {
+        button {
+            $size: 6rem;
+            width: $size;
+            height: $size;
+        }
+    }
+}
