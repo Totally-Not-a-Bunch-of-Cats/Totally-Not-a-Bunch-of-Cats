@@ -37,7 +37,7 @@
         background-color: map-get($map: $colors, $key: "quick-silver");
     }
 
-    .content {
+    .admonition-content {
         padding: 2rem;
         display: flex;
         flex-direction: column;
