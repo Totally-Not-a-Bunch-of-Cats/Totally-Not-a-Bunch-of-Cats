@@ -23,7 +23,6 @@ $a: 1.5rem;
 
 body {
     box-sizing: border-box;
-    height: 100%;
     background-color: map-get($map: $colors, $key: "tumbleweed");
 }
 
