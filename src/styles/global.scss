@@ -2,6 +2,15 @@
 
 @import "colors";
 
+$h1: 4rem;
+$h2: 3rem;
+$h3: 2.6rem;
+$h4: 2.1rem;
+$h5: 1.8rem;
+$h6: 1.5rem;
+$p: 1.5rem;
+$a: 1.5rem;
+
 * {
     font-size: 62.5%;
     margin: 0;
@@ -14,14 +23,152 @@
 
 body {
     box-sizing: border-box;
+    height: 100%;
     background-color: map-get($map: $colors, $key: "tumbleweed");
 }
 
 em,
 span,
-strong {
+strong,
+del {
     font-size: inherit;
     color: inherit;
+}
+
+br {
+    content: "";
+    display: block;
+    font-size: 100%;
+
+    height: 2rem;
+}
+
+span {
+
+    font-weight: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+code {
+    color: #555;
+    padding: 0.2em 0.4em;
+    border-radius: 2px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+pre {
+    border-radius: 8px !important;
+    margin: 1.2em 0 !important;
+    padding: 1.2rem;
+
+    box-shadow: 1px 1px 8px 1px #000000
+}
+
+pre code {
+    padding: 0;
+}
+
+blockquote {
+    border-left: 4px solid #cccccc;
+    font-size: 1.4em;
+    font-style: italic;
+    margin: 2rem 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+blockquote p {
+    padding-bottom: 6px;
+}
+
+blockquote footer {
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+figure {
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0 0 3rem 0;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 1.125rem;
+    margin: auto;
+    box-shadow: 1px 1px 4px -1px #000000
+}
+
+table thead tr {
+    background-color: #363636 !important;
+
+    th {
+        color: white !important;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+.contains-task-list {
+    .task-list-item {
+        list-style-type: none;
+    }
+
+
+}
+
+.dark th {
+    border-bottom: 2px solid map-get($map: $colors, $key: "quick-silver");
+    padding: 0.4rem 0.8rem;
+}
+
+td {
+    padding: 0.4rem 0.8rem;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: map-get($map: $colors, $key: "light-gray");
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 42rem;
+    width: 100%;
+}
+
+ol,
+ul {
+    padding-left: 2rem;
+    -webkit-padding-start: 5%;
+    -webkit-padding-end: 5%;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+li p {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+hr {
+    padding: 0;
+    border: 0;
+    height: 10px;
+    margin: 40px auto;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='10'  viewBox='0 0 20 10' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-miterlimit='10'%3e%3cpath fill='none' d='M0 0h20v10H0z'/%3e%3cclipPath id='a'%3e%3cpath d='M0 0h20v10H0z'/%3e%3c/clipPath%3e%3cg clip-path='url(%23a)'%3e%3cpath d='M20 7.384c-4.999-.001-5-4.768-9.999-4.768C5 2.616 5 7.384 0 7.384' fill='none' stroke-width='3' stroke='%23548E9B'/%3e%3c/g%3e%3c/svg%3e");
 }
 
 .d-flex {
@@ -34,6 +181,16 @@ strong {
 
 .flex-column {
     flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+@for $i from 1 through 8 {
+    .gap-#{$i} {
+        gap: #{$i}rem !important;
+    }
 }
 
 @each $type in "justify",
@@ -67,7 +224,22 @@ strong {
 
 /* Navigation */
 
+p>a {
+    text-decoration: none;
+    box-shadow: inset 0 -0.12em 0 map-get($map: $colors, $key: "quick-silver");
+    -webkit-transition: box-shadow 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+}
 
+p>a:hover {
+    box-shadow: inset 0 -1.5em 0 map-get($map: $colors, $key: "quick-silver");
+    color: #fff;
+}
+
+a:hover {
+    color: map-get($map: $colors, $key: "quick-silver");
+}
 
 #filler {
     height: 150vh;
@@ -150,7 +322,7 @@ $type in ("margin": "m",
 }
 
 a {
-    font-size: 1.25rem !important;
+    font-size: $a  !important;
     text-decoration: none;
 
     color: black;
@@ -163,29 +335,52 @@ p,
 code,
 ul,
 ol,
-li {
-    font-size: 1.5rem;
+li,
+th,
+td {
+    font-size: $p  !important;
 
     transition: .2s;
 }
 
 h1,
 .h1 {
-    font-size: 4rem !important;
+    font-size: $h1  !important;
 
     transition: .2s;
 }
 
 h2,
 .h2 {
-    font-size: 3rem !important;
+    font-size: $h2  !important;
 
     transition: .2s;
 }
 
 h3,
 .h3 {
-    font-size: 2rem !important;
+    font-size: $h3  !important;
+
+    transition: .2s;
+}
+
+h4,
+.h4 {
+    font-size: $h4  !important;
+
+    transition: .2s;
+}
+
+h5,
+.h5 {
+    font-size: $h5  !important;
+
+    transition: .2s;
+}
+
+h6,
+.h6 {
+    font-size: $h6  !important;
 
     transition: .2s;
 }
@@ -229,8 +424,10 @@ $color in $colors {
 }
 
 @media only screen and (min-width: 500px) {
+    $font-scale: .25;
+
     a {
-        font-size: 1.45rem !important;
+        font-size: $a + $font-scale  !important;
         text-decoration: none;
 
         color: black;
@@ -239,17 +436,21 @@ $color in $colors {
 
 @media only screen and (min-width: 850px) {
 
+    $font-scale: .25;
+
     p,
     .p,
     code,
     ul,
     ol,
-    li {
-        font-size: 1.7rem;
+    li,
+    th,
+    td {
+        font-size: $p + $font-scale  !important;
     }
 
     a {
-        font-size: 1.75rem !important;
+        font-size: $a + $font-scale  !important;
         text-decoration: none;
 
         color: black;
@@ -257,21 +458,42 @@ $color in $colors {
 
     h1,
     .h1 {
-        font-size: 4rem !important;
+        font-size: $h1 + $font-scale  !important;
 
         transition: .2s;
     }
 
     h2,
     .h2 {
-        font-size: 3rem !important;
+        font-size: $h2 + $font-scale  !important;
 
         transition: .2s;
     }
 
     h3,
     .h3 {
-        font-size: 2rem !important;
+        font-size: $h3 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h4,
+    .h4 {
+        font-size: $h4 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h5,
+    .h5 {
+        font-size: $h5 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h6,
+    .h6 {
+        font-size: $h6 + $font-scale  !important;
 
         transition: .2s;
     }
@@ -279,17 +501,21 @@ $color in $colors {
 
 @media only screen and (min-width: 1200px) {
 
+    $font-scale: .75;
+
     p,
     .p,
     code,
     ul,
     ol,
-    li {
-        font-size: 2.2rem;
+    li,
+    th,
+    td {
+        font-size: $p + $font-scale  !important;
     }
 
     a {
-        font-size: 2.2rem !important;
+        font-size: $a + $font-scale  !important;
         text-decoration: none;
 
         color: black;
@@ -297,21 +523,42 @@ $color in $colors {
 
     h1,
     .h1 {
-        font-size: 5rem !important;
+        font-size: $h1 + $font-scale  !important;
 
         transition: .2s;
     }
 
     h2,
     .h2 {
-        font-size: 4rem !important;
+        font-size: $h2 + $font-scale  !important;
 
         transition: .2s;
     }
 
     h3,
     .h3 {
-        font-size: 3rem !important;
+        font-size: $h3 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h4,
+    .h4 {
+        font-size: $h4 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h5,
+    .h5 {
+        font-size: $h5 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h6,
+    .h6 {
+        font-size: $h6 + $font-scale  !important;
 
         transition: .2s;
     }
@@ -320,17 +567,21 @@ $color in $colors {
 
 @media only screen and (min-width: 2100px) {
 
+    $font-scale: 1.25;
+
     p,
     .p,
     code,
     ul,
     ol,
-    li {
-        font-size: 2.7rem;
+    li,
+    th,
+    td {
+        font-size: $p + $font-scale  !important;
     }
 
     a {
-        font-size: 2.5rem !important;
+        font-size: $a + $font-scale  !important;
         text-decoration: none;
 
         color: black;
@@ -338,21 +589,42 @@ $color in $colors {
 
     h1,
     .h1 {
-        font-size: 6rem !important;
+        font-size: $h1 + $font-scale  !important;
 
         transition: .2s;
     }
 
     h2,
     .h2 {
-        font-size: 5rem !important;
+        font-size: $h2 + $font-scale  !important;
 
         transition: .2s;
     }
 
     h3,
     .h3 {
-        font-size: 4rem !important;
+        font-size: $h3 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h4,
+    .h4 {
+        font-size: $h4 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h5,
+    .h5 {
+        font-size: $h5 + $font-scale  !important;
+
+        transition: .2s;
+    }
+
+    h6,
+    .h6 {
+        font-size: $h6 + $font-scale  !important;
 
         transition: .2s;
     }

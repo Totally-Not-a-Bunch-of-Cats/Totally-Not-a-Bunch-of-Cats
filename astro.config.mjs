@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import preact from "@astrojs/preact";
+import remarkGfm from 'remark-gfm';
 
 
 // https://astro.build/config
@@ -9,6 +10,7 @@ export default defineConfig({
     base: '/Totally-Not-a-Bunch-of-Cats',
     integrations: [mdx(), preact({ compat: true })],
     markdown: {
+        remarkPlugins: [remarkGfm],
         shikiConfig: {
             theme: 'dracula',
         },

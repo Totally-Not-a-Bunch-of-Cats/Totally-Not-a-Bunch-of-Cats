@@ -36,8 +36,10 @@
     }
 
     a {
-        border-left: 3px solid map-get($map: $colors, $key: "quick-silver");
-        padding-left: 1rem;
+        border-block: 1px solid map-get($map: $colors, $key: "quick-silver");
+        padding: 1rem;
+
+        margin: auto;
 
         &:hover {
             color: white !important;

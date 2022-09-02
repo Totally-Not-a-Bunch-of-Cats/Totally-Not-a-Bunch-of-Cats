@@ -7,10 +7,29 @@ heroImage: "images/3d-fluency-cat-commands-follow.png"
 draft: false
 ---
 
-import Admonition from "../../components/admonition/admonition.astro"
+##### Congradulations!  
+If you are reading this post then you are currently on our new website!  
+This website was made using the **Astro**  framework with **Preact** and **MDX** integrations.  
+Astro is a static website generator with compatibility to add dynamic islands or hydration islands. We have found that
+most of the website doesn't need to be static, but some components are easier to do in dynamic frameworks.
+This is where the help of Preact comes in. With Preact being so light weight, about 3kB, makes adding dynamic components a breeze.  
+While those are the main components that make up the core of the website, MDX also was a great choice. Being able
+to write documents in markdown while also injecting javascript is super helpful. Custom components
+can be created in Preact or Astro and they can be directly put into the MDX document. This in turn
+is rendered as expected to the page.  
+So overall, with the tools at hand, the website is easy to maintian, extensable, and overall a pleasant experience
+from a development standpoint. Expect more posts in the blog and more great content from the team.  
+~ Thanks for reading!
 
-If you are reading this post then you are currently on our new website!
 
-<Admonition color="mustard" icon={["fas", "triangle-exclamation"]} className="m-block-2">
-    <p>More content is coming soon so make sure to check back often</p>
-</Admonition>
+<div class="d-flex gap-3 flex-wrap justify-content-center mt-5 align-items-center">
+    <a class="image-link fit-content" href="https://astro.build/" title="Astro" aria-label="Astro Home Page">
+        <img src="../../../public/svg/logomark-light-astro.svg" alt="Astro" style="width: 8rem; height:auto; "/>
+    </a>
+    <a class="image-link fit-content" href="https://preactjs.com/" title="Preact" aria-label="Preact Home Page" style="">
+        <img src="../../../public/svg/preact.svg" alt="Astro" style="width: 8rem; height:auto;"/>
+    </a>
+    <a class="image-link fit-content" href="https://mdxjs.com/" title="MDXJS" aria-label="MDX Home Page">
+        <img src="../../../public/svg/mdx.svg" alt="Astro" style="width: 12rem; height:auto;"/>
+    </a>
+</div>

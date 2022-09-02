@@ -11,7 +11,6 @@ const description =
     "Totally Not a Bunch of Cats is an indie game dev group looking to make new content.";
 const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
 import { home } from "../data/links.json";
-
 ---
 
 <BaseLayout
@@ -22,20 +21,18 @@ import { home } from "../data/links.json";
     fa={true}
 >
     <Content id="about">
-        
         <div class="h1 header">
             <strong>About</strong>
         </div>
 
-        
         <div class="m-auto fit-content">
-            <a 
+            <a
                 href="https://icons8.com/illustrations/author/zD2oqC8lLBBA"
                 target="_blank"
             >
-                <img 
-                src="images/casual-life-3d-cat-lying-on-books.png" 
-                title="Illustration by Icons 8 from Ouch!"  
+                <img
+                    src="images/casual-life-3d-cat-lying-on-books.png"
+                    title="Illustration by Icons 8 from Ouch!"
                 />
             </a>
         </div>
@@ -46,16 +43,20 @@ import { home } from "../data/links.json";
             to learn about game development and the tools used with it.
         </p>
 
-
-        <Admonition color="blue-gray" icon={["fas", "circle-info"]} className="mb-2">
+        <Admonition
+            color="blue-gray"
+            icon={["fas", "circle-info"]}
+            className="mb-2"
+        >
             <p>
-                Check out our <a href="blog/" aria-label="Check out our blog">blog</a> if you are interested in keeping up with the groups projects
+                Check out our <a href="blog/" aria-label="Check out our blog"
+                    >blog</a
+                > if you are interested in keeping up with the groups projects
             </p>
             <div class="blue-gray button mobile">
                 <a href="blog/" aria-label="Check out our blog">Blog</a>
             </div>
-            </Admonition>
-
+        </Admonition>
     </Content>
 
     <Content id="projects">
@@ -86,7 +87,9 @@ import { home } from "../data/links.json";
         </div>
 
         <div id="more-projects" class="text-align-right mt-10">
-            <a href="projects/">More<span id="more-projects-arrow">→</span></a>
+            <a href="projects/"
+                ><strong>More<span id="more-projects-arrow"> →</span></strong>
+            </a>
         </div>
     </Content>
 
@@ -113,19 +116,6 @@ import { home } from "../data/links.json";
             border-radius: 1rem;
         }
 
-
-        p > a {
-            text-decoration: none;
-            box-shadow: inset 0 -0.12em 0 map-get($map: $colors, $key: "quick-silver");
-            -webkit-transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-            transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-        }
-
-        p > a:hover {
-            box-shadow: inset 0 -1.5em 0 map-get($map: $colors, $key: "quick-silver");
-            color: #fff;
-        }
-
         #more-projects {
             transition: 0.5s;
             width: fit-content;
@@ -137,7 +127,6 @@ import { home } from "../data/links.json";
             margin-inline: auto;
 
             a {
-                font-size: 1.75rem !important;
                 transition: 0.5s;
                 letter-spacing: 0.25rem;
 
@@ -148,7 +137,6 @@ import { home } from "../data/links.json";
                 }
 
                 @media only screen and (min-width: 1200px) {
-                    font-size: 2rem !important;
                     letter-spacing: 0.25rem;
 
                     &:hover {
@@ -165,14 +153,6 @@ import { home } from "../data/links.json";
                         letter-spacing: 0.5rem;
                     }
                 }
-
-                @media only screen and (min-width: 1900px) {
-                    font-size: 2rem !important;
-                }
-
-                @media only screen and (min-width: 2100px) {
-                    font-size: 2.5rem !important;
-                }
             }
 
             #more-projects-arrow {
@@ -185,7 +165,6 @@ import { home } from "../data/links.json";
                 margin-left: auto;
 
                 a {
-                    font-size: 1.5rem !important;
                     text-decoration: underline;
                     text-underline-offset: 0.75rem;
 

@@ -1,49 +1,57 @@
 ---
-import "./BlogPost.scss";
-
 import BaseLayout from "./BaseLayout.astro";
 import Content from "../components/Content.astro";
 
 export interface Props {
-	content: {
-		title: string;
-		description: string;
-		pubDate?: string;
-		updatedDate?: string;
-		heroImage?: string;
-	};
+    content: {
+        title: string;
+        description: string;
+        pubDate?: string;
+        updatedDate?: string;
+        heroImage?: string;
+    };
 }
 
 const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
 import { post } from "../data/links.json";
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+    content: { title, description, pubDate, updatedDate, heroImage },
 } = Astro.props;
-
 ---
 
-<BaseLayout 
-    title={title} 
+<BaseLayout
+    title={title}
     description={description}
-    permalink={permalink} 
-    links={post} 
+    permalink={permalink}
+    links={post}
     fa={true}
-> 
+>
     <Content>
         <article>
-            {heroImage && (
-                <div id="hero-image" class="fit-content m-auto">
-                    <img
-                        src={permalink + heroImage}
-                        alt=""
-                    />
-                </div>
-            )}
+            {
+                heroImage && (
+                    <div id="hero-image" class="fit-content m-auto">
+                        <img src={permalink + heroImage} alt="" />
+                    </div>
+                )
+            }
             <h1 class="title">{title}</h1>
-            {pubDate && <p>~ <time>{pubDate}</time></p>}
-            {updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-            <hr class="mb-4"/>
+            {
+                pubDate && (
+                    <p>
+                        ~ <time>{pubDate}</time>
+                    </p>
+                )
+            }
+            {
+                updatedDate && (
+                    <div>
+                        Last updated on <time>{updatedDate}</time>
+                    </div>
+                )
+            }
+            <hr class="mb-4" />
             <slot />
         </article>
     </Content>

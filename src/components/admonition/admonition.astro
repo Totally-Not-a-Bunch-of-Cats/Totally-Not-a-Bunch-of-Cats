@@ -7,21 +7,26 @@ const { icon, color, className } = Astro.props;
 ---
 
 <div class={"admonition " + className}>
-    {
-        icon !== undefined && (
-            <div class="icon">
-                <FAIcon
-                    icon={icon === undefined ? ["fas", "circle-info"] : icon}
-                    klass={
-                        color === undefined
-                            ? "color-blue-gray"
-                            : "color-" + color
-                    }
-                />
-            </div>
-        )
-    }
-    <div>
-        <slot />
+    <div class={"admonition-bar " + color}></div>
+    <div class="content">
+        {
+            icon !== undefined && (
+                <div class="icon">
+                    <FAIcon
+                        icon={
+                            icon === undefined ? ["fas", "circle-info"] : icon
+                        }
+                        klass={
+                            color === undefined
+                                ? "color-blue-gray"
+                                : "color-" + color
+                        }
+                    />
+                </div>
+            )
+        }
+        <div>
+            <slot />
+        </div>
     </div>
 </div>
