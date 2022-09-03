@@ -62,7 +62,6 @@ export function Blogs({ ...props }) {
     })
 
     const startItem = page * pageSize;
-    console.log(startItem, Math.min(startItem + pageSize, posts.length));
     const endItem = Math.min(startItem + pageSize, posts.length);
 
     const paginationText = () => {
@@ -101,7 +100,7 @@ export function Blogs({ ...props }) {
                     {posts.slice(startItem, endItem)}
                 </ul>
             </div>
-            <div id="pagination" className={`d-flex align-items-center ${maxPage > 1 ? "" : "d-none"}`}>
+            <div id="pagination" className={`d-flex align-items-center ${maxPage > 0 ? "" : "d-none"}`}>
                 <a
                     href="#"
                     onclick={beginning}
