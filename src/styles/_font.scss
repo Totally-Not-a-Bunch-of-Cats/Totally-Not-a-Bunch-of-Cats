@@ -1,12 +1,12 @@
 @function font-clamp ($offset) {
-    $max-font: 8.5;
+    $max-font: 8;
     $min-font: 4;
     $min-width: 50;
     $max-width: 380;
 
     // Calculated values
     $min: $min-font - $offset;
-    $max: $max-font - $offset;
+    $max: $max-font - $offset - .5;
     $slope: ($max-font - $min-font) / ($max-width - $min-width);
     $inter: ((-1 * $min-width) * $slope)+$min;
 
@@ -25,7 +25,7 @@
 p,
 li,
 a {
-    font-size: font-clamp(3.5);
+    font-size: font-clamp(2.5);
 }
 
 
