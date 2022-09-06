@@ -34,7 +34,7 @@ export function Projects({ ...props }) {
                                                 item.frontmatter.tags.map(tag => {
                                                     return (
                                                         <div class="tag">
-                                                            <p>{tag}</p>
+                                                            <p class="small">{tag}</p>
                                                         </div>
                                                     );
                                                 })

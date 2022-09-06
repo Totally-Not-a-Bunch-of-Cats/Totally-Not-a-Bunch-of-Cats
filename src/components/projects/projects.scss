@@ -39,7 +39,7 @@
     }
 
     .tag-list {
-        gap: .5rem;
+        gap: .4em;
 
         .tag {
             display: flex;
@@ -48,14 +48,12 @@
 
             width: fit-content;
             height: fit-content;
-
             background-color: map-get($map: $colors, $key: "cinnamon-satin");
 
-            border-radius: .5rem;
+            border-radius: 10em;
 
-            p {
-                margin: 0 .8rem;
-                font-size: 1.2rem;
+            .small {
+                margin: 0 .8em;
                 font-style: normal;
 
                 color: white;
