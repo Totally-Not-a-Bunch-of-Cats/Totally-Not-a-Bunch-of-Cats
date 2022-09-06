@@ -33,7 +33,7 @@ function Placeholder() {
                     <div>
                         <svg
                             version="1.1"
-                            class="fill-cinnamon-satin w-5"
+                            class="fill-cinnamon-satin"
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
                             y="0px"
@@ -64,7 +64,7 @@ function Placeholder() {
                             <g> </g>
                             <g> </g>
                         </svg>
-                        <p class="mt-4 color-cinnamon-satin">
+                        <p id="trailer-text" class="color-cinnamon-satin">
                             <strong>No Trailer Available</strong>
                         </p>
                     </div>

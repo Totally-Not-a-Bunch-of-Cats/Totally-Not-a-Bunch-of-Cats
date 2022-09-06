@@ -50,7 +50,7 @@
             }
         }
 
-        @media only screen and (min-width: 850px) {
+        @media only screen and (min-width: 60em) {
             margin-left: 5rem;
         }
     }
@@ -113,7 +113,7 @@
         }
     }
 
-    @media only screen and (min-width: 850px) {
+    @media only screen and (min-width: 60em) {
         button {
             $size: 4rem;
             width: $size;
@@ -121,7 +121,7 @@
         }
     }
 
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 80em) {
         button {
             $size: 5rem;
             width: $size;
@@ -129,7 +129,7 @@
         }
     }
 
-    @media only screen and (min-width: 2100px) {
+    @media only screen and (min-width: 132em) {
         button {
             $size: 6rem;
             width: $size;

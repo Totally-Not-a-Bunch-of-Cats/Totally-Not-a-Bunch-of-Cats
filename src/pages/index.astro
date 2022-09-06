@@ -25,9 +25,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
     fa={true}
 >
     <Content id="about">
-        <div class="h1 header">
-            <strong>About</strong>
-        </div>
+        <h1 class="mb-6">About</h1>
 
         <div class="m-auto fit-content">
             <a
@@ -64,9 +62,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
     </Content>
 
     <Content id="projects">
-        <div class="h1 header">
-            <strong>Projects</strong>
-        </div>
+        <h1 class="mb-6">Projects</h1>
         <div id="projects-featured">
             <div class="d-flex flex-column align-items-center m-block-2">
                 <Trailer url={Featured.frontmatter.trailer} client:visible />
@@ -89,9 +85,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
     </Content>
 
     <Content id="team">
-        <div class="h1 mb-6">
-            <strong>Team</strong>
-        </div>
+        <h1 class="mb-6">Team</h1>
         <TMList />
     </Content>
 
@@ -140,7 +134,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
                     }
                 }
 
-                @media only screen and (min-width: 1440px) {
+                @media only screen and (min-width: 90em) {
                     letter-spacing: 0.25rem;
 
                     &:hover {

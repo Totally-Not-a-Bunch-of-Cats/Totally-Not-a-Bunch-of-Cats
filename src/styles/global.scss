@@ -1,15 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 @import "colors";
+@import "_font";
 
-$h1: 4rem;
-$h2: 3rem;
-$h3: 2.6rem;
-$h4: 2.1rem;
-$h5: 1.8rem;
-$h6: 1.5rem;
-$p: 1.5rem;
-$a: 1.5rem;
 
 * {
     font-size: 62.5%;
@@ -26,26 +19,12 @@ body {
     background-color: map-get($map: $colors, $key: "tumbleweed");
 }
 
-em,
-span,
-strong,
-del,
-time {
-    font-size: inherit;
-    color: inherit;
-}
-
 br {
     content: "";
     display: block;
     font-size: 100%;
 
     height: 2rem;
-}
-
-span {
-
-    font-weight: inherit;
 }
 
 img {
@@ -310,23 +289,20 @@ $type in ("margin": "m",
 }
 
 .mobile {
-    @media only screen and (min-width: 850px) {
+    @media only screen and (min-width: 60em) {
         display: none !important;
     }
 }
 
 .desktop {
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 60em) {
         display: none !important;
     }
 }
 
 a {
-    font-size: $a  !important;
     text-decoration: none;
-
     color: black;
-
     transition: .2s;
 }
 
@@ -337,51 +313,13 @@ ul,
 ol,
 li,
 th,
-td {
-    font-size: $p  !important;
-
-    transition: .2s;
-}
-
+td,
 h1,
-.h1 {
-    font-size: $h1  !important;
-
-    transition: .2s;
-}
-
 h2,
-.h2 {
-    font-size: $h2  !important;
-
-    transition: .2s;
-}
-
 h3,
-.h3 {
-    font-size: $h3  !important;
-
-    transition: .2s;
-}
-
 h4,
-.h4 {
-    font-size: $h4  !important;
-
-    transition: .2s;
-}
-
 h5,
-.h5 {
-    font-size: $h5  !important;
-
-    transition: .2s;
-}
-
-h6,
-.h6 {
-    font-size: $h6  !important;
-
+h6 {
     transition: .2s;
 }
 
@@ -422,214 +360,6 @@ $color in $colors {
         color: $color  !important;
     }
 }
-
-@media only screen and (min-width: 500px) {
-    $font-scale: .25;
-
-    a {
-        font-size: $a + $font-scale  !important;
-        text-decoration: none;
-
-        color: black;
-    }
-}
-
-@media only screen and (min-width: 850px) {
-
-    $font-scale: .25;
-
-    p,
-    .p,
-    code,
-    ul,
-    ol,
-    li,
-    th,
-    td {
-        font-size: $p + $font-scale  !important;
-    }
-
-    a {
-        font-size: $a + $font-scale  !important;
-        text-decoration: none;
-
-        color: black;
-    }
-
-    h1,
-    .h1 {
-        font-size: $h1 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h2,
-    .h2 {
-        font-size: $h2 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h3,
-    .h3 {
-        font-size: $h3 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h4,
-    .h4 {
-        font-size: $h4 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h5,
-    .h5 {
-        font-size: $h5 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h6,
-    .h6 {
-        font-size: $h6 + $font-scale  !important;
-
-        transition: .2s;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-
-    $font-scale: .75;
-
-    p,
-    .p,
-    code,
-    ul,
-    ol,
-    li,
-    th,
-    td {
-        font-size: $p + $font-scale  !important;
-    }
-
-    a {
-        font-size: $a + $font-scale  !important;
-        text-decoration: none;
-
-        color: black;
-    }
-
-    h1,
-    .h1 {
-        font-size: $h1 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h2,
-    .h2 {
-        font-size: $h2 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h3,
-    .h3 {
-        font-size: $h3 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h4,
-    .h4 {
-        font-size: $h4 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h5,
-    .h5 {
-        font-size: $h5 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h6,
-    .h6 {
-        font-size: $h6 + $font-scale  !important;
-
-        transition: .2s;
-    }
-}
-
-
-@media only screen and (min-width: 2100px) {
-
-    $font-scale: 1.25;
-
-    p,
-    .p,
-    code,
-    ul,
-    ol,
-    li,
-    th,
-    td {
-        font-size: $p + $font-scale  !important;
-    }
-
-    a {
-        font-size: $a + $font-scale  !important;
-        text-decoration: none;
-
-        color: black;
-    }
-
-    h1,
-    .h1 {
-        font-size: $h1 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h2,
-    .h2 {
-        font-size: $h2 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h3,
-    .h3 {
-        font-size: $h3 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h4,
-    .h4 {
-        font-size: $h4 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h5,
-    .h5 {
-        font-size: $h5 + $font-scale  !important;
-
-        transition: .2s;
-    }
-
-    h6,
-    .h6 {
-        font-size: $h6 + $font-scale  !important;
-
-        transition: .2s;
-    }
-}
-
 
 .text-indent {
     text-indent: 2rem;

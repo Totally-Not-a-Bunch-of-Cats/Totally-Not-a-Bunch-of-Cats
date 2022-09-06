@@ -38,14 +38,14 @@ nav {
     }
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 40em) {
     #nav-logo>img {
         width: 25rem;
         height: auto;
     }
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 60em) {
     nav {
         &>div {
             width: 85%;
@@ -65,7 +65,7 @@ nav {
     }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 90em) {
     nav {
         &>div {
             width: 75%;
@@ -78,14 +78,14 @@ nav {
     }
 }
 
-@media only screen and (min-width: 2100px) {
+@media only screen and (min-width: 132em) {
     #nav-logo>img {
         width: 38rem;
         height: auto;
     }
 }
 
-@media only screen and (min-width: 2400px) {
+@media only screen and (min-width: 150em) {
     #nav-logo>img {
         width: 42rem;
         height: auto;

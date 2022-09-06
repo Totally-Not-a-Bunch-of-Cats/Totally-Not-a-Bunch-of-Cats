@@ -1,127 +1,45 @@
 .trailer {
-    padding: 1rem;
     background-color: white;
     border-radius: 1rem;
 
-    width: fit-content;
-    height: fit-content;
+    width: 100%;
+    height: auto;
     margin-inline: auto;
 }
 
 .trailer-temp {
+    margin: 1rem;
+    padding: 1rem;
+
     &>div {
-        $scale: 1.8rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
+        aspect-ratio: 16 / 9;
+        width: 90%;
+        height: auto;
+
+        margin: auto;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        svg {
+            width: 10%;
+            height: auto;
+        }
     }
 
+}
+
+#trailer-text {
+    margin-top: 8%;
 }
 
 iframe {
-    $scale: 1.8rem;
-    width: (16 * $scale);
-    height: (9 * $scale);
+    aspect-ratio: 16 / 9;
+    width: 90%;
+    height: auto;
+    margin: auto;
 
     box-shadow: 7px 8px 33px -14px black;
-}
-
-@media only screen and (min-width: 500px) {
-    .trailer-temp {
-        &>div {
-            $scale: 2.5rem;
-            width: (16 * $scale);
-            height: (9 * $scale);
-        }
-    }
-
-    iframe {
-        $scale: 2.5rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
-    }
-}
-
-@media only screen and (min-width: 850px) {
-    .trailer-temp {
-        &>div {
-            $scale: 3.25rem;
-            width: (16 * $scale);
-            height: (9 * $scale);
-        }
-    }
-
-    iframe {
-        $scale: 3.25rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .trailer-temp {
-        &>div {
-            $scale: 4.25rem;
-            width: (16 * $scale);
-            height: (9 * $scale);
-        }
-    }
-
-    iframe {
-        $scale: 4.25rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-    .trailer-temp {
-        &>div {
-            $scale: 4.75rem;
-            width: (16 * $scale);
-            height: (9 * $scale);
-        }
-    }
-
-    iframe {
-        $scale: 4.75rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
-    }
-}
-
-@media only screen and (min-width: 1900px) {
-    .trailer-temp {
-        &>div {
-            $scale: 5.5rem;
-            width: (16 * $scale);
-            height: (9 * $scale);
-        }
-    }
-
-    iframe {
-        $scale: 5.5rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
-    }
-}
-
-@media only screen and (min-width: 2100px) {
-    .trailer-temp {
-        &>div {
-            $scale: 6rem;
-            width: (16 * $scale);
-            height: (9 * $scale);
-        }
-    }
-
-    iframe {
-        $scale: 6rem;
-        width: (16 * $scale);
-        height: (9 * $scale);
-    }
 }

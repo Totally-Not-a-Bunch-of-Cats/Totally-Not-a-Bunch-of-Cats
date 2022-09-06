@@ -6,7 +6,7 @@
 
     margin-top: 2rem;
 
-    @media only screen and (min-width: 850px) {
+    @media only screen and (min-width: 60em) {
         margin-top: 0;
         $size: 3.75rem;
 
@@ -14,14 +14,14 @@
         height: $size;
     }
 
-    @media only screen and (min-width: 1440px) {
+    @media only screen and (min-width: 90em) {
         $size: 4.25rem;
 
         width: $size;
         height: $size;
     }
 
-    @media only screen and (min-width: 1900px) {
+    @media only screen and (min-width: 119em) {
         $size: 5rem;
 
         width: $size;
