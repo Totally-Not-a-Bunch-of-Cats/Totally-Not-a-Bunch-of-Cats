@@ -11,6 +11,10 @@ const description =
     "Totally Not a Bunch of Cats is an indie game dev group looking to make new content.";
 const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
 import { home } from "../data/links.json";
+
+const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
+    (file) => file.frontmatter.title === "Herding Cats"
+);
 ---
 
 <BaseLayout
@@ -65,24 +69,15 @@ import { home } from "../data/links.json";
         </div>
         <div id="projects-featured">
             <div class="d-flex flex-column align-items-center m-block-2">
-                <Trailer client:visible />
+                <Trailer url={Featured.frontmatter.trailer} client:visible />
                 <p class="h3 m-block-2">
-                    <strong class="color-cinnamon-satin">Featured:</strong> Herding
-                    Cats
+                    <strong class="color-cinnamon-satin">Featured:</strong>
+                    {Featured.frontmatter.title}
                 </p>
             </div>
 
             <p class="text-indent m-block-2">
-                Herding Cats is a short, fun to play, puzzle game. Use items
-                such as the scratching post or the catnip to lure the cats into
-                their cage. Be careful, as walls and traps can get in your way.
-            </p>
-
-            <p class="text-indent m-block-2">
-                This puzzle game is easy to pick up and play. It uses turn based
-                strategy and puzzle solving. Can you to get all the cats into
-                the cage with easily? Or will they cats playful behavior get the
-                best of you?
+                {Featured.frontmatter.longDescription}
             </p>
         </div>
 

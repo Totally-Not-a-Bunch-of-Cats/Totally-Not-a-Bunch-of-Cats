@@ -1,0 +1,65 @@
+@import "../../styles/colors.scss";
+
+.list {
+    ul {
+        list-style-type: none;
+        padding: unset;
+    }
+
+    ul li {
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul li a:visited {
+        color: #8e32dc;
+    }
+
+    .post {
+        display: inline;
+        width: fit-content;
+    }
+
+    a {
+        padding: 1rem;
+
+        margin: auto;
+
+        &:hover {
+            color: white !important;
+
+            .title {
+                color: map-get($map: $colors, $key: "cinnamon-satin");
+            }
+        }
+
+        @media only screen and (min-width: 850px) {
+            margin-left: 5rem;
+        }
+    }
+
+    .tag-list {
+        gap: .5rem;
+
+        .tag {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: fit-content;
+            height: fit-content;
+
+            background-color: map-get($map: $colors, $key: "cinnamon-satin");
+
+            border-radius: .5rem;
+
+            p {
+                margin: 0 .8rem;
+                font-size: 1.2rem;
+                font-style: normal;
+
+                color: white;
+            }
+        }
+    }
+}

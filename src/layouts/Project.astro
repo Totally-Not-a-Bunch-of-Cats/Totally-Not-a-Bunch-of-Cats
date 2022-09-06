@@ -1,0 +1,95 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Content from "../components/Content.astro";
+
+export interface Props {
+    content: {
+        title: string;
+        description: string;
+        pubDate?: string;
+        updatedDate?: string;
+        trailer?: string;
+    };
+}
+
+const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
+import { post } from "../data/links.json";
+import { Trailer } from "../components/Trailer/Trailer";
+
+const {
+    content: { title, description, pubDate, updatedDate, trailer, tags },
+} = Astro.props;
+---
+
+<BaseLayout
+    title={title}
+    description={description}
+    permalink={permalink}
+    links={post}
+    fa={true}
+>
+    <Content>
+        <article>
+            <div class="mb-5">
+                <Trailer url={trailer} />
+            </div>
+            <h1 class="title">{title}</h1>
+            <div class="tag-list d-flex mb-1">
+                {
+                    tags.map((tag) => {
+                        return (
+                            <div class="tag">
+                                <p>{tag}</p>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+            {
+                pubDate && (
+                    <p class="mb-4">
+                        ~ <time>{pubDate}</time>
+                    </p>
+                )
+            }
+            <slot />
+        </article>
+    </Content>
+    <style lang="scss">
+        @import "../styles/colors.scss";
+
+        #hero-image {
+            img {
+                max-width: 90% !important;
+            }
+        }
+
+        .tag-list {
+            gap: 0.5rem;
+
+            .tag {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: fit-content;
+                height: fit-content;
+
+                background-color: map-get(
+                    $map: $colors,
+                    $key: "cinnamon-satin"
+                );
+
+                border-radius: 0.5rem;
+
+                p {
+                    margin: 0 0.8rem;
+                    font-size: 1.2rem;
+                    font-style: normal;
+
+                    color: white;
+                }
+            }
+        }
+    </style>
+</BaseLayout>
