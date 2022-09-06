@@ -1,36 +1,31 @@
-// Create dynamic linear font sizes
-@for $i from 1 through 6 {
-    // Constants
+@function font-clamp ($offset) {
     $max-font: 8.5;
     $min-font: 4;
     $min-width: 50;
     $max-width: 380;
 
     // Calculated values
-    $min: $min-font - (($i - 1) * .5);
-    $max: $max-font - (($i - 1) * .5);
+    $min: $min-font - $offset;
+    $max: $max-font - $offset;
     $slope: ($max-font - $min-font) / ($max-width - $min-width);
     $inter: ((-1 * $min-width) * $slope)+$min;
 
-    // font sizes based on calculations
-    @if $i ==6 {
+    @return clamp(#{$min}rem, #{$inter}rem + #{$slope*100}vw, #{$max}rem);
+}
 
-        h#{$i},
-        .h#{$i},
-        p,
-        li,
-        a {
-            font-size: clamp(#{$min}rem, #{$inter}rem + #{$slope*100}vw, #{$max}rem);
-        }
+// Create dynamic linear font sizes
+@for $i from 1 through 6 {
+
+    h#{$i},
+    .h#{$i} {
+        font-size: font-clamp(($i - 1) * .5);
     }
+}
 
-    @else {
-
-        h#{$i},
-        .h#{$i} {
-            font-size: clamp(#{$min}rem, #{$inter}rem + #{$slope*100}vw, #{$max}rem);
-        }
-    }
+p,
+li,
+a {
+    font-size: font-clamp(3.5);
 }
 
 
