@@ -12,6 +12,7 @@
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
 
     pointer-events: none;
 }
@@ -20,27 +21,6 @@ span {
     font-size: inherit;
     line-height: normal;
     margin: 1;
-}
-
-.quick-nav {
-    margin-block: 2rem;
-
-    a {
-        svg {
-            $size: 3.5rem;
-
-            width: $size;
-            height: $size;
-        }
-
-        &:hover {
-
-            path {
-
-                color: map-get($map: $colors, $key: "platinum");
-            }
-        }
-    }
 }
 
 /* ------------- */
