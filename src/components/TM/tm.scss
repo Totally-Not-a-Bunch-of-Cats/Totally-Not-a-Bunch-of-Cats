@@ -1,10 +1,8 @@
 @import "../../styles/colors";
 
 .pfp {
-    $size: 15rem;
-
-    width: $size;
-    height: $size;
+    aspect-ratio: 1;
+    width: 15rem;
 
     border-radius: 50%;
     box-shadow: 1px 1px 8px -1px black;
@@ -44,7 +42,7 @@
     }
 
     .tm-social {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 

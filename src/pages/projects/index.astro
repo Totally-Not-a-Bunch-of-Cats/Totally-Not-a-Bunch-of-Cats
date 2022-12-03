@@ -6,7 +6,7 @@ import Content from "../../components/Content.astro";
 const title = "Projects";
 const description =
     "Keep up to date with Totally Not a Bunch of Cats projects.";
-const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
+const permalink = "/Totally-Not-a-Bunch-of-Cats/";
 import { projects } from "../../data/links.json";
 
 const projectDetails = (await Astro.glob("./**/*.{md,mdx}")).sort(

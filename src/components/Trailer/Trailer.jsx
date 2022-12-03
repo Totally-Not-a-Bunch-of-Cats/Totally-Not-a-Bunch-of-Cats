@@ -64,7 +64,7 @@ function Placeholder() {
                             <g> </g>
                             <g> </g>
                         </svg>
-                        <p id="trailer-text" class="color-cinnamon-satin">
+                        <p id="trailer-text" class="color-cinnamon-satin h5">
                             <strong>No Trailer Available</strong>
                         </p>
                     </div>

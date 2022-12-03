@@ -11,6 +11,7 @@ export const DesktopMenu = ({ ...props }) => {
             const data = props.links[i];
             links.push(
                 <a
+                    class="h5 m-0 p-0"
                     href={props.permalink + data.link}
                     aria-label={data.aria}
                     title={data.title ? data.title : ""}
@@ -39,6 +40,7 @@ export const MobileMenu = ({ ...props }) => {
             const data = props.links[i];
             links.push(
                 <a
+                    class="h5 m-0 p-0"
                     href={props.permalink + data.link}
                     aria-label={data.aria}
                     title={data.title ? data.title : ""}

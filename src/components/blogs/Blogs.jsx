@@ -5,7 +5,7 @@ import "./blogs.scss";
 
 export function Blogs({ ...props }) {
     const { data } = props;
-    const PageSize = 1;
+    const PageSize = 5;
 
     const [currentPage, setCurrentPage] = useState(0);
 

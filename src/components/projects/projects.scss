@@ -11,9 +11,9 @@
         flex-direction: column;
     }
 
-    ul li a:visited {
-        color: #8e32dc;
-    }
+    // ul li a:visited {
+    //     color: #8e32dc;
+    // }
 
     .post {
         display: inline;
@@ -21,16 +21,15 @@
     }
 
     a {
+        .title {
+            color: map-get($map: $colors, $key: "cinnamon-satin");
+        }
         padding: 1rem;
 
         margin: auto;
 
         &:hover {
-            color: white !important;
-
-            .title {
-                color: map-get($map: $colors, $key: "cinnamon-satin");
-            }
+            opacity: .5;
         }
 
         @media only screen and (min-width: 60em) {

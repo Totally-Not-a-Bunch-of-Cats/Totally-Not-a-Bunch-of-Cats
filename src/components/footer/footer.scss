@@ -17,7 +17,6 @@ footer {
 
     .social {
         transition: .5s;
-        font-size: 2rem;
     }
 
     a {
@@ -45,7 +44,18 @@ footer {
     }
 
     #copyright {
-        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #illustrations-credits {
+        $alpha: .6;
+        color: rgb(113, 113, 113, $alpha);
+        a {
+            
+            color: rgb(121, 169, 188, $alpha);
+        }
     }
 
     #social-links {
@@ -125,10 +135,6 @@ footer {
                 gap: .7rem;
             }
         }
-
-        .social {
-            font-size: 2.4rem;
-        }
     }
 }
 
@@ -140,20 +146,12 @@ footer {
             flex-direction: row;
         }
 
-        #copyright {
-            font-size: 2.2rem;
-        }
-
         #social-links {
             svg {
                 width: 3rem;
             }
 
 
-        }
-
-        .social {
-            font-size: 3rem;
         }
     }
 }

@@ -16,7 +16,7 @@
 
     border-radius: 1rem;
 
-    border-top: 20em solid map-get($map: $colors, $key: "quick-silver");
+    border-top: .5rem solid map-get($map: $colors, $key: "quick-silver");
 
     z-index: 0;
 
@@ -47,7 +47,7 @@
         text-align: left;
 
         border-top: none;
-        border-left: 20em solid map-get($map: $colors, $key: "quick-silver");
+        border-left: .5rem solid map-get($map: $colors, $key: "quick-silver");
 
         .icon {
             margin-block: 0;

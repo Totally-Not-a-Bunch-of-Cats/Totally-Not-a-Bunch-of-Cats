@@ -71,8 +71,9 @@ export function Pagination({ ...props }) {
 
     return (
         <>
-            <div id="pagination" className={`d-flex align-items-center ${maxPage > 0 ? "" : "d-none"}`}>
+            <div id="pagination" className={`d-flex align-items-center ${maxPage > 1 ? "" : "d-none"}`}>
                 <a
+                    class="h5 m-0"
                     href="#"
                     onclick={beginning}
                     className={currentPage === 0 ? "d-none" : ""}>
@@ -84,6 +85,7 @@ export function Pagination({ ...props }) {
                 </div>
                 <button onclick={increment} disabled={currentPage === maxPage} aria-label="Nex page of items"><p>&gt;</p></button>
                 <a
+                    class="h5 m-0"
                     href="#"
                     onclick={end}
                     className={currentPage === maxPage ? "d-none" : ""}>

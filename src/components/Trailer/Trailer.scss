@@ -5,6 +5,12 @@
     width: 100%;
     height: auto;
     margin-inline: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
 }
 
 .trailer-temp {
@@ -37,7 +43,7 @@
 
 iframe {
     aspect-ratio: 16 / 9;
-    width: 90%;
+    width: 100%;
     height: auto;
     margin: auto;
 

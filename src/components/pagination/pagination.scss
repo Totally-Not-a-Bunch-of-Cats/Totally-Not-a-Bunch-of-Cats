@@ -8,11 +8,8 @@
     button {
         transition: .1s;
 
-        margin: 1.25rem;
+        margin-inline: 1rem;
 
-        $size: 3.25rem;
-        width: $size;
-        height: $size;
         border: none;
 
         border-radius: 50%;
@@ -57,27 +54,27 @@
         }
     }
 
-    @media only screen and (min-width: 60em) {
-        button {
-            $size: 4rem;
-            width: $size;
-            height: $size;
-        }
-    }
+    // @media only screen and (min-width: 60em) {
+    //     button {
+    //         $size: 1rem;
+    //         width: $size;
+    //         height: $size;
+    //     }
+    // }
 
-    @media only screen and (min-width: 80em) {
-        button {
-            $size: 5rem;
-            width: $size;
-            height: $size;
-        }
-    }
+    // @media only screen and (min-width: 80em) {
+    //     button {
+    //         $size: 3rem;
+    //         width: $size;
+    //         height: $size;
+    //     }
+    // }
 
-    @media only screen and (min-width: 132) {
-        button {
-            $size: 6rem;
-            width: $size;
-            height: $size;
-        }
-    }
+    // @media only screen and (min-width: 132) {
+    //     button {
+    //         $size: 4rem;
+    //         width: $size;
+    //         height: $size;
+    //     }
+    // }
 }

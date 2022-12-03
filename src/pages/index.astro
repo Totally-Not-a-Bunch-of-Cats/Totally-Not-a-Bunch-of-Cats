@@ -9,7 +9,7 @@ import { Trailer } from "../components/Trailer/Trailer";
 const title = "Home";
 const description =
     "Totally Not a Bunch of Cats is an indie game dev group looking to make new content.";
-const permalink = Astro.site + "Totally-Not-a-Bunch-of-Cats/";
+const permalink = "/Totally-Not-a-Bunch-of-Cats/";
 import { home } from "../data/links.json";
 
 const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
@@ -39,7 +39,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
             </a>
         </div>
 
-        <p class="text-indent mb-4">
+        <p class="text-indent mb-4 h5 m-0 p-0">
             Totally Not a Bunch of Cats is a small, just for fun, game
             development group looking to make enjoyable content. We all strive
             to learn about game development and the tools used with it.
@@ -50,7 +50,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
             icon={["fas", "circle-info"]}
             className="mb-2"
         >
-            <p>
+            <p class="h5 m-0 p-0">
                 Check out our <a href="blog/" aria-label="Check out our blog"
                     >blog</a
                 > if you are interested in keeping up with the groups projects
@@ -66,18 +66,18 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
         <div id="projects-featured">
             <div class="d-flex flex-column align-items-center m-block-2">
                 <Trailer url={Featured.frontmatter.trailer} client:visible />
-                <p class="h3 m-block-2">
+                <h4 class="m-block-2">
                     <strong class="color-cinnamon-satin">Featured:</strong>
                     {Featured.frontmatter.title}
-                </p>
+                </h4>
             </div>
 
-            <p class="text-indent m-block-2">
+            <p class="text-indent m-block-2 h5">
                 {Featured.frontmatter.longDescription}
             </p>
         </div>
 
-        <div id="more-projects" class="text-align-right mt-10">
+        <div id="more-projects" class="text-align-right mt-10 h5">
             <a href="projects/"
                 ><strong>More<span id="more-projects-arrow"> →</span></strong>
             </a>

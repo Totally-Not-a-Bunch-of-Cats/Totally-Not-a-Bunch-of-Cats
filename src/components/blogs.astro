@@ -8,7 +8,7 @@ const posts = (await Astro.glob('../pages/blogs/**/*.{md,mdx}')).sort(
     {posts.map((post) => (
         <li class="blog-list-item">
             <a class="post" href={post.url}>
-                <p class="title"><strong>{post.frontmatter.title}</strong></p>
+                <p class="title h4 m-0"><strong>{post.frontmatter.title}</strong></p>
                 <p class="date">~
                     <time datetime={post.frontmatter.pubDate}>
                         {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
@@ -41,11 +41,10 @@ const posts = (await Astro.glob('../pages/blogs/**/*.{md,mdx}')).sort(
         flex: 0 0 130px;
         font-style: italic;
         color: #888;
-        font-size: inherit;
     }
-    ul li a:visited {
-        color: #8e32dc;
-    }
+    // ul li a:visited {
+    //     color: #8e32dc;
+    // }
 
     .date {
         margin-left: 2rem;

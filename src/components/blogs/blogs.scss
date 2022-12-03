@@ -24,9 +24,9 @@
         font-size: inherit;
     }
 
-    ul li a:visited {
-        color: #8e32dc;
-    }
+    // ul li a:visited {
+    //     color: #8e32dc;
+    // }
 
     .date {
         margin-left: 2rem;
@@ -60,21 +60,28 @@
     margin-top: 6rem;
     width: fit-content;
     margin-inline: auto;
+    display: flex;
+    align-items: center;
+
+    a, p {
+        margin: 0;
+    }
 
     button {
         transition: .1s;
-
         margin: 1.25rem;
-
-        $size: 3.25rem;
-        width: $size;
-        height: $size;
+        aspect-ratio: 1;
+        width: fit-content;
+        padding: clamp(0.8rem, 0.4785714285714286rem + 0.8571428571428572vw, 1.25rem);
         border: none;
 
         border-radius: 50%;
         background-color: white;
         box-shadow: 1px 1px 8px -2px #000000;
 
+        p {
+            margin: 0;
+        }
         &:hover {
             background-color: map-get($map: $colors, $key: "blue-gray");
 
@@ -84,7 +91,7 @@
         }
 
         &:disabled {
-            background-color: white;
+            background-color: rgba(231, 229, 229, 0.6);
             opacity: .75;
 
             p {
@@ -110,30 +117,6 @@
             color: map-get($map: $colors, $key: "blue-gray");
             text-decoration: underline;
             text-underline-offset: .25rem;
-        }
-    }
-
-    @media only screen and (min-width: 60em) {
-        button {
-            $size: 4rem;
-            width: $size;
-            height: $size;
-        }
-    }
-
-    @media only screen and (min-width: 80em) {
-        button {
-            $size: 5rem;
-            width: $size;
-            height: $size;
-        }
-    }
-
-    @media only screen and (min-width: 132em) {
-        button {
-            $size: 6rem;
-            width: $size;
-            height: $size;
         }
     }
 }
