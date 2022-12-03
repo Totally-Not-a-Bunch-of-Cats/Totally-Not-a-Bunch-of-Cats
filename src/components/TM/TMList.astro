@@ -6,7 +6,7 @@ import FAIcon from "../FAIcons/FAIcon.astro";
 import { members } from "../../data/tm.json";
 
 // Get all images from pfp directory
-const images = (await Astro.glob("/public/images/pfp/*.png")).map((pfp) =>
+const images = (await Astro.glob("/public/images/pfp/*.{png,jpg}")).map((pfp) =>
     pfp.default.split("/public/").pop()
 );
 

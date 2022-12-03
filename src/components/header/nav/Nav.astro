@@ -12,3 +12,14 @@ const permalink = "/Totally-Not-a-Bunch-of-Cats/";
 
 <DesktopMenu links={links} permalink={permalink} client:visible />
 <MobileMenu links={links} permalink={permalink} client:load />
+<script>
+    window.addEventListener("scroll", function () {
+        let scroll = window.scrollY;
+        let MobileMenu = document.getElementById("mobile-menu");
+        if (scroll > 100) {
+            MobileMenu?.classList.add("d-block");
+        } else {
+            MobileMenu?.classList.remove("d-block");
+        }
+    });
+</script>

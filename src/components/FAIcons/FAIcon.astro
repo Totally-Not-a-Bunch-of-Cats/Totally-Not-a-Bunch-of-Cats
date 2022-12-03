@@ -1,5 +1,11 @@
 ---
-let { klass, style, icon } = Astro.props;
+export interface Props {
+    klass?: string;
+    style?: string;
+    icon: array;
+}
+
+let { klass = "", style, icon } = Astro.props;
 
 function processArray() {
     let result: Array<String> = [];

@@ -1,10 +1,20 @@
 {
     "members": [
         {
-            "pfp": "kitty",
-            "name": "Aaron T.",
+            "pfp": "AT",
+            "name": "Aaron Tweden",
             "title": "Team Lead",
-            "socials": []
+            "socials": [
+                {
+                    "name": "Facebook",
+                    "class": "i-hover-blue-gray",
+                    "link": "https://www.facebook.com/aaron.tweden",
+                    "icon": [
+                        "fab",
+                        "facebook"
+                    ]
+                }
+            ]
         },
         {
             "pfp": "ZacharyBoehm",

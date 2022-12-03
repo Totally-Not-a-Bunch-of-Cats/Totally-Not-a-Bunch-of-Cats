@@ -68,28 +68,8 @@ export const MobileMenu = ({ ...props }) => {
                 */}
 
                 <div class="menu-overlay">
-                    <div class="quick-nav">
-                        <a href="#header" onclick={e => {
-                            document.body.classList.toggle("hide-overflow");
-                            document.getElementsByClassName("menu")[0].classList.toggle("open");
-                            document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
-                        }}>
-                            <FAIcon icon={["fas", "arrow-up-short-wide"]} />
-                        </a>
-
-                    </div>
                     <div class="overlay-info">
                         {links}
-                    </div>
-
-                    <div class="quick-nav">
-                        <a href="#footer" onclick={e => {
-                            document.body.classList.toggle("hide-overflow");
-                            document.getElementsByClassName("menu")[0].classList.toggle("open");
-                            document.getElementsByClassName("menu-overlay")[0].classList.toggle("open");
-                        }}>
-                            <FAIcon icon={["fas", "arrow-down-wide-short"]} />
-                        </a>
                     </div>
                 </div>
 

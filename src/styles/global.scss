@@ -358,6 +358,10 @@ a:visited {
     display: none !important;
 }
 
+.d-block {
+    display: block !important;
+}
+
 @each $name,
 $color in $colors {
     .#{$name} {
