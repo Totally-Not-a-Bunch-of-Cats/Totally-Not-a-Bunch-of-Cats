@@ -23,6 +23,12 @@
             "link": "blog/",
             "text": "Blog",
             "title": ""
+        },
+        {
+            "aria": "Redirect to the privacy page",
+            "link": "privacy/",
+            "text": "Privacy",
+            "title": ""
         }
     ],
     "projects": [
@@ -91,6 +97,20 @@
             "link": "projects/",
             "text": "Projects",
             "title": ""
+        }
+    ],
+    "privacy": [
+        {
+            "aria": "Redirect to homepage",
+            "link": "",
+            "text": "Home",
+            "title": ""
+        },
+        {
+            "aria": "Redirect to projects page",
+            "link": "projects/",
+            "text": "Projects",
+            "title": "Coming Soon!"
         }
     ]
 }
