@@ -18,7 +18,7 @@ import { post } from "../data/links.json";
 import { Trailer } from "../components/Trailer/Trailer";
 
 const {
-    content: { title, description, pubDate, updatedDate, trailer, tags },
+    content: { title, description, pubDate, updatedDate, trailer, tags=[] },
 } = Astro.props;
 ---
 
@@ -35,6 +35,7 @@ const {
                 <Trailer url={trailer} />
             </div>
             <h1 class="title">{title}</h1>
+            {/* tags && allows it to be an and or */}
             <div class="tag-list d-flex mb-1">
                 {
                     tags.map((tag) => {
