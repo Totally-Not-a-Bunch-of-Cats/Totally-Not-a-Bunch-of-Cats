@@ -3,9 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Content from "../../components/Content.astro";
 
-const title = "Privacy";
+const title = "App ID";
 const description =
-    "Privacy Policy for Corralling Cats";
+    "App ID Policy for Corralling Cats";
 const permalink = "/Totally-Not-a-Bunch-of-Cats/";
 import { privacy } from "../../data/links.json";
 
@@ -22,7 +22,7 @@ const projectDetails = (await Astro.glob("./**/*.{md,mdx}")).sort(
     permalink={permalink}
     links={privacy}
 >
-    <Content id="Privicy Policy">
+    <Content id="App ID">
         <p class="text-indent mb-4 h5 m-0 p-0">
             adcolony.com, 0a0f72cd66122f31, RESELLER, 1ad675c9de6b5176
             adcolony.com, 801e49d1be83b5f9, RESELLER, 1ad675c9de6b5176
