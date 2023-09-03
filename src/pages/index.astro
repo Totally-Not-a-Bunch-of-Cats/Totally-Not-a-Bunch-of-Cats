@@ -13,7 +13,7 @@ const permalink = "/Totally-Not-a-Bunch-of-Cats/";
 import { home } from "../data/links.json";
 
 const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
-    (file) => file.frontmatter.title === "Herding Cats"
+    (file) => file.frontmatter.title === "Corralling Cats"
 );
 ---
 
@@ -25,24 +25,11 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
     fa={true}
 >
     <Content id="about">
-        <h1 class="mb-6">About</h1>
-
-        <div class="m-auto fit-content">
-            <a
-                href="https://icons8.com/illustrations/author/zD2oqC8lLBBA"
-                target="_blank"
-            >
-                <img
-                    src="images/casual-life-3d-cat-sitting-on-bookshelf.png"
-                    title="Illustration by Icons 8 from Ouch!"
-                />
-            </a>
-        </div>
-
-        <p class="text-indent mb-4 h5 m-0 p-0">
-            Totally Not a Bunch of Cats is a small, just for fun, game
-            development group looking to make enjoyable content. We all strive
-            to learn about game development and the tools used with it.
+        <h1 class="mb-6">About Us</h1>
+        <p class="text-indent mb-4 h4 m-0 p-0">
+            Totally Not a Bunch of Cats is a small game
+            development group looking to make enjoyable content.
+            <img src="images/paw_outline.png"/>
         </p>
 
         <Admonition
@@ -62,7 +49,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
     </Content>
 
     <Content id="projects">
-        <h1 class="mb-6">Projects</h1>
+        <h1 class="mb-6">Current Project</h1>
         <div id="projects-featured">
             <div class="d-flex flex-column align-items-center m-block-2">
                 <Trailer url={Featured.frontmatter.trailer} client:visible />
@@ -85,7 +72,7 @@ const Featured = (await Astro.glob("./projects/**/*.{md,mdx}")).find(
     </Content>
 
     <Content id="team">
-        <h1 class="mb-6">Team</h1>
+        <h1 class="mb-6">The Team</h1>
         <TMList />
     </Content>
 
