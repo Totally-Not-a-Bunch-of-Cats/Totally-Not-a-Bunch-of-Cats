@@ -1,18 +1,34 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+import Icon from "astro-icon";
 ---
 
 <header>
-  <nav class="flex items-end justify-between py-2 px-6">
-    <h2>
-      <a href="/" class="text-2xl font-bold">
-        {SITE_TITLE}
-      </a>
-    </h2>
-    <div class="flex gap-5 align-bottom">
-      <HeaderLink href="/" class="h-fit">Home</HeaderLink>
-      <HeaderLink href="/blog" class="h-fit">Blog</HeaderLink>
-    </div>
-  </nav>
+  <div class="w-full px-1">
+    <nav class="items-end bg-slate-100 shadow-md rounded-b-lg px-4 py-2 justify-between hidden sm:flex w-full">
+        <h2 class="text-xl font-bold">
+          <a href="/">
+            {SITE_TITLE}
+          </a>
+        </h2>
+        <div class="flex gap-5 align-bottom">
+          <HeaderLink href="/" class="h-fit">Home</HeaderLink>
+          <HeaderLink href="/blog" class="h-fit">Blog</HeaderLink>
+        </div>
+      </nav>
+  </div>
+  <div class="inline-block sm:hidden">
+    <button
+        type="button"
+    >
+        <Icon name="jam:menu" class="w-8 h-8"/>
+    </button>
+    <nav class="absolute w-[calc(100vw-5rem)] h-[100dvh] top-0 left-0 bg-slate-100 z-10 rounded-r-lg shadow-lg shadow-slate-800">
+        <div class="flex gap-5 align-bottom">
+          <HeaderLink href="/" class="h-fit">Home</HeaderLink>
+          <HeaderLink href="/blog" class="h-fit">Blog</HeaderLink>
+        </div>
+      </nav>
+  </div>
 </header>

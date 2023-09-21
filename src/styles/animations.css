@@ -1,0 +1,40 @@
+/* Illustration by <a href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a> */
+
+.anim-floating {
+    animation-name: floating;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+.anim-twinkle {
+    animation-name: twinkle;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(2rem) rotate(4deg);
+    }
+    100% {
+        transform: translateY(0rem);
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.01;
+        transform: rotate(0);
+    }
+    50% {
+        opacity: 0.05;
+        transform: rotate(45deg);
+    }
+    100% {
+        opacity: 0.01;
+        transform: rotate(90deg)
+    }
+}

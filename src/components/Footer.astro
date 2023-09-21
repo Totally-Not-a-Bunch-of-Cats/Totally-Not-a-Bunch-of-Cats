@@ -1,7 +1,37 @@
 ---
+import { Icon } from "astro-icon";
+import Socials from "./Socials.astro";
+import Links from "./Links.astro";
 const today = new Date();
 ---
 
-<footer class="pt-4 px-1 pb-6 bg-gradient-to-b bg-no-repeat from-slate-200 to-transparent text-slate-600 text-center">
-	&copy; {today.getFullYear()} Totally Not a Bunch of Cats. All rights reserved.
+<footer class="p-4 bg-slate-100 flex flex-col justify-center rounded-t-lg shadow-inner mx-1">
+  <div class="px-8 flex flex-col gap-8 sm:flex-row justify-between">
+    <Socials
+      links={{
+        github: { icon: "mdi:github", uri: "https://github.com/" },
+        twitter: { icon: "mdi:twitter", uri: "https://example.com/" },
+        youtube: { icon: "mdi:youtube", uri: "https://example.com/" },
+        facebook: { icon: "uil:facebook", uri: "https://example.com/" },
+      }}
+    />
+    <div class="flex flex-wrap justify-around sm:flex-nowrap flex-1 gap-6 sm:justify-end">
+      <Links
+        name="Menu"
+        links={{
+          blog: { uri: "/blog" },
+        }}
+      />
+      <Links
+        name="Support"
+        links={{
+          privacy: { uri: "/privacy" },
+        }}
+      />
+    </div>
+  </div>
+  <span class="flex-1 text-sm text-slate-700/30 text-center mt-8">
+    &copy; {today.getFullYear()} Totally Not a Bunch of Cats. All rights
+    reserved.
+  </span>
 </footer>

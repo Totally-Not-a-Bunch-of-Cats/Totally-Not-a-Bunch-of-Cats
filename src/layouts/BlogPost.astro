@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import { slide } from "astro:transitions";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -12,11 +13,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     title={title}
     description={description}
 >
-    <article class="prose">
-        <div class="hero-image">
+<div class="mx-auto prose">
+        <div>
             {
                 heroImage && (
                     <img
+                        transition:name={`hero-image-${title}`}
+                        class="rounded shadow-lg"
                         width={1020}
                         height={510}
                         src={heroImage}
@@ -26,8 +29,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             }
         </div>
         <div class="prose">
-            <div class="title">
-                <div class="date">
+            <div
+                transition:name={`hero-title-${title}-date-${pubDate}`}
+            >
+                <div 
+                    class="date"
+                >
                     <FormattedDate date={pubDate} />
                     {
                         updatedDate && (
@@ -38,10 +45,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                         )
                     }
                 </div>
-                <h1>{title}</h1>
+                <h1>
+                    {title}
+                </h1>
                 <hr />
             </div>
-            <slot />
+            <article transition:name="blog-article" transition:animate="slide">
+                <slot />
+            </article>
         </div>
-    </article>
+    </div>
 </Layout>

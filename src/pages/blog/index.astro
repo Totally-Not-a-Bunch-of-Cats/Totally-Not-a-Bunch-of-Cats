@@ -2,34 +2,57 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
+import { fade, slide } from "astro:transitions";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
 <Layout>
-  <section>
-    <ul class="flex flex-wrap gap-4 gap-y-6">
-      {
-        posts.map((post) => (
-          <li class="w-[calc(50%-.5rem)] first:w-full">
-            <a href={`/blog/${post.slug}/`}>
-              <img
-               class="rounded-md"
-               width={720}
-               height={360}
-               src={post.data.heroImage}
-               alt=""
-              />
-              <h4 class="text-lg font-bold">{post.data.title}</h4>
-              <em class="text-sm">
-                <FormattedDate date={post.data.pubDate} />
-              </em>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+  <ul class="flex flex-wrap gap-4 gap-y-6">
+    {
+      posts.map((post, idx) => (
+        <li class="w-full md:w-[calc(50%-.5rem)] md:first:w-full">
+          <a
+            href={`/blog/${post.slug}/`}
+            class="hover:text-blue-400 transition-colors duration-200"
+          >
+            <img
+              transition:name={`hero-image-${post.data.title}`}
+              class="rounded-md w-full mb-2 shadow-md"
+              width={720}
+              height={360}
+              src={post.data.heroImage}
+              alt=""
+            />
+            <div class="flex justify-between gap-6">
+              <div
+                class="flex-[2]"
+                transition:name={`hero-title-${post.data.title}-date-${post.data.pubDate}`}
+              >
+                <h4 class="text-lg font-bold w-fit">{post.data.title}</h4>
+                <div class="flex gap-2">
+                    <FormattedDate date={post.data.pubDate} class="text-sm" />
+                    {post.data.author && <em class="text-sm">@{post.data.author}</em>}    
+                </div>
+              </div>
+              
+              <div
+               class="flex flex-wrap flex-1 gap-1 text-sm w-fit h-fit justify-end"
+               class:list={{'md:hidden': idx !== 0}}
+              >
+                {post.data.tags &&
+                  post.data.tags.map((tag) => (
+                    <span class="h-fit px-1 rounded-md bg-slate-200 text-slate-900 shadow-sm">
+                      {tag}
+                    </span>
+                  ))}
+              </div>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
