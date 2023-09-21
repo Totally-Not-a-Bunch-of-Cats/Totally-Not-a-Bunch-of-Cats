@@ -1,9 +1,22 @@
 ---
 import "../styles/animations.css";
 import Layout from "../layouts/Layout.astro";
----
+import Icon from "astro-icon";
+import { toast } from "../components/solid/toaster/Toaster";
 
-<Layout>
+
+---
+<script>
+    import { toast } from "../components/solid/toaster/Toaster";
+    window.onload = () => {
+        for (let i = 0; i < 3; i++) {
+            toast(i)
+        }
+    }
+
+    document.getElementById("toast-button")?.addEventListener('click', () => toast(4))
+</script>
+<Layout centered>
   <div class="relative overflow-hidden">
     <img
       class="rounded-full w-[30rem] mx-auto aspect-square opacity-5 anim-twinkle"
@@ -13,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
       alt=""
     />
     <img
-      class="w-[15rem] absolute top-[25%] left-[40%] anim-floating"
+      class="w-[15rem] absolute top-[25%] left-[30%] anim-floating"
       width={1440}
       height={720}
       src="/images/casual-life-3d-cat-astronaut.png"
@@ -23,15 +36,25 @@ import Layout from "../layouts/Layout.astro";
   <div class="flex flex-col text-sm w-full items-center mt-4 text-slate-700/20">
     <span>
       Illustration by <a
-        href="https://icons8.com/illustrations/author/zD2oqC8lLBBA" class="text-blue-300/30 underline">Icons 8</a
-      > from <a href="https://icons8.com/illustrations" class="text-blue-300/30 underline">Ouch!</a></span
+        href="https://icons8.com/illustrations/author/zD2oqC8lLBBA"
+        class="text-blue-300/30 underline">Icons 8</a
+      > from <a
+        href="https://icons8.com/illustrations"
+        class="text-blue-300/30 underline">Ouch!</a
+      ></span
     >
     <span
       ><a
         href="https://www.freepik.com/free-vector/black-wave-halftone-background_7647150.htm#query=random%20dots&position=1&from_view=keyword&track=ais"
-        class="text-blue-300/30 underline"
-        >Image by alicia_mb</a
+        class="text-blue-300/30 underline">Image by alicia_mb</a
       > on Freepik</span
     >
   </div>
+  <div
+    class="absolute top-1 left-1 border-2 border-dashed border-yellow-300 p-2 rounded-md bg-yellow-100 text-yellow-800 flex gap-1 items-center"
+  >
+    <Icon name="ic:round-warning-amber" class="w-6 h-6" />
+    This website is a work in progress
+  </div>
+  <button id="toast-button">Toast</button>
 </Layout>

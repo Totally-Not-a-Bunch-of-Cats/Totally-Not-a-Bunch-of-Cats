@@ -5,30 +5,35 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 type Props = {
-    title?: string,
-    description?: string,
-    image?: string,
+  title?: string;
+  description?: string;
+  image?: string;
+  centered?: boolean
 };
 
-const { title, description, image } = Astro.props;
+const { title, description, image, centered=false } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" transition:animate="none">
-    <head>
-        <BaseHead title={title} description={description} image={image} />
-        <ViewTransitions />
-    </head>
-    <body class="flex flex-col min-h-[100dvh] min-h-[100vh] text-slate-800">
-        <Header />
-        <main
-            class="w-[90%] max-w-[90ch] min-h-[calc(100dvh-20rem)] my-8 mx-auto"
-            transition:name="main"
-            transition:animate="fade"
-        >
-            <slot />
-        </main>
-        <div class="flex-grow"></div>
-        <Footer />
-    </body>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <ViewTransitions />
+  </head>
+  <body
+    class="flex flex-col min-h-[100vh] min-h-[100dvh] text-slate-800"
+    transition:animate="none"
+  >
+    <Header />
+    <main
+      class="w-[90%] max-w-[90ch] min-h-[calc(100dvh-2.75rem)] mx-auto"
+      class:list={centered ? 'flex flex-col items-center justify-center': ''}
+      transition:name="main"
+      transition:animate="fade"
+    >
+      <slot />
+    </main>
+    <div class="flex-grow"></div>
+    <Footer />
+  </body>
 </html>

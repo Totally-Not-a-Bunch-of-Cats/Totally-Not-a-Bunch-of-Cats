@@ -10,7 +10,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout>
-  <ul class="flex flex-wrap gap-4 gap-y-6">
+  <ul class="flex flex-wrap gap-4 gap-y-6 mb-12">
     {
       posts.map((post, idx) => (
         <li class="w-full md:w-[calc(50%-.5rem)] md:first:w-full">
