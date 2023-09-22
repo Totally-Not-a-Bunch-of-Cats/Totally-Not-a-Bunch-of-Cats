@@ -2,7 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import { Header } from "../components/solid/header/Header";
 
 type Props = {
   title?: string;
@@ -11,6 +11,7 @@ type Props = {
   centered?: boolean
 };
 
+const {pathname} = Astro.url;
 const { title, description, image, centered=false } = Astro.props;
 ---
 
@@ -21,10 +22,10 @@ const { title, description, image, centered=false } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="flex flex-col min-h-[100vh] min-h-[100dvh] text-slate-800"
+    class="flex flex-col min-h-[100vh] min-h-[100dvh] text-slate-800 overflow-x-hidden"
     transition:animate="none"
   >
-    <Header />
+    <span class="sticky top-0 left-0 z-40" transition:animate="none"><Header pathname={pathname} client:only /></span>
     <main
       class="w-[90%] max-w-[90ch] min-h-[calc(100dvh-2.75rem)] mx-auto"
       class:list={centered ? 'flex flex-col items-center justify-center': ''}

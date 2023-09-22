@@ -1,5 +1,6 @@
-import { For, createEffect } from "solid-js";
-import { createStore, produce } from "solid-js/store";
+import { For } from "solid-js";
+import { createStore } from "solid-js/store";
+import ToastWrapper from './ToastWrapper';
 
 type Renderable = JSX.Element | string | null;
 type Toast = {
@@ -14,7 +15,7 @@ type Toast = {
 
 const [store, setStore] = createStore<Toast[]>([]);
 
-const BASE_STYLES = "absolute top-0 left-0 w-full h-screen pointer-events-none flex px-4 py-2";
+const BASE_STYLES = "absolute top-0 left-0 w-full h-screen pointer-events-none flex px-4 py-5";
 
 const POS_TO_STYLE = {
   "top-left": "flex-col-reverse justify-start items-start",
@@ -34,7 +35,7 @@ type Position =
   | "bottom-right";
 
 const getToastStyles = (position: Position, gutter: number): string => {
-  return `${POS_TO_STYLE[position]} gap-[${gutter}px]`;
+  return `${POS_TO_STYLE[position]} gap-[8px]`;
 };
 
 type Props = {
@@ -62,7 +63,7 @@ export function Toaster({ position = "bottom-left", gutter = 8 }: Props) {
   return (
     <div className={`${BASE_STYLES} ${getToastStyles(position, gutter)}`}>
       <For each={[...store]} fallback={<p>No Toasts!</p>}>{
-        (toast, idx) => <p>{toast.id}</p>}
+        (toast, idx) => <ToastWrapper toast={toast}/>}
       </For>
     </div>
   );

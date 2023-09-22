@@ -2,7 +2,6 @@
 import "../styles/animations.css";
 import Layout from "../layouts/Layout.astro";
 import Icon from "astro-icon";
-import { toast } from "../components/solid/toaster/Toaster";
 
 
 ---
@@ -49,12 +48,6 @@ import { toast } from "../components/solid/toaster/Toaster";
         class="text-blue-300/30 underline">Image by alicia_mb</a
       > on Freepik</span
     >
-  </div>
-  <div
-    class="absolute top-1 left-1 border-2 border-dashed border-yellow-300 p-2 rounded-md bg-yellow-100 text-yellow-800 flex gap-1 items-center"
-  >
-    <Icon name="ic:round-warning-amber" class="w-6 h-6" />
-    This website is a work in progress
   </div>
   <button id="toast-button">Toast</button>
 </Layout>
