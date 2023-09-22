@@ -4,33 +4,41 @@ import Links from "./Links.astro";
 const today = new Date();
 ---
 
-<footer class="p-4 bg-slate-100 flex flex-col justify-center rounded-t-lg shadow-inner mx-2 w-full mx-1">
-  <div class="px-8 flex flex-col gap-8 sm:flex-row justify-between w-full max-w-[95ch] mx-auto">
-    <Socials
-      links={{
-        github: { icon: "mdi:github", uri: "https://github.com/" },
-        twitter: { icon: "mdi:twitter", uri: "https://example.com/" },
-        youtube: { icon: "mdi:youtube", uri: "https://example.com/" },
-        facebook: { icon: "uil:facebook", uri: "https://example.com/" },
-      }}
-    />
-    <div class="flex flex-wrap justify-around sm:flex-nowrap flex-1 gap-10 sm:justify-end">
-      <Links
-        name="Menu"
+<footer class="px-1">
+  <div
+    class="p-4 bg-slate-100 flex flex-col justify-center rounded-t-lg shadow-inner w-full"
+  >
+    <div
+      class="px-8 flex flex-col gap-8 sm:flex-row justify-between w-full max-w-[95ch] mx-auto"
+    >
+      <Socials
         links={{
-          blog: { uri: "/blog" },
+          github: { icon: "mdi:github", uri: "https://github.com/" },
+          twitter: { icon: "mdi:twitter", uri: "https://example.com/" },
+          youtube: { icon: "mdi:youtube", uri: "https://example.com/" },
+          facebook: { icon: "uil:facebook", uri: "https://example.com/" },
         }}
       />
-      <Links
-        name="Support"
-        links={{
-          privacy: { uri: "/privacy" },
-        }}
-      />
+      <div
+        class="flex flex-wrap justify-around sm:flex-nowrap flex-1 gap-10 sm:justify-end"
+      >
+        <Links
+          name="Menu"
+          links={{
+            blog: { uri: "/blog" },
+          }}
+        />
+        <Links
+          name="Support"
+          links={{
+            privacy: { uri: "/privacy" },
+          }}
+        />
+      </div>
     </div>
+    <span class="flex-1 text-sm text-slate-700/30 text-center mt-8">
+      &copy; {today.getFullYear()} Totally Not a Bunch of Cats. All rights
+      reserved.
+    </span>
   </div>
-  <span class="flex-1 text-sm text-slate-700/30 text-center mt-8">
-    &copy; {today.getFullYear()} Totally Not a Bunch of Cats. All rights
-    reserved.
-  </span>
 </footer>
