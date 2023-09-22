@@ -12,6 +12,15 @@
     animation-iteration-count: infinite;
 }
 
+.anim-carrousel-show {
+    animation-name: carrousel-show;
+    animation-duration: 1s;
+}
+.anim-carrousel-hide {
+    animation-name: carrousel-hide;
+    animation-duration: 1s;
+}
+
 @keyframes floating {
     0% {
         transform: translateY(0rem);
@@ -36,5 +45,31 @@
     100% {
         opacity: 0.01;
         transform: rotate(90deg)
+    }
+}
+
+@keyframes carrousel-show {
+    0% {
+        display: none;
+        transform: translateX(100vw);
+    }
+    1% {
+        display: inline-block;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes carrousel-hide {
+    0% {
+        display: inline-block;
+        transform: translateX(0);
+    }
+    99% {
+        transform: translateX(100vw);
+    }
+    100% {
+        display: none;
     }
 }

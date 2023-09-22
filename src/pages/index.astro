@@ -1,17 +1,42 @@
 ---
 import "../styles/animations.css";
 import Layout from "../layouts/Layout.astro";
-import Icon from "astro-icon";
+import {
+  Carrousel,
+  image,
+  video,
+} from "../components/solid/carrousel/Carrousel";
+import { getCollection } from "astro:content";
 
+let posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .map(({ slug, collection, data: { title, heroImage } }) => {
+    return image({
+      href: `${collection}/${slug}`,
+      src: heroImage,
+      label: title,
+    });
+  });
 
+posts.push(
+  video({
+    // TODO: Make sure to set this to a local image
+    src: "https://gist.github.com/jsturgis/3b19447b304616f18657",
+    type: "video/mp4",
+    href: "/blog/",
+    label: "Sample Video",
+    start: 719,
+    autoScroll: true
+  })
+);
 ---
-<script>
-    import toast from 'solid-toast';
 
-    document.getElementById("toast-button")?.addEventListener(
-        'click', 
-        () => toast('Hello user!', {duration: 2000})
-    );
+<script>
+  import toast from "solid-toast";
+
+  document
+    .getElementById("toast-button")
+    ?.addEventListener("click", () => toast("Hello user!", { duration: 2000 }));
 </script>
 <Layout centered>
   <div class="relative overflow-hidden">
@@ -53,4 +78,15 @@ import Icon from "astro-icon";
   >
     Hello!
   </button>
+
+  <Carrousel content={posts} client:load>
+    <div
+      class="w-full h-full flex flex-col justify-center items-center border-2 border-dashed border-emerald-400/80 rounded-md"
+    >
+      <a href="/blog/" class="w-fit h-fit p-4 text-center">
+        <span class="font-bold text-2xl">+</span>
+        <p class="font-bold text-xl">More posts</p>
+      </a>
+    </div>
+  </Carrousel>
 </Layout>
