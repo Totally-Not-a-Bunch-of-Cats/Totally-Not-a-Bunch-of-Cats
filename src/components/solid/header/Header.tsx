@@ -45,7 +45,7 @@ export const Header = ({ pathname }: Props) => {
       >
         <nav
           id="header-nav"
-          className={`transition-transform linear duration-200 w-screen md:max-w-[60ch] h-screen h-[100dvh] bg-slate-100 md:rounded-l-lg shadow-lg shadow-slate-800 border-y-2 border-l-2 border-dashed border-slate-400 overflow-hidden flex flex-col items-end backdrop-blur-md backdrop-brightness-150 ${menu() ? "" : "translate-x-[100vw] border-transparent"}`}
+          className={`transition-transform linear duration-200 w-screen md:w-[20rem] h-screen h-[100dvh] bg-slate-100 md:rounded-l-lg shadow-lg shadow-slate-800 border-y-2 border-l-2 border-dashed border-slate-400 overflow-hidden flex flex-col items-end backdrop-blur-md backdrop-brightness-150 ${menu() ? "" : "translate-x-[100vw] border-transparent scale-x-0"}`}
         >
           <div className="w-12 h-12 mt-4 mr-1">
             <button

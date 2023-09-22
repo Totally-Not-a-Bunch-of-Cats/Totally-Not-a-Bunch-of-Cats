@@ -11,7 +11,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags, author } =
 ---
 
 <Layout title={title} description={description}>
-  <div class="mx-auto prose">
+  <div class="mx-auto prose max-w-[85ch]">
     <div>
       {
         heroImage && (
@@ -26,7 +26,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags, author } =
         )
       }
     </div>
-    <div class="prose">
+    <div>
       <div transition:name={`hero-title-${title}-date-${pubDate}`}>
         <h1 class="mb-0">
             {title}
