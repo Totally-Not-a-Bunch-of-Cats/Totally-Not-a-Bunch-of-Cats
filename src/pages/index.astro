@@ -6,14 +6,12 @@ import Icon from "astro-icon";
 
 ---
 <script>
-    import { toast } from "../components/solid/toaster/Toaster";
-    window.onload = () => {
-        for (let i = 0; i < 3; i++) {
-            toast(i)
-        }
-    }
+    import toast from 'solid-toast';
 
-    document.getElementById("toast-button")?.addEventListener('click', () => toast(4))
+    document.getElementById("toast-button")?.addEventListener(
+        'click', 
+        () => toast('Hello user!', {duration: 2000})
+    );
 </script>
 <Layout centered>
   <div class="relative overflow-hidden">
@@ -49,5 +47,10 @@ import Icon from "astro-icon";
       > on Freepik</span
     >
   </div>
-  <button id="toast-button">Toast</button>
+  <button
+    id="toast-button"
+    class="py-2 px-4 my-4 bg-emerald-300 rounded-md text-slate-100 hover:bg-emerald-300/80 hover:text-slate-300"
+  >
+    Hello!
+  </button>
 </Layout>

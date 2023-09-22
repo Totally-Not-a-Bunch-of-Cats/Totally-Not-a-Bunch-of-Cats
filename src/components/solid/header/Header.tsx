@@ -1,16 +1,38 @@
 import { HeaderLink } from "./HeaderLink";
-import { Toaster } from "../toaster/Toaster";
-import { createSignal } from "solid-js";
+// import { Toaster } from "../toaster/Toaster";
+import { createEffect, createSignal } from "solid-js";
+import { Toaster } from "solid-toast";
 
 type Props = { pathname: string };
 
 export const Header = ({ pathname }: Props) => {
+  let openButton: HTMLElement;
+  let closeButton: HTMLElement;
   const [menu, setMenu] = createSignal(false);
 
-  const toggleMenu = () => {
-    setMenu(!menu());
-    document.body.classList.toggle('overflow-y-hidden');
+  const closeMenu = () => {
+    setMenu(false);
+    openButton.focus();
+    document.body.classList.remove('overflow-y-hidden');
   };
+  const openMenu = () => {
+    setMenu(true);
+    closeButton.focus();
+    document.body.classList.add('overflow-y-hidden');
+  };
+  const toggleMenu = () => {
+    if (menu()) {
+        closeMenu();
+    } else {
+        openMenu()
+    }
+  };
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape' && menu()) {
+        closeMenu();
+    }
+  });
 
   return (
     <header className="w-full z-40">
@@ -18,6 +40,7 @@ export const Header = ({ pathname }: Props) => {
         <div className="mt-2 mr-3 w-12 h-12 bg-slate-100 rounded-full shadow-md border-2 border-dashed border-slate-300">
           <button
             type="button"
+            ref={openButton}
             className="toggle-menu w-full h-full flex justify-center items-center"
             onClick={toggleMenu}
             title="Open menu"
@@ -49,9 +72,10 @@ export const Header = ({ pathname }: Props) => {
         >
           <div className="w-12 h-12 mt-4 mr-1">
             <button
+              type="button"
+              ref={closeButton}
               className="toggle-menu w-full h-full flex justify-center items-center"
               onClick={toggleMenu}
-              type="button"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +108,7 @@ export const Header = ({ pathname }: Props) => {
           </div>
         </nav>
       </div>
-      <Toaster />
+      <Toaster position="bottom-left" gutter={8} />
     </header>
   );
 };

@@ -8,11 +8,11 @@ type Props = {
   title?: string;
   description?: string;
   image?: string;
-  centered?: boolean
+  centered?: boolean;
 };
 
-const {pathname} = Astro.url;
-const { title, description, image, centered=false } = Astro.props;
+const { pathname } = Astro.url;
+const { title, description, image, centered = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,10 +25,12 @@ const { title, description, image, centered=false } = Astro.props;
     class="flex flex-col min-h-[100vh] min-h-[100dvh] text-slate-800 overflow-x-hidden"
     transition:animate="none"
   >
-    <span class="sticky top-0 left-0 z-40" transition:animate="none"><Header pathname={pathname} client:only /></span>
+    <span class="sticky top-0 left-0 z-40" transition:animate="none">
+      <Header pathname={pathname} client:only />
+    </span>
     <main
       class="w-[90%] max-w-[90ch] min-h-[calc(100dvh-2.75rem)] mx-auto"
-      class:list={centered ? 'flex flex-col items-center justify-center': ''}
+      class:list={centered ? "flex flex-col items-center justify-center" : ""}
       transition:name="main"
       transition:animate="fade"
     >
