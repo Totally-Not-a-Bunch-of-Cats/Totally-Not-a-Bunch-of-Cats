@@ -5,8 +5,9 @@ import {
   Carrousel,
   image,
   video,
-} from "../components/solid/carrousel/Carrousel";
+} from "../components/solid/carrousel/carrousel";
 import { getCollection } from "astro:content";
+import { youtube } from "../components/solid/carrousel/core";
 
 let posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -17,16 +18,26 @@ let posts = (await getCollection("blog"))
       label: title,
     });
   });
+  
+posts.push(
+  youtube({
+    // The source is just the video id
+    src: "LDU_Txk06tM",
+    href: "/blog/",
+    label: "Sample Video",
+    autoNext: true,
+  })
+);
 
 posts.push(
   video({
     // TODO: Make sure to set this to a local image
-    src: "https://gist.github.com/jsturgis/3b19447b304616f18657",
+    src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
     type: "video/mp4",
     href: "/blog/",
     label: "Sample Video",
     start: 719,
-    autoScroll: true
+    autoNext: true,
   })
 );
 ---
