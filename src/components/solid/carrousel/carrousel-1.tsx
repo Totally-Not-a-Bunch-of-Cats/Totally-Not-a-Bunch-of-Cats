@@ -8,10 +8,12 @@ import {
   createSignal,
   type Accessor,
   Show,
+  splitProps,
 } from "solid-js";
 
 import { CarrouselContainer, type MetaData } from './types';
 import { CarrouselContent } from './content';
+import type { HTMLAttributes } from 'astro/types';
 
 export const CarrouselWrapper = (props: {
   idx: number;
@@ -63,7 +65,7 @@ export const CarrouselButton = (props: ButtonProps) => {
     slices will just fill remaining space
     
 */
-type Props = {
+type Props = HTMLAttributes<'section'> & {
   content: CarrouselContainer[];
   children?: HTMLElement;
 };
@@ -71,13 +73,14 @@ type Props = {
 export const Carrousel = (props: Props) => {
   let wrapper: HTMLDivElement;
   const [selected, setSelected] = createSignal(0);
+  const [data, style, rest] = splitProps(props, ["content", "children"], ['class']);
 
   return (
-    <section className="w-full my-2">
+    <section className={`${style.class} w-full my-2`} {...rest}>
       <script src="https://www.youtube.com/iframe_api"></script>
       <div ref={wrapper} className="w-full relative shadow-md shadow-slate-700/30 rounded-md">
         <div className="w-full aspect-video"></div>
-        <For each={props.content}>
+        <For each={data.content}>
           {(content: CarrouselContainer, idx: Accessor<number>) => (
             <CarrouselWrapper idx={idx()} selected={selected()}>
               <CarrouselContent
@@ -87,19 +90,19 @@ export const Carrousel = (props: Props) => {
                     selected: selected(),
                     active: idx() === selected()
                 }}
-                next={() => setSelected((idx() + 1) % (props.content.length + (props.children ? 1 : 0)))}
+                next={() => setSelected((idx() + 1) % (data.content.length + (data.children ? 1 : 0)))}
               />
             </CarrouselWrapper>
           )}
         </For>
-        <Show when={props.children}>
-          <CarrouselWrapper idx={props.content.length} selected={selected()}>
-            {props.children}
+        <Show when={data.children}>
+          <CarrouselWrapper idx={data.content.length} selected={selected()}>
+            {data.children}
           </CarrouselWrapper>
         </Show>
       </div>
       <div className="flex w-full gap-1 px-6 mt-2 justify-center items-center">
-        <For each={props.content}>
+        <For each={data.content}>
           {(cnt: CarrouselContainer, idx: Accessor<number>) => (
             <CarrouselButton
               idx={idx()}
@@ -113,13 +116,13 @@ export const Carrousel = (props: Props) => {
           <button
             type="button"
             className={`rounded-full text-transparent transition-[width] duration-200 leading-[0] w-4 h-4 font-bold leading-none flex justify-center items-center ml-1 ${
-              props.content.length === selected()
+                data.content.length === selected()
                 ? "bg-slate-500 text-slate-200"
                 : "bg-slate-500/30 text-slate-950"
             }`}
             onClick={() => {
-              if (props.content.length !== selected()) {
-                setSelected(props.content.length);
+              if (data.content.length !== selected()) {
+                setSelected(data.content.length);
               }
             }}
             title="More Content"

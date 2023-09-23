@@ -5,7 +5,7 @@ import {
   Carrousel,
   image,
   video,
-} from "../components/solid/carrousel/carrousel";
+} from "../components/solid/carrousel/carrousel-1";
 import { getCollection } from "astro:content";
 import { youtube } from "../components/solid/carrousel/core";
 
@@ -18,7 +18,7 @@ let posts = (await getCollection("blog"))
       label: title,
     });
   });
-  
+
 posts.push(
   youtube({
     // The source is just the video id
@@ -90,7 +90,7 @@ posts.push(
     Hello!
   </button>
 
-  <Carrousel content={posts} client:load>
+  <Carrousel content={posts} client:load class="my-[10rem]">
     <div
       class="w-full h-full flex flex-col justify-center items-center border-2 border-dashed border-emerald-400/80 rounded-md"
     >
