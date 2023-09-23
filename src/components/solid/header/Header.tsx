@@ -95,12 +95,12 @@ export const Header = ({ pathname }: Props) => {
             <em className="text-slate-700/40 text-3xl font-bold">Menu</em>
             <ul className="mt-2 text-lg list-disc list-inside">
               <li>
-                <HeaderLink href="/" pathname={pathname} class="h-fit">
+                <HeaderLink href="/Totally-Not-a-Bunch-of-Cats/" pathname={pathname} class="h-fit">
                   Home
                 </HeaderLink>
               </li>
               <li>
-                <HeaderLink href="/blog" pathname={pathname} class="h-fit">
+                <HeaderLink href="/Totally-Not-a-Bunch-of-Cats/blog" pathname={pathname} class="h-fit">
                   Blog
                 </HeaderLink>
               </li>
