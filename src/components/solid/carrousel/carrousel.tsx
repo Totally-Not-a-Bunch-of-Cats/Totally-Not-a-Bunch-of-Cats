@@ -102,7 +102,7 @@ export const Carrousel = (props: Props) => {
     <section className={`${style.class} w-full my-2`} {...rest}>
       <div
         ref={wrapper}
-        className="w-full relative shadow-md shadow-slate-700/30 rounded-md"
+        className="w-full relative shadow-md shadow-slate-700/30 rounded-md overflow-x-hidden"
       >
         {props.arrows && (
           <button
