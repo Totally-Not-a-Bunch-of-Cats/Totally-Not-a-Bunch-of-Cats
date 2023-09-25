@@ -128,7 +128,7 @@ const CarrouselVideo = (props: {
       autoPlay={true}
       // What should happen when the video ends
       onEnded={onEnd}
-      // Used to plaly videos inline on mobile. So it doesn't auto fullscreen.
+      // Used to play videos inline on mobile. So it doesn't auto fullscreen.
       webkit-playsinline
       playsinline
     >

@@ -91,14 +91,16 @@ posts.push(
     Hello!
   </button>
 
-  <Carrousel content={posts} speed={6000} arrows client:load class="my-[10rem]">
-    <!-- <div
+  <Carrousel content={posts} speed={6000} client:load class="my-[10rem]">
+    <div
       class="w-full h-full flex flex-col justify-center items-center border-2 border-dashed border-emerald-400/80 rounded-md"
     >
+    <!-- This is displayed last and contain any content as long as it fits in
+        the parent element, same as images and video -->
       <a href="/blog/" class="w-fit h-fit p-4 text-center">
         <span class="font-bold text-2xl">+</span>
         <p class="font-bold text-xl">More posts</p>
       </a>
-    </div> -->
+    </div>
   </Carrousel>
 </Layout>

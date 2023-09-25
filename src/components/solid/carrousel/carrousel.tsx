@@ -3,6 +3,7 @@ https://developers.google.com/youtube/iframe_api_reference
 */
 
 export { image, video } from "./core";
+import '../../../styles/custom.css';
 
 import { createSignal, type Accessor, Show, splitProps, createEffect } from "solid-js";
 
@@ -63,23 +64,31 @@ export const CarrouselButton = (props: ButtonProps) => {
 type Props = HTMLAttributes<"section"> & {
   content: CarrouselContainer[];
   speed?: number;
-  arrows?: boolean;
+  "no-arrows"?: boolean;
   children: HTMLElement | never[];
 };
 
+/**
+ * @param {CarrouselContainer[]} content The list of items to show in the carrousel.
+ * These can be images, videos, and youtube videos. Use the `image`, `video`, and `youtube`
+ * helper methods to construct content.
+ * @param {?number} speed If present the carrousel will automatically go to the next
+ * piece of content after the speed (duration) has ended. This only applies to images.
+ * @param {?boolean} no-arrow Hide the carrousel arrows
+ * @param {?HTMLElement} children The single element to display at the end of the carrousel
+ */
 export const Carrousel = (props: Props) => {
   let wrapper: HTMLDivElement;
   const [selected, setSelected] = createSignal(0);
+  const [hasChildren, setHasChildren] = createSignal(false);
   const [data, style, rest] = splitProps(
     props,
     ["content", "children"],
     ["class"]
   );
 
-  let hasChildren = false;
-
   createEffect(() => {
-    hasChildren = data.children.children.length > 0;
+    setHasChildren(data.children.children.length > 0);
   })
 
   const next = () => {
@@ -97,16 +106,16 @@ export const Carrousel = (props: Props) => {
     setSelected(prev);
     console.log(selected());
   };
-  console.log(props.children.children);
+
   return (
-    <section className={`${style.class} w-full my-2`} {...rest}>
+    <section className={`${style.class} w-full my-2 hover-arrows`} {...rest}>
       <div
         ref={wrapper}
         className="w-full relative shadow-md shadow-slate-700/30 rounded-md overflow-x-hidden"
       >
-        {props.arrows && (
+        {!props["no-arrows"] && (
           <button
-            className="absolute top-[50%] left-2 w-fit h-fit z-20 bg-slate-100/20 pointer-events-auto rounded-full p-2 hover:bg-slate-100"
+            className="carrousel-arrow transition-opacity opacity-0 duration-100 absolute top-[50%] left-2 w-fit h-fit z-20 bg-slate-100/20 pointer-events-auto rounded-full p-2 hover:bg-slate-100"
             onClick={previous}
           >
             <svg
@@ -153,9 +162,9 @@ export const Carrousel = (props: Props) => {
           </CarrouselWrapper>
         </Show>
 
-        {props.arrows && (
+        {!props["no-arrows"] && (
           <button
-            className="absolute top-[50%] right-2 w-fit h-fit z-20 bg-slate-100/20 pointer-events-auto rounded-full p-2 hover:bg-slate-100"
+            className="carrousel-arrow transition-opacity duration-100 opacity-0 absolute top-[50%] right-2 w-fit h-fit z-20 bg-slate-100/20 pointer-events-auto rounded-full p-2 hover:bg-slate-100"
             onClick={next}
           >
             <svg
