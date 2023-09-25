@@ -23,47 +23,21 @@ const CarrouselImage = (props: {
 
   createEffect(() => {
     if (props.metadata.active && props.metadata.timeout) {
-        imageTimeout = setInterval(() => {
-            clearInterval(imageTimeout);
-            props.next();
-        }, props.metadata.timeout);
+      imageTimeout = setInterval(() => {
+        clearInterval(imageTimeout);
+        props.next();
+      }, props.metadata.timeout);
     } else if (imageTimeout) {
-        clearInterval(imageTimeout)
+      clearInterval(imageTimeout);
     }
   });
 
-  if (props.anchor.href) {
-    return (
-      <a
-        href={props.anchor.href}
-        target={props.anchor.target}
-        title={props.anchor.label as string}
-        className="relative"
-      >
-        {props.anchor.label && (
-          <span className="w-full h-full absolute top-0 left-0 flex justify-center items-center z-10">
-            <h3 className="text-center text-2xl font-bold text-white tracking-wide">
-              {props.anchor.label}
-            </h3>
-          </span>
-        )}
-        <img
-          className={`relative rounded-md w-full aspect-video transition-transform ${style.class}`}
-          {...rest}
-        />
-        {props.anchor.label && (
-          <div className="w-full h-full absolute top-0 left-0 bg-slate-700/50 backdrop-blur-sm rounded-md"></div>
-        )}
-      </a>
-    );
-  } else {
-    return (
-      <img
-        className={`rounded-md w-full aspect-video transition-transform ${style.class}`}
-        {...rest}
-      />
-    );
-  }
+  return (
+    <img
+      className={`relative rounded-md w-full aspect-video transition-transform ${style.class}`}
+      {...rest}
+    />
+  );
 };
 
 const UnsupportedVideo = () => {
@@ -114,54 +88,36 @@ const CarrouselVideo = (props: {
   });
 
   let vplayer = (
-    <video
-      ref={video}
-      className={`w-full aspect-video ${style.class}`}
-      // 16:9 aspect ratio
-      width={1280}
-      height={720}
-      // Don't play audio in the carrousel if it is a link
-      muted={props.anchor.href ? true : false}
-      // Whether to loop the video
-      loop={vAttrs.loop}
-      // The video should autoplay
-      autoPlay={true}
-      // What should happen when the video ends
-      onEnded={onEnd}
-      // Used to play videos inline on mobile. So it doesn't auto fullscreen.
-      webkit-playsinline
-      playsinline
-    >
-      <source src={rest.src} type={rest.type} className="w-full aspect-video" />
-      <UnsupportedVideo />
-    </video>
+    <div className="w-full h-full absolute top-0 left-0 bg-black rounded-md -z-10">
+      <video
+        ref={video}
+        className={`w-full aspect-video ${style.class}`}
+        // 16:9 aspect ratio
+        width={1280}
+        height={720}
+        // Don't play audio in the carrousel if it is a link
+        muted={props.anchor.href ? true : false}
+        // Whether to loop the video
+        loop={vAttrs.loop}
+        // The video should autoplay
+        autoPlay={true}
+        // What should happen when the video ends
+        onEnded={onEnd}
+        // Used to play videos inline on mobile. So it doesn't auto fullscreen.
+        webkit-playsinline
+        playsinline
+      >
+        <source
+          src={rest.src}
+          type={rest.type}
+          className="w-full aspect-video"
+        />
+        <UnsupportedVideo />
+      </video>
+    </div>
   );
 
-  if (props.anchor.href) {
-    return (
-      <a
-        href={props.anchor.href}
-        target={props.anchor.target}
-        title={props.anchor.label as string}
-        className="relative"
-      >
-        <div className="w-full h-full absolute top-0 left-0 bg-black rounded-md -z-10"></div>
-        {props.anchor.label && (
-          <span className="w-full h-full absolute top-0 left-0 flex justify-center items-center z-10">
-            <h3 className="text-center text-2xl font-bold text-white tracking-wide">
-              {props.anchor.label}
-            </h3>
-          </span>
-        )}
-        {vplayer}
-        {props.anchor.label && (
-          <div className="w-full h-full absolute top-0 left-0 bg-slate-700/50 backdrop-blur-[2px] rounded-md"></div>
-        )}
-      </a>
-    );
-  } else {
-    return vplayer;
-  }
+  return vplayer;
 };
 
 const CarrouselYoutube = (props: {
@@ -170,7 +126,6 @@ const CarrouselYoutube = (props: {
   metadata: MetaData;
   next: () => void;
 }) => {
-  let isReady = false;
   let iframe: HTMLIFrameElement;
   let [vAttrs, style, rest] = splitProps(
     props.attrs,
@@ -236,36 +191,13 @@ const CarrouselYoutube = (props: {
   let vplayer = (
     <div
       ref={iframe}
+      tabindex="-1"
       id={`ciframe-yt-${props.metadata.idx}`}
       className="rounded-md"
     ></div>
   );
 
-  if (props.anchor.href) {
-    return (
-      <a
-        href={props.anchor.href}
-        target={props.anchor.target}
-        title={props.anchor.label as string}
-        className="relative rounded-md"
-      >
-        <div className="w-full h-full absolute top-0 left-0 bg-black rounded-md -z-10 rounded-md"></div>
-        {props.anchor.label && (
-          <span className="w-full h-full absolute top-0 left-0 flex justify-center items-center z-10 rounded-md">
-            <h3 className="text-center text-2xl font-bold text-white tracking-wide">
-              {props.anchor.label}
-            </h3>
-          </span>
-        )}
-        {vplayer}
-        {props.anchor.label && (
-          <div className="w-full h-full absolute top-0 left-0 bg-slate-700/50 backdrop-blur-[2px] rounded-md"></div>
-        )}
-      </a>
-    );
-  } else {
-    return vplayer;
-  }
+  return vplayer;
 };
 
 export const CarrouselContent = (props: {
@@ -273,32 +205,60 @@ export const CarrouselContent = (props: {
   metadata: MetaData;
   next: () => void;
 }) => {
-  if (props.content.type === "image") {
-    return (
-      <CarrouselImage
-        attrs={props.content.attributes as ImageAttributes}
-        anchor={props.content.anchor}
-        metadata={props.metadata}
-        next={props.next}
-      />
-    );
-  } else if (props.content.type === "video") {
-    return (
-      <CarrouselVideo
-        attrs={props.content.attributes as VideoAttributes}
-        anchor={props.content.anchor}
-        metadata={props.metadata}
-        next={props.next}
-      />
-    );
-  } else if (props.content.type === "youtube") {
-    return (
-      <CarrouselYoutube
-        attrs={props.content.attributes as IFrameAttributes}
-        anchor={props.content.anchor}
-        metadata={props.metadata}
-        next={props.next}
-      />
-    );
+  let content;
+  switch (props.content.type) {
+    case "image":
+      content = (
+        <CarrouselImage
+          attrs={props.content.attributes as ImageAttributes}
+          anchor={props.content.anchor}
+          metadata={props.metadata}
+          next={props.next}
+        />
+      );
+      break;
+    case "video":
+      content = (
+        <CarrouselVideo
+          attrs={props.content.attributes as VideoAttributes}
+          anchor={props.content.anchor}
+          metadata={props.metadata}
+          next={props.next}
+        />
+      );
+      break;
+    case "youtube":
+      content = (
+        <CarrouselYoutube
+          attrs={props.content.attributes as IFrameAttributes}
+          anchor={props.content.anchor}
+          metadata={props.metadata}
+          next={props.next}
+        />
+      );
+      break;
   }
+  return props.content.anchor.href ? (
+    <a
+      tabindex={props.metadata.active ? "-1" : ""}
+      href={props.content.anchor.href}
+      target={props.content.anchor.target}
+      title={props.content.anchor.label as string}
+      className="relative rounded-md"
+    >
+      {props.content.anchor.label && (
+        <span className="w-full h-full absolute top-0 left-0 flex justify-center items-center z-10 rounded-md">
+          <h3 className="text-center text-2xl font-bold text-white tracking-wide">
+            {props.content.anchor.label}
+          </h3>
+        </span>
+      )}
+      {content}
+      {props.content.anchor.label && (
+        <div className="w-full h-full absolute top-0 left-0 bg-slate-700/50 backdrop-blur-[2px] rounded-md"></div>
+      )}
+    </a>
+  ) : (
+    content
+  );
 };

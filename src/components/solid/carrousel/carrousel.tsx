@@ -87,24 +87,37 @@ export const Carrousel = (props: Props) => {
     ["class"]
   );
 
+  let lastInterval: NodeJS.Timer;
   createEffect(() => {
     setHasChildren(data.children.children.length > 0);
   })
 
+  // If there is a speed and there is a child node and the child node is the current
+  // content. Set an interval that will autoscroll
+  createEffect(() => {
+    if (props.speed && hasChildren() && selected() === data.content.length) {
+        lastInterval = setInterval(() => {
+            clearInterval(lastInterval);
+            next()
+        }, props.speed)
+    } else if (lastInterval) {
+        clearInterval(lastInterval);
+    }
+  })
+
   const next = () => {
     setSelected(
-      (selected() + 1) % (data.content.length + (hasChildren ? 1 : 0))
+      (selected() + 1) % (data.content.length + (hasChildren() ? 1 : 0))
     );
   };
 
   const previous = () => {
-    const max = data.content.length + (hasChildren ? 1 : 0);
+    const max = data.content.length + (hasChildren() ? 1 : 0);
     let prev = (selected() - 1) % max;
     if (prev < 0) {
       prev = max + prev;
     }
     setSelected(prev);
-    console.log(selected());
   };
 
   return (
@@ -149,14 +162,14 @@ export const Carrousel = (props: Props) => {
                 next={() =>
                   setSelected(
                     (idx() + 1) %
-                      (data.content.length + (hasChildren ? 1 : 0))
+                      (data.content.length + (hasChildren() ? 1 : 0))
                   )
                 }
               />
             </CarrouselWrapper>
           )}
         </For>
-        <Show when={hasChildren}>
+        <Show when={hasChildren()}>
           <CarrouselWrapper idx={data.content.length} selected={selected()}>
             {data.children}
           </CarrouselWrapper>
@@ -195,7 +208,7 @@ export const Carrousel = (props: Props) => {
             />
           )}
         </For>
-        <Show when={hasChildren}>
+        <Show when={hasChildren()}>
           <button
             type="button"
             className={`rounded-full text-transparent transition-[width] duration-200 leading-[0] w-4 h-4 font-bold leading-none flex justify-center items-center ml-1 ${
