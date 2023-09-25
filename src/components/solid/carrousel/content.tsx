@@ -1,5 +1,7 @@
-import { createEffect, splitProps } from "solid-js";
-import YoutubePlayer from "youtube-player";
+import { createEffect, onMount, splitProps } from "solid-js";
+
+import { YoutubePlayer, STATE, ERROR } from "../yt-player";
+import type { YTEvent, YTPlayer } from "../yt-player/types";
 
 import type {
   CarrouselAttributes,
@@ -9,14 +11,27 @@ import type {
   VideoAttributes,
 } from "./types";
 import { CarrouselContainer } from "./types";
-import { YT_ERROR, YT_STATE } from "./core";
 
 const CarrouselImage = (props: {
   attrs: ImageAttributes;
   anchor: CarrouselAttributes;
   metadata: MetaData;
+  next: () => void;
 }) => {
+  let imageTimeout: NodeJS.Timer;
   const [style, rest] = splitProps(props.attrs, ["class"]);
+
+  createEffect(() => {
+    if (props.metadata.active && props.metadata.timeout) {
+        imageTimeout = setInterval(() => {
+            clearInterval(imageTimeout);
+            props.next();
+        }, props.metadata.timeout);
+    } else if (imageTimeout) {
+        clearInterval(imageTimeout)
+    }
+  });
+
   if (props.anchor.href) {
     return (
       <a
@@ -101,13 +116,21 @@ const CarrouselVideo = (props: {
   let vplayer = (
     <video
       ref={video}
-      width={1920}
-      height={1080}
-      loop={vAttrs.loop}
-      muted
       className={`w-full aspect-video ${style.class}`}
+      // 16:9 aspect ratio
+      width={1280}
+      height={720}
+      // Don't play audio in the carrousel if it is a link
+      muted={props.anchor.href ? true : false}
+      // Whether to loop the video
+      loop={vAttrs.loop}
+      // The video should autoplay
       autoPlay={true}
+      // What should happen when the video ends
       onEnded={onEnd}
+      // Used to plaly videos inline on mobile. So it doesn't auto fullscreen.
+      webkit-playsinline
+      playsinline
     >
       <source src={rest.src} type={rest.type} className="w-full aspect-video" />
       <UnsupportedVideo />
@@ -147,67 +170,76 @@ const CarrouselYoutube = (props: {
   metadata: MetaData;
   next: () => void;
 }) => {
-    let isReady = false;
+  let isReady = false;
+  let iframe: HTMLIFrameElement;
   let [vAttrs, style, rest] = splitProps(
     props.attrs,
     ["autoNext", "loop", "start"],
     ["class"]
   );
 
-  let player: any;
+  let player: YTPlayer;
   createEffect(() => {
-    player = YoutubePlayer(`ciframe-yt-${props.metadata.idx}`, {
-        width: "100%",
-        height: "100%",
-        videoId: rest.src,
-        playerVars: {
-          controls: 0,
-          muted: 1,
-          rel: 0,
-          modestbranding: 1,
-        },
+    // This creates a referenced youtube player (iframe).
+    player = YoutubePlayer(iframe, {
+      // 100% width and height tells the player to fill the parent containers space
+      width: "100%",
+      height: "100%",
+      // This is the video id of the video to play
+      videoId: rest.videoId,
+      // These are extra query parameters added to the iframes url
+      // ex: https://youtube.com/embed/<videoId>?controls=0&fs=0
+      playerVars: {
+        controls: 0,
+        rel: 0,
+        fs: 0,
+      },
     });
-    player.on('ready', (e: Event) => {
-        isReady = true;
-        console.log(e.target.g);
-        player.mute();
-        if (!vAttrs.autoNext && vAttrs.loop) {
-          player.setLoop(true);
-        }
+
+    // This event is fired when the player is ready to go
+    player.on("ready", (e: YTEvent) => {
+      // Flag to be used in other events
+      player.mute();
+      if (!vAttrs.autoNext && vAttrs.loop) {
+        player.setLoop(true);
+      }
+      player.seekTo(vAttrs.start || 0);
+    });
+
+    // Event for when the state changes
+    player.on("stateChange", (e: YTEvent) => {
+      if (e.data === STATE.ENDED && vAttrs.autoNext) {
+        // When the video ends and autoNext is on. Put video back to the start and
+        // go to the next content.
         player.seekTo(vAttrs.start || 0);
-        if (props.metadata.active) {
-            player.playVideo();
-        }
-    });
-    player.on('stateChange', (e: Event) => {
-        if (e.data === YT_STATE.ENDED && vAttrs.autoNext) {
-        player.seekTo(0);
         props.next();
-        }
+      }
     });
-    player.on('error', (e: Event) => {
-        if (!YT_ERROR[e.data]) {
-            console.log('[yt-iframe-error]:', 'Unkown error.');
-        } else {
-            console.error('[yt-iframe-error]:', YT_ERROR[e.data]);
-        }
+    // When an error occurs error log the yt equivelant message
+    player.on("error", (e: { target: any; data: number }) => {
+      if (!ERROR[e.data]) {
+        console.log("[yt-iframe-error]:", "Unkown error.");
+      } else {
+        console.error("[yt-iframe-error]:", ERROR[e.data]);
+      }
     });
-  })
+  });
 
   createEffect(() => {
-    if (isReady) {
-        if (props.metadata.active) {
-        player.playVideo();
-        } else {
-        player.pauseVideo();
-        }
+    if (props.metadata.active) {
+      player.playVideo();
+    } else {
+      player.pauseVideo();
     }
   });
 
-  let vplayer = <div id={`ciframe-yt-${props.metadata.idx}`} className="rounded-md"></div>;
-//   let vplayer = (
-//     <iframe width="560" height="315" src="https://www.youtube.com/embed/LDU_Txk06tM?controls=0autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-//   )
+  let vplayer = (
+    <div
+      ref={iframe}
+      id={`ciframe-yt-${props.metadata.idx}`}
+      className="rounded-md"
+    ></div>
+  );
 
   if (props.anchor.href) {
     return (
@@ -244,26 +276,29 @@ export const CarrouselContent = (props: {
   if (props.content.type === "image") {
     return (
       <CarrouselImage
-        attrs={props.content.attributes}
+        attrs={props.content.attributes as ImageAttributes}
         anchor={props.content.anchor}
         metadata={props.metadata}
+        next={props.next}
       />
     );
   } else if (props.content.type === "video") {
     return (
       <CarrouselVideo
-        attrs={props.content.attributes}
+        attrs={props.content.attributes as VideoAttributes}
         anchor={props.content.anchor}
         metadata={props.metadata}
         next={props.next}
       />
     );
   } else if (props.content.type === "youtube") {
-    return <CarrouselYoutube
-      attrs={props.content.attributes}
-      anchor={props.content.anchor}
-      metadata={props.metadata}
-      next={props.next}
-    />;
+    return (
+      <CarrouselYoutube
+        attrs={props.content.attributes as IFrameAttributes}
+        anchor={props.content.anchor}
+        metadata={props.metadata}
+        next={props.next}
+      />
+    );
   }
 };

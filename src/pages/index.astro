@@ -22,9 +22,10 @@ let posts = (await getCollection("blog"))
 posts.push(
   youtube({
     // The source is just the video id
-    src: "LDU_Txk06tM",
+    videoId: "LDU_Txk06tM",
     href: "/blog/",
     label: "Sample Video",
+    start: 168,
     autoNext: true,
   })
 );
@@ -90,14 +91,14 @@ posts.push(
     Hello!
   </button>
 
-  <Carrousel content={posts} client:load class="my-[10rem]">
-    <div
+  <Carrousel content={posts} speed={6000} arrows client:load class="my-[10rem]">
+    <!-- <div
       class="w-full h-full flex flex-col justify-center items-center border-2 border-dashed border-emerald-400/80 rounded-md"
     >
       <a href="/blog/" class="w-fit h-fit p-4 text-center">
         <span class="font-bold text-2xl">+</span>
         <p class="font-bold text-xl">More posts</p>
       </a>
-    </div>
+    </div> -->
   </Carrousel>
 </Layout>
