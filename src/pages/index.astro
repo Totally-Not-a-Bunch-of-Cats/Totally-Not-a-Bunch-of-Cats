@@ -13,8 +13,8 @@ let posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .map(({ slug, collection, data: { title, heroImage } }) => {
     return image({
-      href: `${collection}/${slug}`,
-      src: heroImage,
+      href: `/Totally-Not-a-Bunch-of-Cats/${collection}/${slug}`,
+      src: `/Totally-Not-a-Bunch-of-Cats/${heroImage}`,
       label: title,
     });
   });
@@ -55,14 +55,14 @@ posts.push(
       class="rounded-full w-[30rem] mx-auto aspect-square opacity-5 anim-twinkle"
       width={1920}
       height={1080}
-      src="/images/Wavy_Dots.jpg"
+      src="/Totally-Not-a-Bunch-of-Cats/images/Wavy_Dots.jpg"
       alt=""
     />
     <img
       class="w-[15rem] absolute top-[25%] left-[30%] anim-floating"
       width={1440}
       height={720}
-      src="/images/casual-life-3d-cat-astronaut.png"
+      src="/Totally-Not-a-Bunch-of-Cats/images/casual-life-3d-cat-astronaut.png"
       alt=""
     />
   </div>
@@ -96,7 +96,7 @@ posts.push(
     >
     <!-- This is displayed last and contain any content as long as it fits in
         the parent element, same as images and video -->
-      <a href="/blog/" class="w-fit h-fit p-4 text-center">
+      <a href="/Totally-Not-a-Bunch-of-Cats/blog/" class="w-fit h-fit p-4 text-center">
         <span class="font-bold text-2xl">+</span>
         <p class="font-bold text-xl">More posts</p>
       </a>
