@@ -96,7 +96,7 @@ const CarrouselVideo = (props: {
         width={1280}
         height={720}
         // Don't play audio in the carrousel if it is a link
-        muted={props.anchor.href ? true : false}
+        muted={true} // props.anchor.href ? true : false
         // Whether to loop the video
         loop={vAttrs.loop}
         // The video should autoplay
