@@ -112,5 +112,19 @@
             "text": "Projects",
             "title": "Coming Soon!"
         }
+    ],
+    "empty": [
+        {
+            "aria": "",
+            "link": "",
+            "text": "",
+            "title": ""
+        },
+        {
+            "aria": "",
+            "link": "",
+            "text": "",
+            "title": ""
+        }
     ]
 }
