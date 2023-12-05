@@ -1,31 +1,3 @@
----
-import BaseLayout from "../../layouts/BaseLayout.astro";
-
-import Content from "../../components/Content.astro";
-
-const title = "App ID";
-const description =
-    "App ID Policy for Corralling Cats";
-const permalink = "/Totally-Not-a-Bunch-of-Cats/";
-import { privacy } from "../../data/links.json";
-
-const projectDetails = (await Astro.glob("./**/*.{md,mdx}")).sort(
-    (a, b) =>
-        new Date(b.frontmatter.pubDate).valueOf() -
-        new Date(a.frontmatter.pubDate).valueOf()
-);
----
-
-
-<BaseLayout
-    title={title}
-    description={description}
-    permalink={permalink}
-    links={privacy}
-> 
-
-    <Content-Type: text/plain, id="App ID">
-        <p>
 adcolony.com, 0a0f72cd66122f31, RESELLER, 1ad675c9de6b5176
 adcolony.com, 801e49d1be83b5f9, RESELLER, 1ad675c9de6b5176
 adelement.com, 30167, RESELLER
@@ -311,6 +283,3 @@ yandex.com, 40427798, RESELLER
 yandex.com, 95746987, RESELLER
 yandex.com, 97539269, RESELLER
 yeahmobi.com, 5135195, RESELLER
-        </p>
-    </Content>
-</BaseLayout>
