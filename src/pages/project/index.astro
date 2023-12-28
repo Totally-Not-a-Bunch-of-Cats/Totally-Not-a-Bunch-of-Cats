@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layout/Layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { Projects } from "@solid/project/project";
+
+let posts: CollectionEntry<"project">[] = (
+  await getCollection("project")
+)?.sort(
+  (a, b) =>
+    (b.data.releaseDate?.valueOf() ?? 0) - (a.data.releaseDate?.valueOf() ?? 0)
+);
+
+---
+
+<Layout centered={posts === undefined} larger>
+    <Projects
+        posts={posts}
+        client:load
+    />
+</Layout>

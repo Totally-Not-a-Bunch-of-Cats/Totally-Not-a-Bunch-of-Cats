@@ -1,3 +1,30 @@
 .hover-arrows:hover  button.carrousel-arrow {
     opacity: 100%;
 }
+
+dialog::backdrop {
+    @apply bg-zinc-700/20
+}
+
+.select {
+    display: flex;
+}
+
+.select::before {
+  content: "";
+  display: block;
+  width: 0.8rem;
+  height: 0.5rem;
+  background-color: black;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.section {
+    max-width: 90ch;
+    margin-inline: auto;
+    margin-block: 3rem;
+}
+
+.section.larger {
+    max-width: 115ch;
+}

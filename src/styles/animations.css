@@ -21,6 +21,16 @@
     animation-duration: 1s;
 }
 
+.drawer[open] {
+    animation: drawer-open;
+    animation-duration: .25s;
+}
+
+dialog[open] {
+    animation: modal-open;
+    animation-duration: .3s;
+}
+
 @keyframes floating {
     0% {
         transform: translateY(0rem);
@@ -71,5 +81,38 @@
     }
     100% {
         display: none;
+    }
+}
+
+@keyframes modal-open {
+    0% {
+        opacity: 0%;
+        /* transform: translateY(-200%); */
+    }
+    100% {
+        opacity: 100%;
+        /* transform: translateY(0); */
+    }
+}
+
+@keyframes drawer-open {
+    0% {
+        transform: translateX(120vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+      background-color: hsl(197, 8%, 82%);
+    }
+    100% {
+      background-color: hsl(0, 0%, 96%);
     }
 }

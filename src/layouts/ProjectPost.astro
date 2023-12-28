@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "@layout/Layout.astro";
+import FormattedDate from "@component/FormattedDate.astro";
+import { uri } from "@script/utils";
+import { Carrousel } from "@component/solid/carrousel/carrousel";
+import { image, video, youtube } from "@component/solid/carrousel/core";
+
+type Props = CollectionEntry<"project">["data"];
+
+const { title, description, releaseDate, trailer, heroImage, tags } =
+  Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="mx-auto prose max-w-[85ch] p-2">
+    <div>
+      {
+        trailer ? (
+          <Carrousel
+            content={[
+              image({ src: uri(heroImage), label: "Hero Image" }),
+              youtube({
+                videoId: trailer,
+                label: "Trailer",
+                controls: true,
+                volume: 50,
+                alwaysRestart: true,
+              }),
+            ]}
+            speed={4000}
+            no-arrows
+            client:only
+          />
+        ) : (
+          <img
+            transition:name={`hero-image-${title}`}
+            class="rounded shadow-lg"
+            width={1020}
+            height={510}
+            src={uri(heroImage)}
+            alt="Hero Image"
+          />
+        )
+      }
+    </div>
+    <div>
+      <div transition:name={`hero-title-${title}-date-${releaseDate}`}>
+        <h1 class="mb-0">
+          {title}
+        </h1>
+        <div>
+          {
+            releaseDate ? (
+              <p class="text-sm">
+                Released <FormattedDate date={releaseDate} />
+              </p>
+            ) : (
+              <em>Not Released</em>
+            )
+          }
+        </div>
+        <div
+          class="flex flex-wrap flex-1 gap-1 text-sm w-fit h-fit justify-end"
+        >
+          {
+            tags &&
+              tags.map((tag) => (
+                <span class="h-fit px-1 rounded-md bg-zinc-200 text-zinc-900 shadow-sm">
+                  {tag}
+                </span>
+              ))
+          }
+        </div>
+        <hr />
+      </div>
+      <article transition:name="project-article" transition:animate="slide">
+        <slot />
+      </article>
+    </div>
+  </div>
+</Layout>

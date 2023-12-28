@@ -1,18 +1,21 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import { Header } from "../components/solid/header/Header";
+import BaseHead from "@component/BaseHead.astro";
+import Footer from "@component/Footer.astro";
+import { Header } from "@solid/header/Header";
 
 type Props = {
   title?: string;
   description?: string;
   image?: string;
   centered?: boolean;
+  larger?: boolean;
+  maxWidth?: boolean;
+  padded?: boolean;
 };
 
-const { pathname } = Astro.url;
-const { title, description, image, centered = false } = Astro.props;
+const url = Astro.url;
+const { title, description, image, centered = false, larger=false, maxWidth=true, padded=true } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,15 +25,14 @@ const { title, description, image, centered = false } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="flex flex-col min-h-[100vh] min-h-[100dvh] text-slate-800 overflow-x-hidden"
+    class="flex flex-col min-h-[100vh] min-h-[100dvh] text-zinc-800 overflow-x-hidden"
     transition:animate="none"
   >
-    <span class="sticky top-0 left-0 z-40" transition:animate="none">
-      <Header pathname={pathname} client:only />
+    <span class="sticky top-0 left-0 z-40 h-0 pointer-events-none" transition:animate="none">
+      <Header url={url} client:only />
     </span>
     <main
-      class="w-[90%] max-w-[90ch] min-h-[calc(100dvh-2.75rem)] mx-auto"
-      class:list={centered ? "flex flex-col items-center justify-center" : ""}
+      class={`w-[100%] min-h-[calc(100dvh-2.75rem)] mx-auto ${maxWidth ? larger ? 'max-w-[115ch]': 'max-w-[90ch]':''} ${centered ? "flex flex-col items-center justify-center" : ""} ${padded ? 'py-[7rem]': ''}`}
       transition:name="main"
       transition:animate="fade"
     >

@@ -1,5 +1,4 @@
-import type { HTMLAttributes } from "astro/types";
-import { splitProps } from "solid-js";
+import { splitProps, type JSX } from "solid-js";
 
 export type CarrouselAttributes = {
   href?: string;
@@ -10,10 +9,15 @@ type PlaybackAttributes = {
   loop?: boolean;
   start?: number;
   autoNext?: boolean;
+  alwaysRestart?: boolean;
+  controls?: boolean,
+  volume?: number,
 };
-export type ImageAttributes = Omit<HTMLAttributes<"img">, "class:list">;
-export type VideoAttributes = HTMLAttributes<"source"> & PlaybackAttributes;
-export type IFrameAttributes = Omit<HTMLAttributes<"iframe">, 'src'> & PlaybackAttributes & {
+export type ImageAttributes = JSX.ImgHTMLAttributes<HTMLImageElement>;
+export type VideoAttributes = JSX.SourceHTMLAttributes<HTMLSourceElement> & PlaybackAttributes & {
+    poster?: string
+};
+export type IFrameAttributes = Omit<JSX.IframeHTMLAttributes<HTMLIFrameElement>, 'src'> & PlaybackAttributes & {
     videoId: string
 };
 

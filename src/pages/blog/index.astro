@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
-import { fade, slide } from "astro:transitions";
+import Layout from "@layout/Layout.astro";
+import { uri } from "@script/utils";
+import FormattedDate from "@component/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -10,26 +10,29 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout>
-  <ul class="flex flex-wrap gap-4 gap-y-6 mb-12">
+  <ul class="flex flex-wrap gap-4 gap-y-6 mb-12 p-4">
     {
       posts.map((post, idx) => (
         <li class="w-full md:w-[calc(50%-.5rem)] md:first:w-full">
           <a
-            href={`/Totally-Not-a-Bunch-of-Cats/blog/${post.slug}/`}
+            href={uri(`/blog/${post.slug}/`)}
             class="hover:text-blue-400 transition-colors duration-200"
           >
             <img
               transition:name={`hero-image-${post.data.title}`}
-              class="rounded-md w-full mb-2 shadow-md"
+              class="rounded-md w-full mb-2 shadow-md aspect-video"
               width={720}
               height={360}
-              src={`/Totally-Not-a-Bunch-of-Cats/${post.data.heroImage}`}
+              src={uri(post.data.heroImage ?? '')}
               alt=""
             />
-            <div class="flex justify-between gap-6">
+            <div 
+                class="flex flex-col justify-between gap-x-6"
+                class:list={{"md:flex-row": idx === 0}}
+                transition:name={`hero-title-${post.data.title}-date-${post.data.pubDate}`}
+            >
               <div
                 class="flex-[2]"
-                transition:name={`hero-title-${post.data.title}-date-${post.data.pubDate}`}
               >
                 <h4 class="text-lg font-bold w-fit">{post.data.title}</h4>
                 <div class="flex gap-2">
@@ -40,11 +43,11 @@ const posts = (await getCollection("blog")).sort(
               
               <div
                class="flex flex-wrap flex-1 gap-1 text-sm w-fit h-fit justify-end"
-               class:list={{'md:hidden': idx !== 0}}
+               
               >
                 {post.data.tags &&
                   post.data.tags.map((tag) => (
-                    <span class="h-fit px-1 rounded-md bg-slate-200 text-slate-900 shadow-sm">
+                    <span class="h-fit px-1 rounded-md bg-zinc-200 text-zinc-900 shadow-sm">
                       {tag}
                     </span>
                   ))}

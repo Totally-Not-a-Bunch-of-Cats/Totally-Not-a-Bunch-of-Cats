@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from "astro/types";
+import type { JSX } from "solid-js/jsx-runtime";
 
-type Props = HTMLAttributes<"a"> & { pathname: string };
+type Props = JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { pathname: string, children: any };
 
 export const HeaderLink = ({
   href,
@@ -9,15 +9,16 @@ export const HeaderLink = ({
   children,
   ...props
 }: Props) => {
-  const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+  const isActive = href === pathname || href === pathname?.replace(/\/$/, "");
 
   return (
     <a
       href={href as string}
-      className={`${className} inline-block hover:text-blue-300 ${
+      class={`${className} inline-block hover:underline ${
         isActive ? "underline font-bold" : ""
       }`}
       {...props}
+      aria-current={isActive ? 'page': undefined}
     >
       {children && children}
     </a>

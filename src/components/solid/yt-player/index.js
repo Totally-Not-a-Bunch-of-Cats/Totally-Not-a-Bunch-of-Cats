@@ -103,8 +103,8 @@ export function YoutubePlayer(maybeElementId, options = {}) {
       youtubeIframeAPI.then((YT) => {
         const player = new YT.Player(maybeElementId, options);
 
-        emitter.once("ready", () => {
-          resolve(player);
+        emitter.once("ready", (e) => {
+            resolve(player);
         });
 
         return;

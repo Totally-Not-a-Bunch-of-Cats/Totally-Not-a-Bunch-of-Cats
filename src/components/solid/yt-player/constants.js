@@ -59,7 +59,8 @@ export const functionNames = ['cueVideoById', 'loadVideoById', 'cueVideoByUrl', 
  *  PAUSED: 2,
  *  PLAYING: 1,
  *  UNSTARTED: -1,
- *  VIDEO_CUED: 5    
+ *  VIDEO_CUED: 5,
+ *  name(state: number) => string 
  * }}
  */
 export const STATE = {
@@ -68,7 +69,15 @@ export const STATE = {
   PAUSED: 2,
   PLAYING: 1,
   UNSTARTED: -1,
-  VIDEO_CUED: 5
+  VIDEO_CUED: 5,
+  /**
+   * Get the name of the YT.Player state
+   * @param {number} state The state of the YT.Player
+   * @returns {string} Name of the state
+   */
+  name(state) {
+    return Object.keys(this)[Object.values(this).indexOf(state)]
+  }
 };
 
 /** @type {{[key: number]: string}} */

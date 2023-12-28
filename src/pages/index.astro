@@ -1,105 +1,123 @@
 ---
-import "../styles/animations.css";
-import Layout from "../layouts/Layout.astro";
-import {
-  Carrousel,
-  image,
-  video,
-} from "../components/solid/carrousel/carrousel";
-import { getCollection } from "astro:content";
-import { youtube } from "../components/solid/carrousel/core";
+import Layout from "@layout/Layout.astro";
+import { Icon } from "astro-icon";
+import FormattedDate from "@component/FormattedDate.astro";
+import "@style/animations.css";
+import "@style/custom.css";
 
-let posts = (await getCollection("blog"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+import { Carrousel, image } from "@solid/carrousel/carrousel";
+
+import { getCollection } from "astro:content";
+import { uri } from "@script/utils";
+
+let blog_posts = (await getCollection("blog"))
+  ?.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .map(({ slug, collection, data: { title, description, author, pubDate, heroImage } }) => {
+    return {
+      href: uri(`${collection}/${slug}`),
+      src: uri(heroImage ?? ""),
+      title,
+      pubDate,
+      author,
+      description
+    };
+  });
+
+if (blog_posts.length > 3) {
+    blog_posts = blog_posts.slice(0, 3);
+}
+
+let project_posts = (await getCollection("project"))
+  ?.sort(
+    (a, b) =>
+      (b.data.releaseDate?.valueOf() ?? 0) -
+      (a.data.releaseDate?.valueOf() ?? 0)
+  )
   .map(({ slug, collection, data: { title, heroImage } }) => {
     return image({
-      href: `/Totally-Not-a-Bunch-of-Cats/${collection}/${slug}`,
-      src: `/Totally-Not-a-Bunch-of-Cats/${heroImage}`,
+      href: uri(`${collection}/${slug}`),
+      src: uri(heroImage ?? ""),
       label: title,
     });
   });
-
-posts.push(
-  youtube({
-    // The source is just the video id
-    videoId: "LDU_Txk06tM",
-    href: "/blog/",
-    label: "Sample youtube video",
-    start: 168,
-    autoNext: true,
-  })
-);
-
-posts.push(
-  video({
-    // TODO: Make sure to set this to a local image
-    src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-    type: "video/mp4",
-    label: "Sample Video",
-    start: 719,
-    autoNext: true,
-  })
-);
+if (project_posts.length > 5) {
+    project_posts = project_posts.slice(0, 5);
+}
 ---
+<!--
+    References:
+        - https://renegadegamestudios.com/
+ -->
+<Layout maxWidth={false} padded={false}>
+    <style>
+        @media(min-width: 768px) {
+          .landing-clip {
+            /* CC starting top left */
+            clip-path: polygon(0 0, 0 100%, 30% 100%, 90% 50%, 100% 50%, 100% 0);
+          }
+        }
 
-<script>
-  import toast from "solid-toast";
-
-  document
-    .getElementById("toast-button")
-    ?.addEventListener("click", () => toast("Hello user!", { duration: 2000 }));
-</script>
-<Layout centered>
-  <div class="relative overflow-hidden">
-    <img
-      class="rounded-full w-[30rem] mx-auto aspect-square opacity-5 anim-twinkle"
-      width={1920}
-      height={1080}
-      src="/Totally-Not-a-Bunch-of-Cats/images/Wavy_Dots.jpg"
-      alt=""
-    />
-    <img
-      class="w-[15rem] absolute top-[25%] left-[30%] anim-floating"
-      width={1440}
-      height={720}
-      src="/Totally-Not-a-Bunch-of-Cats/images/casual-life-3d-cat-astronaut.png"
-      alt=""
-    />
-  </div>
-  <div class="flex flex-col text-sm w-full items-center mt-4 text-slate-700/20">
-    <span>
-      Illustration by <a
-        href="https://icons8.com/illustrations/author/zD2oqC8lLBBA"
-        class="text-blue-300/30 underline">Icons 8</a
-      > from <a
-        href="https://icons8.com/illustrations"
-        class="text-blue-300/30 underline">Ouch!</a
-      ></span
-    >
-    <span
-      ><a
-        href="https://www.freepik.com/free-vector/black-wave-halftone-background_7647150.htm#query=random%20dots&position=1&from_view=keyword&track=ais"
-        class="text-blue-300/30 underline">Image by alicia_mb</a
-      > on Freepik</span
-    >
-  </div>
-  <button
-    id="toast-button"
-    class="py-2 px-4 my-4 bg-emerald-300 rounded-md text-slate-100 hover:bg-emerald-300/80 hover:text-slate-300"
-  >
-    Hello!
-  </button>
-
-  <Carrousel content={posts} speed={3000} client:load class="my-[10rem]">
-    <div
-      class="w-full h-full flex flex-col justify-center items-center border-2 border-dashed border-emerald-400/80 rounded-md"
-    >
-    <!-- This is displayed last and contain any content as long as it fits in
-        the parent element, same as images and video -->
-      <a href="/Totally-Not-a-Bunch-of-Cats/blog/" class="w-fit h-fit p-4 text-center">
-        <span class="font-bold text-2xl">+</span>
-        <p class="font-bold text-xl">More posts</p>
-      </a>
-    </div>
-  </Carrousel>
+        #introduction {
+            background-image: url('/Totally-Not-a-Bunch-of-Cats/images/knit.png');
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+      </style>
+      <section id="introduction" aria-label="Introduction" class="py-[7rem] flex items-center justify-center">
+        <div class="flex flex-col w-3/4 max-w-[115ch] mx-auto items-center justify-between gap-12">
+            <div>
+                <img src={uri("/images/taxi-ball-of-thread.png")}/>
+            </div>
+            <div class="text-center">
+                <h1 class="text-5xl font-bold">Hello, we are <em>Totally Not A Bunch Of Cats</em></h1>
+                <h2 class="text-2xl my-5">An indie game studio focused on making fun and accessible games</h2>
+                <a 
+                    href={uri("project")} 
+                    class="bg-yellow-300 font-bold shadow shadow-black/20 py-2 px-8 mt-[5rem] block w-fit mx-auto rounded-full hover:bg-yellow-400"
+                >
+                    Projects
+                </a>
+            </div>
+        </div>
+      </section>
+    
+      <section
+        class="my-[6rem]"
+      >
+          <h2 class="text-3xl font-bold text-center" transition:animate="none">Annoucements</h2>
+          <div class="flex flex-col md:flex-row items-center md:items-start gap-4 justify-around my-[4rem] max-w-[80rem] mx-auto">
+            {
+                blog_posts.map(data => (
+                    <a href={data.href} class="w-fit hover:text-yellow-500">
+                        <img
+                          src={data.src}
+                          class="w-[20rem] inline-block aspect-video rounded-md shadow shadow-zinc-800/40" 
+                          alt={`${data.title} Image`}
+                          transition:name={`hero-image-${data.title}`} transition:animate="fade"
+                        />
+                        <div class="w-full h-fit" transition:name={`hero-title-${data.title}-date-${data.pubDate}`} transition:animate="fade">
+                            <p class="text-md font-bold">{data.title}</p>
+                            <em class="text-sm text-zinc-800">@{data.author} ~ <FormattedDate date={data.pubDate} /></em>
+                        </div>
+                        <p class="mt-2 indent-6 text-zinc-800" transition:animate="none">{data.description}</p>
+                    </a>
+                ))
+            }
+          </div>
+          <a href={uri("/blog")} class="px-8 py-2 transition-colors bg-yellow-300 hover:bg-yellow-400 rounded-full shadow shadow-zinc-700/20 font-bold block w-fit mx-auto" >More Posts</a>
+      </section>
+<!-- 
+      <section 
+        class="my-[6rem]" 
+        transition:animate="none"
+      >
+        <Carrousel
+            class="shadow-md shadow-zinc-700/30 mb-[4rem] max-w-[80rem] mx-auto"
+            content={project_posts}
+            full
+            transition:animate="none"
+            client:load
+        />
+        <a href={uri("/project")} class="px-4 py-2 transition-colors bg-zinc-500 hover:bg-zinc-300 rounded-full shadow shadow-zinc-700/20 text-zinc-100 block w-fit mx-auto" >More Projects</a>
+      </section> -->
 </Layout>

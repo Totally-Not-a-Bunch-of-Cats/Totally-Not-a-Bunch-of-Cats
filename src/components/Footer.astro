@@ -1,19 +1,24 @@
 ---
-import Socials from "./Socials.astro";
-import Links from "./Links.astro";
+import Socials from "@component/Socials.astro";
+import Links from "@component/Links.astro";
+import { uri } from "@script/utils";
+import { menu } from "@script/constants";
+
 const today = new Date();
+
+const {host, protocol} = Astro.url;
 ---
 
 <footer class="px-1">
   <div
-    class="p-4 bg-slate-100 flex flex-col justify-center rounded-t-lg shadow-inner w-full"
+    class="p-4 bg-zinc-100 flex flex-col justify-center rounded-t-lg shadow-inner w-full"
   >
     <div
       class="px-8 flex flex-col gap-8 sm:flex-row justify-between w-full max-w-[95ch] mx-auto"
     >
       <Socials
         links={{
-          github: { icon: "mdi:github", uri: "https://github.com/" },
+          github: { icon: "mdi:github", uri: "https://github.com/Totally-Not-a-Bunch-of-Cats" },
           twitter: { icon: "mdi:twitter", uri: "https://example.com/" },
           youtube: { icon: "mdi:youtube", uri: "https://example.com/" },
           facebook: { icon: "uil:facebook", uri: "https://example.com/" },
@@ -24,21 +29,22 @@ const today = new Date();
       >
         <Links
           name="Menu"
-          links={{
-            blog: { uri: "/Totally-Not-a-Bunch-of-Cats/blog" },
-          }}
+          links={menu}
         />
         <Links
           name="Support"
           links={{
-            privacy: { uri: "/Totally-Not-a-Bunch-of-Cats/privacy" },
+            privacy: { uri: uri('/privacy') },
           }}
         />
       </div>
     </div>
-    <span class="flex-1 text-sm text-slate-700/30 text-center mt-8">
-      &copy; {today.getFullYear()} Totally Not a Bunch of Cats. All rights
+    <span class="flex-1 flex flex-col text-sm text-zinc-700/30 text-center mt-8">
+        <span class="text-sm opacity-70">Illustrations by <a href="https://icons8.com/illustrations/author/zD2oqC8lLBBA" class="text-yellow-500/50 hover:underline">Icons 8</a> from <a href="https://icons8.com/illustrations" class="text-yellow-500/50 hover:underline">Ouch!</a></span>
+        <span>
+            &copy; {today.getFullYear()} Totally Not a Bunch of Cats. All rights
       reserved.
+        </span>
     </span>
   </div>
 </footer>
