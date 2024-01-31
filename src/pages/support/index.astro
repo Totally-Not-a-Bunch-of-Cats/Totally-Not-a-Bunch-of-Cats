@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Content from "../../components/Content.astro";
+
+const title = "Support";
+const description =
+    "Support for Corralling Cats";
+const permalink = "/Totally-Not-a-Bunch-of-Cats/";
+import { privacy } from "../../data/links.json";
+
+const projectDetails = (await Astro.glob("./**/*.{md,mdx}")).sort(
+    (a, b) =>
+        new Date(b.frontmatter.pubDate).valueOf() -
+        new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<BaseLayout
+    title={title}
+    description={description}
+    permalink={permalink}
+    links={privacy}
+>
+    <Content id="Support">
+        <p class="text-indent mb-4 h5 m-0 p-0">
+            If you have any questions, bugs or problems reach out to the email below. 
+            totallynotabunchofcatshelp@gmail.com
+            or at our discord channel 
+            https://discord.gg/RekVTUFqDq
+        </p>
+    </Content>
+</BaseLayout>
