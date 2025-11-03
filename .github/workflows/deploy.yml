@@ -15,41 +15,27 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-test:
-    runs-on: ${{ matrix.os }}
-    outputs:
-      os: ${{ matrix.os }}
-      run_number: ${{ github.run_number }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        run: web build
-      - name: Checkout your repository using git test
-        run: test build
-      - name: Upload Website
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results-${{ matrix.os }}-${{ github.run_number }}
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
         # with:
-            # path: . # The root location of your Astro project inside the repository. (optional)
-            # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
-            # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
+          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+        # env:
+          # PUBLIC_POKEAPI: 'https://pokeapi.co/api/v2' # Use single quotation marks for the variable value. (optional)
 
   deploy:
-    needs: build-and-test
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download Test Results for Ubuntu
-        uses: actions/download-artifact@v4
-        with:
-          name: test-results-ubuntu-latest-${{ needs.build-and-test.outputs.os }}-${{ needs.build-and-test.outputs.run_number }}
-      - name: Download Test Results for Windows
-        uses: actions/download-artifact@v4
-        with:
-          name: test-results-windows-latest-${{ needs.build-and-test.outputs.os }}-${{ needs.build-and-test.outputs.run_number }}
-          path: path/to/downloaded-test-results
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
